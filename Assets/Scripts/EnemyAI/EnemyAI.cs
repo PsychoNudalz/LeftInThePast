@@ -53,6 +53,7 @@ public class EnemyAI : MonoBehaviour
     protected float moveToPlayerWaitTime_Now = 0;
 
     [Header("AI Patrol")]
+
     [SerializeField]
     protected Vector3 patrolPos;
 
@@ -70,6 +71,9 @@ public class EnemyAI : MonoBehaviour
 
 
     [Header("AI Attack")]
+    [SerializeField]
+    private float visionConeDegree = .8f;
+
     [SerializeField]
     float attackRange = 5f;
 
@@ -92,6 +96,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField]
     protected Transform head;
+
 
     // Start is called before the first frame update
     void Start()
@@ -358,4 +363,14 @@ public class EnemyAI : MonoBehaviour
 
         return false;
     }
+    bool IsInCone()
+    {
+        if (Vector3.Dot(head.forward, (playerGO.transform.position + playerOffset - head.position).normalized) > visionConeDegree)
+        {
+            return true;
+        }
+        return false;
+
+    }
+
 }
