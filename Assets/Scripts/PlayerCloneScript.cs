@@ -1,0 +1,69 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerCloneScript : MonoBehaviour
+{
+    private PlayerHandlerScript player;
+    [SerializeField] private Transform head;
+    [SerializeField] private Camera camera;
+    [SerializeField] private Dimension dimension;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private RenderTexture baseRenderTexture;
+    [SerializeField] private RenderTexture renderTexture;
+
+    public RenderTexture RenderTexture => renderTexture;
+
+    public Camera Camera => camera;
+
+
+    private void Start()
+    {
+        StartBehaviour();
+        CreateRenderTexture();
+    }
+[ContextMenu("Start")]
+    private void StartBehaviour()
+    {
+        player = PlayerHandlerScript.current;
+        mainCamera = Camera.main;
+        dimension = GetComponentInParent<Dimension>();
+    }
+
+    private void LateUpdate()
+    {
+        UpdatePositionAndCamera();
+    }
+
+
+
+    private void UpdatePositionAndCamera()
+    {
+        Transform transform2;
+        // if (!player)
+        // {
+        //     StartBehaviour();
+        // }
+        (transform2 = transform).position = player.transform.position + DimensionController.current.GetZDiff(dimension);
+        transform2.rotation = player.transform.rotation;
+        var transform1 = mainCamera.transform;
+        head.rotation = transform1.rotation;
+        head.position = transform1.position + DimensionController.current.GetZDiff(dimension);
+    }
+
+    public void SetActive(bool b)
+    {
+        gameObject.SetActive(b);
+        if (b)
+        {
+            UpdatePositionAndCamera();
+        }
+    }
+
+    void CreateRenderTexture()
+    {
+        renderTexture = new RenderTexture(baseRenderTexture);
+        camera.targetTexture = renderTexture;
+    }
+}

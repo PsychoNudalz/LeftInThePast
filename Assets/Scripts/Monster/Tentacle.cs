@@ -1,0 +1,149 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Animations.Rigging;
+
+public class Tentacle : MonoBehaviour
+{
+    [SerializeField]
+    private float maxRange = 3.4f;
+
+    [SerializeField]
+    private Transform ballLaunchPoint;
+    [SerializeField]
+    private float shootStrength = 300f;
+
+    [SerializeField]
+    private float shootDelay = 1f;
+
+    
+    [Header("Components")]
+    [SerializeField]
+    private ChainIKConstraint chainIKConstraint;
+
+    [SerializeField]
+    private TentacleBall tentacleBall;
+
+    [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
+    private MonsterAI monsterAI;
+
+    [SerializeField]
+    private TentaclesHandler tentaclesHandler;
+
+    public TentaclesHandler TentaclesHandler
+    {
+        get => tentaclesHandler;
+        set => tentaclesHandler = value;
+    }
+
+
+    [Header("Debug")]
+    [SerializeField]
+    private Vector3 worldPoint = new Vector3();
+    [SerializeField]
+    private bool isExtended = false;
+
+    private Coroutine coroutine;
+
+    [ContextMenu("Awake")]
+    private void Awake()
+    {
+        if (!tentacleBall)
+        {
+            tentacleBall = GetComponent<TentacleBall>();
+        }
+
+        if (!animator)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        if (!monsterAI)
+        {
+            monsterAI = GetComponentInParent<MonsterAI>();
+        }
+
+        worldPoint = tentacleBall.transform.position;
+        ShootTentacle();
+    }
+
+    private void Update()
+    {
+        if (!isExtended)
+        {
+            SetTentacle(tentacleBall.transform.position);
+        }
+        else
+        {
+            SetTentacle(worldPoint);
+        }
+
+        if (isExtended&& Vector3.Distance(transform.position, worldPoint)>= maxRange)
+        {
+            if (coroutine == null)
+            {
+                coroutine = StartCoroutine(RetractAndShoot());
+            }
+        }else if (Vector3.Distance(transform.position, tentacleBall.transform.position) > maxRange * 1.1f)
+        {
+            if (coroutine == null)
+            {
+                coroutine = StartCoroutine(RetractAndShoot());
+            }
+        }
+    }
+
+    public void ShootTentacle(Vector3 v)
+    {
+        // print("Shoot Tentacle");
+        isExtended = false;
+
+        tentacleBall.transform.position = ballLaunchPoint.position;
+        tentacleBall.LaunchBall(v);
+    }
+
+    public void ShootTentacle()
+    {
+
+        animator.SetBool("Extended",true);
+        ShootTentacle(ballLaunchPoint.forward*shootStrength);
+    }
+
+    public void SetTentacleTarget(Vector3 target)
+    {
+        worldPoint = target;
+        isExtended = true;
+    }
+
+    public void SetTentacle(Vector3 position)
+    {
+        chainIKConstraint.data.target.position = position;
+    }
+
+    public void RetractTentacle()
+    {
+        animator.SetBool("Extended",false);
+    }
+
+    IEnumerator RetractAndShoot()
+    {
+        // print($"{name} Retract and Shoot");
+        RetractTentacle();
+        yield return new WaitForSeconds(shootDelay);
+        ShootTentacle();
+        coroutine = null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (tentaclesHandler && tentaclesHandler.TagList.Contains(other.tag))
+        {
+            print($"{name} triggered by: {other.name}");
+            monsterAI.RecieveSOI(new SourceOfInterest("Player hit tentacle", (other.transform.position+worldPoint)/2f,SourceOfInterestType.Tentacle,Vector3.Distance(other.transform.position,transform.position)));
+        }
+    }
+}
