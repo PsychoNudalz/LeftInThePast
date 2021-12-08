@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EnemyShader
-  m_Shader: {fileID: -6465566751694194690, guid: 6cbcbec3bbc494e45aefa1ed4063e46e, type: 3}
+  m_Name: Matrix
+  m_Shader: {fileID: -6465566751694194690, guid: b127ea8d9c60f164fa7c83da8f43ba86, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_64c2d27e5396414098afdf79c8012f84:
+        m_Texture: {fileID: 2800000, guid: ffccbaa024f630049a0455703ce9d89d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_84bdd37e9d6d4d7da928d3a3632b5f0b:
+        m_Texture: {fileID: 2800000, guid: c25aece3e1481dd4795caf9d93a9bea3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -32,10 +40,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_52f7fda411284c6eba9e8ccfc083aaf3: 20
-    - Vector1_accedcee74c641d29650fdf37db5f612: 0.1
-    - _DeformAmopunt: 0.05
+    - Vector1_0316ab95740c4de58d416caa58a31c99: 16
+    - Vector1_3de388ba85994f81bec1b55bf6f3497e: 10
     m_Colors:
-    - Color_eed9e0c03c8448d392f6e9b0d857faad: {r: 0, g: 0, b: 0, a: 0}
-    - Vector2_256e7f63f70049c3a9ee20b5a577496c: {r: 0, g: 0.1, b: 0, a: 0}
+    - Color_3e9005b6b98646fea82cb3dbcce1a900: {r: 0, g: 1.151339, b: 0.1555863, a: 0}
+    - Vector2_42a800777ce046eebfe53068518d1efe: {r: 40, g: 40, b: 0, a: 0}
   m_BuildTextureStacks: []
