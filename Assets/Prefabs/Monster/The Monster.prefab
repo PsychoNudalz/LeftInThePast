@@ -708,6 +708,8 @@ GameObject:
   - component: {fileID: 214616957652915617}
   - component: {fileID: 4815060256147965706}
   - component: {fileID: 8836545257377691071}
+  - component: {fileID: 1053689297}
+  - component: {fileID: 1053689298}
   m_Layer: 0
   m_Name: Spotted Sound
   m_TagString: Untagged
@@ -843,6 +845,41 @@ MonoBehaviour:
   pitch: 2
   pitchVariance: 0.1
   audioMixer: {fileID: 0}
+--- !u!168 &1053689297
+AudioEchoFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223675747836710516}
+  m_Enabled: 1
+  m_Delay: 250
+  m_DecayRatio: 0.7
+  m_WetMix: 1
+  m_DryMix: 1
+--- !u!164 &1053689298
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223675747836710516}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: 0
+  m_RoomHF: 0
+  m_DecayTime: 1
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 0
+  m_ReverbDelay: 0.04
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27
 --- !u!1 &7428355872589626972
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +963,7 @@ MonoBehaviour:
   patrolStopRange: 0.2
   patrolWaitTime: {x: 1, y: 2}
   patrolWaitTime_Now: 0
+  visionConeDegree: 0.8
   attackRange: 0
   attackDuration: 1
   attackCooldown: 2

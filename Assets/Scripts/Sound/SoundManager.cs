@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 /// <summary>
-/// 9th generation of the sound manager
+/// 10th generation of the sound manager
 /// </summary>
 public class SoundManager : MonoBehaviour
 {

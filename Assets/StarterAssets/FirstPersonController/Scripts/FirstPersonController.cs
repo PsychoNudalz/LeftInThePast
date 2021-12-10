@@ -185,6 +185,10 @@ namespace StarterAssets
 			{
 				playerFootstepsScript.PlayFootsteps();
 			}
+			else
+			{
+				playerFootstepsScript.StopFootsteps();
+			}
 		}
 
 		private void JumpAndGravity()

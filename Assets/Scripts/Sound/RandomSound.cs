@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = Unity.Mathematics.Random;
-
+/// <summary>
+/// play random sound from pool of sound
+/// added in Ver 9
+/// </summary>
 public class RandomSound : Sound
 {
     [Header("Ignore the things Above")]
