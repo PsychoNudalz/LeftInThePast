@@ -126,7 +126,7 @@ public class Sound : MonoBehaviour
 
     private void OnDisable()
     {
-        if (source.playOnAwake)
+        if (source&& source.playOnAwake)
         {
             source.Stop();
         }

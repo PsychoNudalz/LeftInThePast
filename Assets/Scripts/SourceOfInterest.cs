@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public enum SourceOfInterestType
     Tentacle
 }
 
+[Serializable]
 public class SourceOfInterest
 {
     private string SourceItem;

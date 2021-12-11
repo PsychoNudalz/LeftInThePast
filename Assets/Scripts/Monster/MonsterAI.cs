@@ -20,6 +20,9 @@ public class MonsterAI : EnemyAI
     [SerializeField]
     private bool isEyeOpened = false;
 
+    [SerializeField]
+    private List<AIState> statesToStare = new List<AIState>();
+
     public bool IsEyeOpened
     {
         get => isEyeOpened;
@@ -29,22 +32,51 @@ public class MonsterAI : EnemyAI
     [Header("Monster Chase")]
     [SerializeField]
     private float chaseSpeedMultiplier = 1.2f;
-[SerializeField]
+
+    [SerializeField]
     private float stareDelay = 1;
 
+
+    [Header("Investigate Time")]
+    [SerializeField]
+    private Vector2 investigateWaitTime = new Vector2(1f, 2f);
+
+    [SerializeField]
+    private float investigateWaitTime_Now = 0;
+
+    [SerializeField]
+    private float investigateRange = 2f;
 
     public SourceOfInterest CurrentSource => currentSource;
 
 
     public void RecieveSOI(SourceOfInterest newSource)
     {
-        
-        if (currentSource == null&&!(currentState.Equals(AIState.MoveToPlayer)||currentState.Equals(AIState.Attack)))
+        if (currentState.Equals(AIState.MoveToPlayer) || currentState.Equals(AIState.Attack))
+        {
+            return;
+        }
+
+        if (currentSource == null)
         {
             SetCurrentSource(newSource);
         }
         else
         {
+            switch (newSource.SourceOfInterestType)
+            {
+                case SourceOfInterestType.Noise:
+                    break;
+                case SourceOfInterestType.Tentacle:
+                    if (currentSource.SourceOfInterestType.Equals(SourceOfInterestType.Noise))
+                    {
+                        SetCurrentSource(newSource);
+                    }
+
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 
@@ -53,14 +85,14 @@ public class MonsterAI : EnemyAI
         base.ChangeState(newState);
         switch (previousState)
         {
-           
             case AIState.Stare:
                 EndState_Stare();
                 break;
             case AIState.Investigate:
+                EndState_Investigate();
                 break;
-
         }
+
         switch (currentState)
         {
             case AIState.Idle:
@@ -68,7 +100,7 @@ public class MonsterAI : EnemyAI
             case AIState.MoveToPatrol:
                 break;
             case AIState.MoveToPlayer:
-                
+
                 break;
             case AIState.Attack:
                 break;
@@ -76,8 +108,8 @@ public class MonsterAI : EnemyAI
                 ChangeState_Stare();
                 break;
             case AIState.Investigate:
+                ChangeState_Investigate();
                 break;
-            
         }
     }
 
@@ -98,8 +130,8 @@ public class MonsterAI : EnemyAI
                 AIThink_Stare();
                 break;
             case AIState.Investigate:
+                AIThink_Investigate();
                 break;
-
         }
     }
 
@@ -118,14 +150,14 @@ public class MonsterAI : EnemyAI
             case AIState.Attack:
                 break;
             case AIState.Stare:
-               AIBehaviour_Stare();
+                AIBehaviour_Stare();
                 break;
             case AIState.Investigate:
+                AIBehaviour_Investigate();
                 break;
-
         }
     }
-    
+
     //Move To Player
     protected override void ChangeState_MoveToPlayer()
     {
@@ -138,8 +170,6 @@ public class MonsterAI : EnemyAI
         base.EndState_MoveToPlayer();
         BroadcastMessage("OnChase_End");
         currentSource = null;
-
-
     }
 
     protected override void AIBehaviour_MoveToPlayer()
@@ -172,7 +202,6 @@ public class MonsterAI : EnemyAI
         }
         else
         {
-
         }
     }
 
@@ -185,6 +214,29 @@ public class MonsterAI : EnemyAI
         }
     }
 
+    protected virtual void ChangeState_Investigate()
+    {
+        SetNavAgent(currentSource.Position);
+    }
+
+    protected virtual void EndState_Investigate()
+    {
+        currentSource = null;
+    }
+
+    protected virtual void AIThink_Investigate()
+    {
+        if (Vector3.Distance(transform.position, currentSource.Position) < investigateRange)
+        {
+            ChangeState(AIState.Stare);
+        }
+    }
+
+    protected virtual void AIBehaviour_Investigate()
+    {
+    }
+
+
     void SetCurrentSource(SourceOfInterest newSource)
     {
         currentSource = newSource;
@@ -194,7 +246,8 @@ public class MonsterAI : EnemyAI
         switch (newSource.SourceOfInterestType)
         {
             case SourceOfInterestType.Noise:
-
+                //OverridePatrolPoint(newSource.Position);
+                ChangeState(AIState.Investigate);
                 break;
             case SourceOfInterestType.Tentacle:
                 OverridePatrolPoint(transform.position);
@@ -207,7 +260,7 @@ public class MonsterAI : EnemyAI
 
     protected override bool LineOfSight()
     {
-        if ((stareTime_Now < stareTime-stareDelay&&currentState.Equals(AIState.Stare))||currentState.Equals(AIState.MoveToPlayer))
+        if ((stareTime_Now < stareTime - stareDelay && statesToStare.Contains(currentState)))
         {
             return base.LineOfSight();
         }

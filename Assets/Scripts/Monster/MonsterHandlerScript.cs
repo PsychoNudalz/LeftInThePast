@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonsterHandlerScript : MonoBehaviour
 {
+    public static MonsterHandlerScript current;
 
     [SerializeField]
     private MonsterAI monsterAI;
@@ -22,11 +23,18 @@ public class MonsterHandlerScript : MonoBehaviour
         {
             monsterEffects = GetComponent<MonsterEffects>();
         }
+
+        current = this;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void RecieveSOI(SourceOfInterest newSource)
+    {
+        monsterAI.RecieveSOI(newSource);
     }
 }

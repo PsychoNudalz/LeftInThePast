@@ -20,6 +20,7 @@ public class PickUpInteractables : Interactable
 
     [SerializeField]
     private Rigidbody rb;
+    
 
     void Start()
     {

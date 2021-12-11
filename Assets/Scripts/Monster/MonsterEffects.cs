@@ -47,7 +47,7 @@ public class MonsterEffects : MonoBehaviour
     private Sound stareSound;
 
     [SerializeField]
-    private Sound spottedSound;
+    private Sound chaseSound;
     
     // Start is called before the first frame update
     void Start()
@@ -86,7 +86,7 @@ public class MonsterEffects : MonoBehaviour
         chaseVolume.gameObject.SetActive(true);
         vfx_Chase.gameObject.SetActive(true);
         vfx_Chase.Play();
-        spottedSound.Play();
+        chaseSound.Play();
         isChase = true;
     }
     public void OnChase_End()
@@ -94,6 +94,8 @@ public class MonsterEffects : MonoBehaviour
         passiveVolume.gameObject.SetActive(true);
         chaseVolume.gameObject.SetActive(false);
         vfx_Chase.Stop();
+        chaseSound.Stop();
+
         isChase = false;
         OnStart_End();
     }

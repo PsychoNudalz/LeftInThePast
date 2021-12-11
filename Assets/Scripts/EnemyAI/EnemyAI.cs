@@ -72,7 +72,8 @@ public class EnemyAI : MonoBehaviour
 
     [Header("AI Attack")]
     [SerializeField]
-    private float visionConeDegree = .8f;
+    [Range(0f,90f)]
+    private float visionConeDegree = 45f;
 
     [SerializeField]
     float attackRange = 5f;
@@ -295,7 +296,7 @@ public class EnemyAI : MonoBehaviour
         SetNavAgent(patrolManager.GetPatrol(patrolIndex).position);
     }
 
-    private void SetNavAgent(Vector3 position)
+    protected virtual void SetNavAgent(Vector3 position)
     {
         navMeshAgent.SetDestination(position);
         patrolPos = navMeshAgent.destination;
@@ -351,6 +352,11 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual bool LineOfSight()
     {
+
+        if (!IsInCone())
+        {
+            return false;
+        }
         if (Physics.Raycast(head.position, playerGO.transform.position + playerOffset - head.position,
             out RaycastHit hit, detectionRange, LOSLayer))
         {
@@ -365,7 +371,8 @@ public class EnemyAI : MonoBehaviour
     }
     bool IsInCone()
     {
-        if (Vector3.Dot(head.forward, (playerGO.transform.position + playerOffset - head.position).normalized) > visionConeDegree)
+        // print($"{Vector3.Dot(head.forward, (playerGO.transform.position + head.position - playerOffset).normalized)}, {Math.Cos(visionConeDegree)}");
+        if (Vector3.Dot(head.forward, (playerGO.transform.position + playerOffset - head.position).normalized) > Mathf.Abs( Mathf.Cos(visionConeDegree)))
         {
             return true;
         }

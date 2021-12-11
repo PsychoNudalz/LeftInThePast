@@ -2865,6 +2865,7 @@ GameObject:
   - component: {fileID: 1737910869}
   - component: {fileID: 1737910872}
   - component: {fileID: 1737910873}
+  - component: {fileID: 1737910874}
   m_Layer: 6
   m_Name: Lamp
   m_TagString: Interactable
@@ -2880,7 +2881,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737910867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.35821432, y: 0.12697655, z: 0.654}
+  m_LocalPosition: {x: 0.35821432, y: 3.55, z: 0.654}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1918393060}
@@ -3061,6 +3062,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionSound: {fileID: 1880501849}
+  tags: []
+--- !u!114 &1737910874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737910867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f975fe917226245a040e4043441eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SOIRange: {x: 10, y: 15}
   tags: []
 --- !u!1 &1741440329
 GameObject:
@@ -3753,6 +3768,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2448946060824408326, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448946060824408326, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448946060824408326, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.z
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3510263051657299330, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
