@@ -33,8 +33,8 @@ public class MonsterHandlerScript : MonoBehaviour
         
     }
 
-    public void RecieveSOI(SourceOfInterest newSource)
+    public void RecieveSoi(SourceOfInterest newSource)
     {
-        monsterAI.RecieveSOI(newSource);
+        monsterAI.RecieveSoi(newSource);
     }
 }

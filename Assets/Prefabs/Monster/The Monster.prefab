@@ -1101,14 +1101,14 @@ MonoBehaviour:
   currentState: 0
   previousState: 0
   lastThinkTime: 0
-  thinkRate: 0.5
-  detectionRange: 15
+  thinkRate: 0.1
+  detectionRange: 30
   playerPos: {x: 0, y: 0, z: 0}
   playerOffset: {x: 0, y: 1, z: 0}
   LOSLayer:
     serializedVersion: 2
     m_Bits: 384
-  moveToPlayerWaitTime: {x: 1, y: 2}
+  moveToPlayerWaitTime: {x: 4, y: 5}
   moveToPlayerWaitTime_Now: 0
   patrolPos: {x: 0, y: 0, z: 0}
   patrolIndex: -1
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   patrolWaitTime: {x: 1, y: 2}
   patrolWaitTime_Now: 0
   visionConeDegree: 40
-  attackRange: 0
+  attackRange: 1
   attackDuration: 1
   attackCooldown: 2
   playerGO: {fileID: 0}
@@ -1130,7 +1130,7 @@ MonoBehaviour:
   stareDelay: 1
   investigateWaitTime: {x: 1, y: 2}
   investigateWaitTime_Now: 0
-  investigateRange: 2
+  investigateRange: 4
 --- !u!195 &1572999886247796917
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1140,7 +1140,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7428355872589626972}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Speed: 3
   m_Acceleration: 1
   avoidancePriority: 50
@@ -1488,7 +1488,13 @@ VisualEffect:
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 0, y: 0.4, z: 0}
+        m_Name: SpawnBox_center
+        m_Overridden: 1
+      - m_Value: {x: 0.2, y: 0.2, z: 0.2}
+        m_Name: SpawnBox_size
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:

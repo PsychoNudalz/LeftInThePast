@@ -50,14 +50,19 @@ public class MonsterAI : EnemyAI
     public SourceOfInterest CurrentSource => currentSource;
 
 
-    public void RecieveSOI(SourceOfInterest newSource)
+    public void RecieveSoi(SourceOfInterest newSource)
     {
         if (currentState.Equals(AIState.MoveToPlayer) || currentState.Equals(AIState.Attack))
         {
             return;
         }
 
-        if (currentSource == null)
+        if (!newSource.InRange(transform.position))
+        {
+            return;
+        }
+
+        if (currentSource == null ||(currentSource.SourceItem == null))
         {
             SetCurrentSource(newSource);
         }
@@ -182,13 +187,17 @@ public class MonsterAI : EnemyAI
     //Stare
     protected virtual void ChangeState_Stare()
     {
+        if (currentSource!= null)
+        {
+            head.LookAt(new Vector3(currentSource.Position.x, Mathf.Max(head.position.y, currentSource.Position.y),
+                currentSource.Position.z));
+        }
         stareTime_Now = stareTime;
         BroadcastMessage("OnStare_Start");
     }
 
     protected virtual void EndState_Stare()
     {
-        currentSource = null;
     }
 
     protected virtual void AIThink_Stare()
@@ -210,6 +219,7 @@ public class MonsterAI : EnemyAI
         stareTime_Now -= Time.deltaTime;
         if (LineOfSight())
         {
+            currentSource = null;
             ChangeState(AIState.MoveToPlayer);
         }
     }
@@ -221,13 +231,13 @@ public class MonsterAI : EnemyAI
 
     protected virtual void EndState_Investigate()
     {
-        currentSource = null;
     }
 
     protected virtual void AIThink_Investigate()
     {
         if (Vector3.Distance(transform.position, currentSource.Position) < investigateRange)
         {
+            SetNavAgent(transform.position);
             ChangeState(AIState.Stare);
         }
     }
@@ -240,8 +250,7 @@ public class MonsterAI : EnemyAI
     void SetCurrentSource(SourceOfInterest newSource)
     {
         currentSource = newSource;
-        head.LookAt(new Vector3(currentSource.Position.x, Mathf.Max(head.position.y, currentSource.Position.y),
-            currentSource.Position.z));
+        
 
         switch (newSource.SourceOfInterestType)
         {

@@ -269,7 +269,7 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void AIBehaviour_MoveToPlayer()
     {
-        if (Vector3.Distance(transform.position, playerPos) < attackRange / 2f)
+        if (Vector3.Distance(transform.position, playerPos) < attackRange)
         {
             moveToPlayerWaitTime_Now -= Time.deltaTime;
         }

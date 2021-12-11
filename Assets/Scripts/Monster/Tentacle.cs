@@ -143,7 +143,7 @@ public class Tentacle : MonoBehaviour
         if (tentaclesHandler && tentaclesHandler.TagList.Contains(other.tag))
         {
             print($"{name} triggered by: {other.name}");
-            monsterAI.RecieveSOI(new SourceOfInterest("Player hit tentacle", (other.transform.position+worldPoint)/2f,SourceOfInterestType.Tentacle,Vector3.Distance(other.transform.position,transform.position)));
+            monsterAI.RecieveSoi(new SourceOfInterest("Player hit tentacle", other.ClosestPoint(transform.position),SourceOfInterestType.Tentacle,Vector3.Distance(other.transform.position,transform.position)*2f));
         }
     }
 }

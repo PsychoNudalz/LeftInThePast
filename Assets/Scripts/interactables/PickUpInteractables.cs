@@ -20,6 +20,9 @@ public class PickUpInteractables : Interactable
 
     [SerializeField]
     private Rigidbody rb;
+
+    [SerializeField]
+    private OnCollisionSOI onCollisionSoi;
     
 
     void Start()
@@ -37,6 +40,11 @@ public class PickUpInteractables : Interactable
         if (!handPosition)
         {
             handPosition = transform;
+        }
+
+        if (!onCollisionSoi)
+        {
+            onCollisionSoi = GetComponent<OnCollisionSOI>();
         }
     }
 
@@ -78,6 +86,10 @@ public class PickUpInteractables : Interactable
        SetAllColliders(true);
        rb.isKinematic = false;
        transform.parent = null;
+       if (onCollisionSoi)
+       {
+           onCollisionSoi.DelaySOI(0.1f);
+       }
    }
    public void OnThrow(Vector3 velocity)
    {
