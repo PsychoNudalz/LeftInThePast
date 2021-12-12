@@ -71,6 +71,10 @@ public class MonsterAI : EnemyAI
             switch (newSource.SourceOfInterestType)
             {
                 case SourceOfInterestType.Noise:
+                    if (newSource.CompareRange(transform.position, currentSource))
+                    {
+                        SetCurrentSource(newSource);
+                    }
                     break;
                 case SourceOfInterestType.Tentacle:
                     if (currentSource.SourceOfInterestType.Equals(SourceOfInterestType.Noise))
