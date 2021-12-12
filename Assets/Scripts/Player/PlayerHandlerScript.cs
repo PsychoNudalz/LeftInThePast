@@ -108,4 +108,12 @@ public class PlayerHandlerScript : MonoBehaviour
         playerUIController.SetTeleportEffect(previousTexture);
         lookingGlass.SetLookingGlass(previousTexture);
     }
+
+    public void SetPlayerInvincable(bool b)
+    {
+        if (b)
+        {
+            tag = "Player";
+        }
+    }
 }
