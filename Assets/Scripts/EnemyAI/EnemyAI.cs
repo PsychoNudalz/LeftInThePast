@@ -238,7 +238,12 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual float GetDistanceToPlayer()
     {
-        return Vector3.Distance(transform.position, playerGO.transform.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, playerGO.transform.position);
+        if (PlayerHandlerScript.IgnorePlayer)
+        {
+            distanceToPlayer = 1000f;
+        }
+        return distanceToPlayer;
     }
 
 
@@ -360,10 +365,17 @@ public class EnemyAI : MonoBehaviour
         if (Physics.Raycast(head.position, playerGO.transform.position + playerOffset - head.position,
             out RaycastHit hit, detectionRange, LOSLayer))
         {
-            print($"Enemy raycast hit something {hit.collider.name}");
+            // print($"Enemy raycast hit something {hit.collider.name}");
             if (hit.collider.CompareTag("Player"))
             {
-                return true;
+                if (PlayerHandlerScript.IgnorePlayer)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
 

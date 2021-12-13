@@ -5,6 +5,8 @@ using StarterAssets;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+using QFSW.QC;
+
 public class PlayerHandlerScript : MonoBehaviour
 {
     public static PlayerHandlerScript current;
@@ -31,6 +33,9 @@ public class PlayerHandlerScript : MonoBehaviour
     [SerializeField]
     private LookingGlass lookingGlass;
 
+    [field: Header("Debug")]
+    [field: SerializeField]
+    public static bool IgnorePlayer { get; private set; } = false;
 
 
     public PlayerInventory PlayerInventory => playerInventory;
@@ -109,11 +114,16 @@ public class PlayerHandlerScript : MonoBehaviour
         lookingGlass.SetLookingGlass(previousTexture);
     }
 
-    public void SetPlayerInvincable(bool b)
+    [Command()]
+    public static void SetIgnore(bool b)
     {
-        if (b)
-        {
-            tag = "Player";
-        }
+        IgnorePlayer = b;
+    }
+
+    [Command()]
+
+    public static void SetIgnore()
+    {
+        IgnorePlayer = !IgnorePlayer;
     }
 }

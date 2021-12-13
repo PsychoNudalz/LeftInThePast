@@ -302,4 +302,15 @@ public class MonsterAI : EnemyAI
             return false;
         }
     }
+
+
+    protected override float GetDistanceToPlayer()
+    {
+        float distanceToPlayer = base.GetDistanceToPlayer();
+        if (PlayerHandlerScript.IgnorePlayer)
+        {
+            distanceToPlayer = 1000f;
+        }
+        return distanceToPlayer;
+    }
 }

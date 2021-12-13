@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using QFSW.QC;
 using UnityEngine;
 
 public class MonsterHandlerScript : MonoBehaviour
@@ -36,5 +38,18 @@ public class MonsterHandlerScript : MonoBehaviour
     public void RecieveSoi(SourceOfInterest newSource)
     {
         monsterAI.RecieveSoi(newSource);
+    }
+
+
+    [Command()]
+    public static void Monster_ChangeState(string state)
+    {
+        foreach (AIState aiState in Enum.GetValues(typeof(AIState)))
+        {
+            if (aiState.ToString().ToUpper().Contains(state.ToUpper()))
+            {
+                current.monsterAI.ChangeState(aiState);
+            }
+        }
     }
 }
