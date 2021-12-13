@@ -21,9 +21,12 @@ public class PickUpInteractables : Interactable
     [SerializeField]
     private Rigidbody rb;
 
+
     [SerializeField]
     private OnCollisionSOI onCollisionSoi;
-    
+
+    private float movingVelocityDeadzone = 0.01f;
+
 
     void Start()
     {
@@ -49,9 +52,8 @@ public class PickUpInteractables : Interactable
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
     }
 
 
@@ -116,4 +118,9 @@ public class PickUpInteractables : Interactable
         transform.position += transform.position-handPosition.position;
         transform.rotation = handPosition.rotation;
     }
+
+     public bool isMoving()
+     {
+         return rb.velocity.magnitude > movingVelocityDeadzone;
+     }
 }

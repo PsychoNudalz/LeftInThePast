@@ -20,7 +20,10 @@ public class OnCollisionSOI : MonoBehaviour
         }
         if (tags.Count == 0|| tags.Contains(other.collider.tag))
         {
-            MonsterHandlerScript.current.RecieveSoi(new SourceOfInterest(name,transform.position,SourceOfInterestType.Noise,UnityEngine.Random.Range(SOIRange.x,SOIRange.y)));
+            if (MonsterHandlerScript.current)
+            {
+                MonsterHandlerScript.current.RecieveSoi(new SourceOfInterest(name,transform.position,SourceOfInterestType.Noise,UnityEngine.Random.Range(SOIRange.x,SOIRange.y)));
+            }
         }
     }
 

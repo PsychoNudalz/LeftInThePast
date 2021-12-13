@@ -10,9 +10,11 @@ public class TentaclesHandler : MonoBehaviour
     private Tentacle[] tentacles = Array.Empty<Tentacle>();
 
     [SerializeField]
-    private List<string> tagList;
-
-    public List<string> TagList => tagList;
+    private List<string> playerTagList;
+    [SerializeField]
+    private List<string> itemTagList;
+    public List<string> PlayerTagList => playerTagList;
+    public List<string> ItemTagList => itemTagList;
 
     [ContextMenu("Awake")]
     private void Awake()

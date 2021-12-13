@@ -140,10 +140,21 @@ public class Tentacle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (tentaclesHandler && tentaclesHandler.TagList.Contains(other.tag))
+        if (tentaclesHandler )
         {
-            print($"{name} triggered by: {other.name}");
-            monsterAI.RecieveSoi(new SourceOfInterest("Player hit tentacle", other.ClosestPoint(transform.position),SourceOfInterestType.Tentacle,Vector3.Distance(other.transform.position,transform.position)*2f));
+            if (tentaclesHandler.PlayerTagList.Contains(other.tag))
+            {
+                print($"{name} triggered by: {other.name}");
+                monsterAI.RecieveSoi(new SourceOfInterest("Player hit tentacle", other.ClosestPoint(transform.position),SourceOfInterestType.Tentacle,Vector3.Distance(other.transform.position,transform.position)*2f));
+            }else if (tentaclesHandler.ItemTagList.Contains(other.tag))
+            {
+                PickUpInteractables temp = other.GetComponentInParent<PickUpInteractables>();
+                if (temp &&temp.isMoving())
+                {
+                    monsterAI.RecieveSoi(new SourceOfInterest(temp.name, other.ClosestPoint(transform.position),SourceOfInterestType.Tentacle,Vector3.Distance(other.transform.position,transform.position)*2f));
+
+                }
+            }
         }
     }
 }

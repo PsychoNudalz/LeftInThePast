@@ -47,7 +47,26 @@ public class MonsterAI : EnemyAI
     [SerializeField]
     private float investigateRange = 2f;
 
+    [Header("Debugger")]
+    [SerializeField]
+    private bool showDebug = false;
+
+    [SerializeField]
+    private float debugSphereRadius = .3f; 
+
     public SourceOfInterest CurrentSource => currentSource;
+
+
+    private void OnDrawGizmosSelected()
+    {
+        if (showDebug)
+        {
+            if (currentSource?.SourceItem != null)
+            {
+                Gizmos.DrawSphere(currentSource.Position,debugSphereRadius);
+            }
+        }
+    }
 
 
     public void RecieveSoi(SourceOfInterest newSource)
