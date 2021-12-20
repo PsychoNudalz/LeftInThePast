@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 449420}
   - component: {fileID: 9518102}
+  - component: {fileID: 5861305141524170208}
   m_Layer: 0
   m_Name: Bed
   m_TagString: Untagged
@@ -52,6 +53,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &5861305141524170208
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5111334, y: 0.9426794, z: 1}
+  m_Center: {x: 0.07493603, y: 0.48269105, z: 2.354499e-13}
 --- !u!1 &190264
 GameObject:
   m_ObjectHideFlags: 0

@@ -368,9 +368,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Interactable
       objectReference: {fileID: 0}
+    - target: {fileID: -8068073526183931155, guid: 0b6fcb29650fa704cb233977449341d6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -2371155125547938887, guid: 0b6fcb29650fa704cb233977449341d6, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -2371155125547938887, guid: 0b6fcb29650fa704cb233977449341d6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -305091885687274788, guid: 0b6fcb29650fa704cb233977449341d6, type: 3}
+      propertyPath: m_StitchLightmapSeams
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0b6fcb29650fa704cb233977449341d6, type: 3}
       propertyPath: m_Name
@@ -383,6 +395,10 @@ PrefabInstance:
     - target: {fileID: 978263148236074363, guid: 0b6fcb29650fa704cb233977449341d6, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 978263148236074363, guid: 0b6fcb29650fa704cb233977449341d6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b6fcb29650fa704cb233977449341d6, type: 3}
