@@ -59,7 +59,7 @@ VisualEffect:
         m_Overridden: 1
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 50, y: 20, z: 50}
+      - m_Value: {x: 40, y: 15, z: 40}
         m_Name: EyeSpawnBox_size
         m_Overridden: 1
     m_Vector4f:
@@ -901,7 +901,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -936,7 +936,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.13
+      value: 0.05
       inSlope: 0
       outSlope: 0
       tangentMode: 0
