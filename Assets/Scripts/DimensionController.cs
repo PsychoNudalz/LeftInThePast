@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using QFSW.QC;
 using UnityEngine;
 
 public class DimensionController : MonoBehaviour
@@ -9,13 +10,16 @@ public class DimensionController : MonoBehaviour
     [SerializeField] Dimension[] dimensions;
     [SerializeField] Dimension currentDimension;
 
+    public Dimension CurrentDimension => currentDimension;
 
-    public static DimensionController current;
+
+    public static DimensionController Current;
     // Start is called before the first frame update
+
 
     private void Awake()
     {
-        current = this;
+        Current = this;
         if (dimensions.Length == 0)
         {
             dimensions = GetComponentsInChildren<Dimension>();
@@ -69,7 +73,24 @@ public class DimensionController : MonoBehaviour
 
     public Vector3 GetZDiff(Dimension d)
     {
-        return d.transform.position - currentDimension.transform.position;
+        return GetZDiff(currentDimension,d);
     }
     
+    public static Vector3 GetZDiff(Dimension c,Dimension d)
+    {
+        return d.transform.position - c.transform.position;
+    }
+
+    [Command()]
+    public static void ShowCurrentDimension()
+    {
+        if (Current?.currentDimension)
+        {
+            Debug.Log(Current.currentDimension);
+        }
+        else
+        {
+            Debug.LogError("Current dimension is null");
+        }
+    }
 }

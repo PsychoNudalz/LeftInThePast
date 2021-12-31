@@ -7,10 +7,10 @@ public class JukeBoxScript : MonoBehaviour
 
     public void TeleportPlayer()
     {
-        DimensionController.current.LoopTeleport();
+        DimensionController.Current.LoopTeleport();
     }
     public void TeleportPlayer(int index)
     {
-        DimensionController.current.Teleport(index);
+        DimensionController.Current.Teleport(index);
     }
 }

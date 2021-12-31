@@ -24,10 +24,10 @@ MonoBehaviour:
     Alt: 0
     Shift: 0
   ToggleConsoleVisibilityKey:
-    Key: 96
+    Key: 282
     Ctrl: 0
     Alt: 0
-    Shift: 0
+    Shift: 1
   SuggestNextCommandKey:
     Key: 9
     Ctrl: 0

@@ -45,11 +45,11 @@ public class PlayerCloneScript : MonoBehaviour
         // {
         //     StartBehaviour();
         // }
-        (transform2 = transform).position = player.transform.position + DimensionController.current.GetZDiff(dimension);
+        (transform2 = transform).position = player.transform.position + DimensionController.Current.GetZDiff(dimension);
         transform2.rotation = player.transform.rotation;
         var transform1 = mainCamera.transform;
         head.rotation = transform1.rotation;
-        head.position = transform1.position + DimensionController.current.GetZDiff(dimension);
+        head.position = transform1.position + DimensionController.Current.GetZDiff(dimension);
     }
 
     public void SetActive(bool b)

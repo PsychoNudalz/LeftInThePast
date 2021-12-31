@@ -43,7 +43,14 @@ public class MonsterHandlerScript : MonoBehaviour
             monsterEffects.TentaclesHandler = tentaclesHandler;
         }
 
+        
         current = this;
+    }
+
+    private void Start()
+    {
+        currentDimension = DimensionController.Current.CurrentDimension;
+
     }
 
     // Update is called once per frame
@@ -72,6 +79,22 @@ public class MonsterHandlerScript : MonoBehaviour
     {
         SetAIActive(false);
     }
+
+    public void TeleportDimension(Dimension d)
+    {
+        StartCoroutine(teleportDimensionEnumerator(d));
+    }
+
+    IEnumerator teleportDimensionEnumerator(Dimension d)
+    {
+        monsterEffects.StartDespawnEffect();
+        DisableAI();
+        yield return new WaitForSeconds(3f);
+        transform.position += DimensionController.GetZDiff(currentDimension, d);
+        currentDimension = d;
+        monsterEffects.StartSpawnEffect();
+        //AI reenable in animation
+    }
     
 
 
@@ -85,5 +108,20 @@ public class MonsterHandlerScript : MonoBehaviour
                 current.monsterAI.ChangeState(aiState);
             }
         }
+    }
+
+    [Command()]
+    public static void Monster_TeleportToPlayerDimension()
+    {
+        if (!current)
+        {
+            Debug.LogError("current null");
+        }
+
+        if (!DimensionController.Current.CurrentDimension)
+        {
+            Debug.LogError("current dimension null");
+        }
+        current.TeleportDimension(DimensionController.Current.CurrentDimension);
     }
 }

@@ -1150,6 +1150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterAI: {fileID: 0}
   monsterEffects: {fileID: 0}
+  tentaclesHandler: {fileID: 0}
   currentDimension: {fileID: 0}
 --- !u!114 &5014097969883442031
 MonoBehaviour:
@@ -1233,6 +1234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  vfx_Body: {fileID: 3498607645727353584}
   vfx_Eyes: {fileID: 7428355873952862803}
   vfx_Chase: {fileID: 2448946060824408326}
   passiveVolume: {fileID: 7445643853258730725}
@@ -1244,6 +1246,7 @@ MonoBehaviour:
   passiveSound: {fileID: 2319314791411405767}
   stareSound: {fileID: 8372237913869467715}
   chaseSound: {fileID: 1368568096953176221}
+  tentaclesHandler: {fileID: 0}
 --- !u!95 &932613453209248526
 Animator:
   serializedVersion: 3
@@ -1536,7 +1539,7 @@ GameObject:
   - component: {fileID: 3498607645727353584}
   - component: {fileID: 6782550270765487123}
   m_Layer: 9
-  m_Name: Visual Effect
+  m_Name: VFX_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

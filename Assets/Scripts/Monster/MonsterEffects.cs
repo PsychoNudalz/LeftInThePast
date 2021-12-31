@@ -12,7 +12,11 @@ public class MonsterEffects : MonoBehaviour
 
     [Header("VFX")]
     [SerializeField]
+    private VisualEffect vfx_Body;
+
+    [SerializeField]
     private VisualEffect vfx_Eyes;
+
     [SerializeField]
     private VisualEffect vfx_Chase;
 
@@ -31,8 +35,8 @@ public class MonsterEffects : MonoBehaviour
     [Header("Stare")]
     [SerializeField]
     private string eyeOpenAnimation = "MonsterFace_Stare";
-    
-    
+
+
     [SerializeField]
     private string eyeCloseAnimation = "MonsterFace_StareStop";
 
@@ -42,7 +46,7 @@ public class MonsterEffects : MonoBehaviour
 
     [Header("Chase")]
     private bool isChase = false;
-    
+
     [Header("Sounds")]
     [SerializeField]
     private Sound passiveSound;
@@ -70,13 +74,13 @@ public class MonsterEffects : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
+
         passiveSound.Play();
         vfx_Chase.Play();
     }
 
     private void Update()
     {
-
     }
 
     public void OnStare_Start()
@@ -91,7 +95,6 @@ public class MonsterEffects : MonoBehaviour
         faceAnimator.Play(eyeCloseAnimation);
         stareSound.Stop();
         vfx_Eyes.Play();
-
     }
 
     public void OnChase_Start()
@@ -103,6 +106,7 @@ public class MonsterEffects : MonoBehaviour
         chaseSound.Play();
         isChase = true;
     }
+
     public void OnChase_End()
     {
         passiveVolume.gameObject.SetActive(true);
@@ -114,9 +118,19 @@ public class MonsterEffects : MonoBehaviour
         OnStart_End();
     }
 
-    public void StartMonsterSpawnEffect()
+    public void StartSpawnEffect()
     {
-        
+        vfx_Eyes.Play();
+        vfx_Body.Play();
+        animator.SetTrigger("Spawn");
+    }
+
+    public void StartDespawnEffect()
+    {
+        vfx_Eyes.Stop();
+        vfx_Body.Stop();
+        animator.SetTrigger("Despawn");
+
     }
 
     public void ShootAllTentacles()
