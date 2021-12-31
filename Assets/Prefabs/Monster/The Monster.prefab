@@ -1242,7 +1242,7 @@ MonoBehaviour:
   faceAnimator: {fileID: 7014307867672254684}
   eyeOpenAnimation: MonsterFace_Stare
   eyeCloseAnimation: MonsterFace_StareStop
-  portalSphereRenderer: {fileID: 0}
+  portalSphereRenderer: {fileID: 4834829124790473098}
   passiveSound: {fileID: 2319314791411405767}
   stareSound: {fileID: 8372237913869467715}
   chaseSound: {fileID: 1368568096953176221}
@@ -1849,14 +1849,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3084032904dc1448b42f4318eafa65a, type: 3}
---- !u!4 &6555289141204591551 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 765914356681266729, guid: a3084032904dc1448b42f4318eafa65a, type: 3}
-  m_PrefabInstance: {fileID: 5789381387029214614}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1600734732178849154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5075258196873185300, guid: a3084032904dc1448b42f4318eafa65a, type: 3}
+  m_PrefabInstance: {fileID: 5789381387029214614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6555289141204591551 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 765914356681266729, guid: a3084032904dc1448b42f4318eafa65a, type: 3}
   m_PrefabInstance: {fileID: 5789381387029214614}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6114013458175085838
@@ -1872,15 +1872,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be8a89cfb8018cb4e93d1f6fba14c8f6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.03
+      value: 0.035
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be8a89cfb8018cb4e93d1f6fba14c8f6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.03
+      value: 0.035
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be8a89cfb8018cb4e93d1f6fba14c8f6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.03
+      value: 0.035
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be8a89cfb8018cb4e93d1f6fba14c8f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1935,5 +1935,10 @@ PrefabInstance:
 --- !u!4 &6004406223263673061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: be8a89cfb8018cb4e93d1f6fba14c8f6, type: 3}
+  m_PrefabInstance: {fileID: 6114013458175085838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4834829124790473098 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: be8a89cfb8018cb4e93d1f6fba14c8f6, type: 3}
   m_PrefabInstance: {fileID: 6114013458175085838}
   m_PrefabAsset: {fileID: 0}

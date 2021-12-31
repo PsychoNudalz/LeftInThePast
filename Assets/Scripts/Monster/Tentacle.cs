@@ -35,6 +35,9 @@ public class Tentacle : MonoBehaviour
     [SerializeField]
     private TentaclesHandler tentaclesHandler;
 
+    [SerializeField]
+    private Renderer tentacleRenderer;
+
     public TentaclesHandler TentaclesHandler
     {
         get => tentaclesHandler;

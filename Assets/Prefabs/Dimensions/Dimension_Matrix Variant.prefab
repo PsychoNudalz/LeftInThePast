@@ -167,10 +167,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ef5b269dbd7eadc4d8c01da6584e0777, type: 2}
-    - target: {fileID: 3825105877452507634, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4013052282235796758, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
@@ -549,7 +545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8563547781599440261, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Name
-      value: Dimension_Matrix
+      value: Dimension_Matrix Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8657802339235198067, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_BoundingSphereOverride.w

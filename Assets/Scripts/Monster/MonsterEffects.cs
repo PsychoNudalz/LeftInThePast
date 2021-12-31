@@ -90,7 +90,7 @@ public class MonsterEffects : MonoBehaviour
         vfx_Eyes.Stop();
     }
 
-    public void OnStart_End()
+    public void OnStare_End()
     {
         faceAnimator.Play(eyeCloseAnimation);
         stareSound.Stop();
@@ -115,13 +115,16 @@ public class MonsterEffects : MonoBehaviour
         chaseSound.Stop();
 
         isChase = false;
-        OnStart_End();
+        OnStare_End();
     }
 
     public void StartSpawnEffect()
     {
         vfx_Eyes.Play();
+        vfx_Body.Reinit();
+
         vfx_Body.Play();
+        
         animator.SetTrigger("Spawn");
     }
 
@@ -130,7 +133,10 @@ public class MonsterEffects : MonoBehaviour
         vfx_Eyes.Stop();
         vfx_Body.Stop();
         animator.SetTrigger("Despawn");
-
+        faceAnimator.Play(eyeCloseAnimation);
+        stareSound.Stop();
+        portalSphereRenderer.material.SetTexture("_MainTex",
+            MonsterHandlerScript.current.CurrentDimension.GetDimensionTexture());
     }
 
     public void ShootAllTentacles()

@@ -36,7 +36,7 @@ public class Dimension : MonoBehaviour
         dimensionClone.SetActive(false);
     }
 
-    RenderTexture GetDimensionTexture()
+    public RenderTexture GetDimensionTexture()
     {
         return dimensionClone.RenderTexture;
     }

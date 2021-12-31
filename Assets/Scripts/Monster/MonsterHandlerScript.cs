@@ -20,6 +20,9 @@ public class MonsterHandlerScript : MonoBehaviour
     [Header("Current Dimension")]
     [SerializeField]
     private Dimension currentDimension;
+
+    public Dimension CurrentDimension => currentDimension;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -89,7 +92,7 @@ public class MonsterHandlerScript : MonoBehaviour
     {
         monsterEffects.StartDespawnEffect();
         DisableAI();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         transform.position += DimensionController.GetZDiff(currentDimension, d);
         currentDimension = d;
         monsterEffects.StartSpawnEffect();

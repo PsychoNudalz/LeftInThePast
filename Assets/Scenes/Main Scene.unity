@@ -230,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114600693638766706, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: _activateOnStartup
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114600693638766706, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: _initialiseOnStartup
@@ -2709,10 +2709,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 281694723}
     - target: {fileID: 6782550270765487123, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6782550270765487123, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -2722,7 +2718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7428355872589626947, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.047
+      value: -9.09
       objectReference: {fileID: 0}
     - target: {fileID: 7428355872589626947, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2730,7 +2726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7428355872589626947, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.97
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 7428355872589626947, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2763,14 +2759,6 @@ PrefabInstance:
     - target: {fileID: 7428355872589626972, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
       propertyPath: m_Name
       value: The Monster
-      objectReference: {fileID: 0}
-    - target: {fileID: 7428355872589626972, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7428355873952862764, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7428355873952862764, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
       propertyPath: m_Materials.Array.data[0]

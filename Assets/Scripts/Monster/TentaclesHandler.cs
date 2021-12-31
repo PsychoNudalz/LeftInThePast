@@ -80,8 +80,8 @@ public class TentaclesHandler : MonoBehaviour
         Tentacle tentacle = freeTentacleStack[0];
         tentacle.transform.position = transform.position+ new Vector3(UnityEngine.Random.Range(-spawnArea.x, spawnArea.x),
             UnityEngine.Random.Range(-spawnArea.y, spawnArea.y), UnityEngine.Random.Range(-spawnArea.z, spawnArea.z));
-        tentacle.transform.forward = new Vector3(UnityEngine.Random.Range(-1f, 1f),
-            UnityEngine.Random.Range(-1, 1), 1);
+        tentacle.transform.forward = (new Vector3(UnityEngine.Random.Range(-1f, 1f),
+            UnityEngine.Random.Range(-1, 1), UnityEngine.Random.Range(-1, 1))).normalized;
         tentacle.ShootTentacle();
         freeTentacleStack.RemoveAt(0);
     }
