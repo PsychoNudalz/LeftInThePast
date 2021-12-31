@@ -36,6 +36,10 @@ public class MonsterEffects : MonoBehaviour
     [SerializeField]
     private string eyeCloseAnimation = "MonsterFace_StareStop";
 
+    [Header("Spawn Effect")]
+    [SerializeField]
+    private Renderer portalSphereRenderer;
+
     [Header("Chase")]
     private bool isChase = false;
     
@@ -48,7 +52,17 @@ public class MonsterEffects : MonoBehaviour
 
     [SerializeField]
     private Sound chaseSound;
-    
+
+    [Header("Components")]
+    [SerializeField]
+    TentaclesHandler tentaclesHandler;
+
+    public TentaclesHandler TentaclesHandler
+    {
+        get => tentaclesHandler;
+        set => tentaclesHandler = value;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,5 +112,15 @@ public class MonsterEffects : MonoBehaviour
 
         isChase = false;
         OnStart_End();
+    }
+
+    public void StartMonsterSpawnEffect()
+    {
+        
+    }
+
+    public void ShootAllTentacles()
+    {
+        tentaclesHandler.ShootAllTentacles();
     }
 }

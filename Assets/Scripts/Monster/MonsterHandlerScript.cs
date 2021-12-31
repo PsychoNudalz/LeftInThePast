@@ -13,6 +13,13 @@ public class MonsterHandlerScript : MonoBehaviour
 
     [SerializeField]
     private MonsterEffects monsterEffects;
+
+    [SerializeField]
+    private TentaclesHandler tentaclesHandler;
+
+    [Header("Current Dimension")]
+    [SerializeField]
+    private Dimension currentDimension;
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,6 +31,16 @@ public class MonsterHandlerScript : MonoBehaviour
         if (!monsterEffects)
         {
             monsterEffects = GetComponent<MonsterEffects>();
+        }
+
+        if (!tentaclesHandler)
+        {
+            tentaclesHandler = GetComponentInChildren<TentaclesHandler>();
+        }
+        
+        if (!monsterEffects.TentaclesHandler)
+        {
+            monsterEffects.TentaclesHandler = tentaclesHandler;
         }
 
         current = this;
@@ -39,6 +56,23 @@ public class MonsterHandlerScript : MonoBehaviour
     {
         monsterAI.RecieveSoi(newSource);
     }
+
+    public void SetAIActive(bool b)
+    {
+        monsterAI.SetActive(b);
+    }
+
+    public void EnableAI()
+    {
+        SetAIActive(true);
+        
+    }
+    
+    public void DisableAI()
+    {
+        SetAIActive(false);
+    }
+    
 
 
     [Command()]

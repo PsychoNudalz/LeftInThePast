@@ -119,6 +119,16 @@ public class EnemyAI : MonoBehaviour
         AIBehaviour();
     }
 
+    public void SetActive(bool b)
+    {
+        this.enabled = b;
+        navMeshAgent.enabled = b;
+        if (!b)
+        {
+            ChangeState(AIState.Idle);
+        }
+    }
+
 
     public virtual void ChangeState(AIState newState)
     {

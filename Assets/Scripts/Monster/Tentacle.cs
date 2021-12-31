@@ -11,13 +11,14 @@ public class Tentacle : MonoBehaviour
 
     [SerializeField]
     private Transform ballLaunchPoint;
+
     [SerializeField]
     private float shootStrength = 300f;
 
     [SerializeField]
     private float shootDelay = 1f;
 
-    
+
     [Header("Components")]
     [SerializeField]
     private ChainIKConstraint chainIKConstraint;
@@ -44,8 +45,14 @@ public class Tentacle : MonoBehaviour
     [Header("Debug")]
     [SerializeField]
     private Vector3 worldPoint = new Vector3();
+
     [SerializeField]
     private bool isExtended = false;
+
+    public bool IsExtended => isExtended;
+
+    [SerializeField]
+    private bool isRecalled = false;
 
     private Coroutine coroutine;
 
@@ -82,17 +89,22 @@ public class Tentacle : MonoBehaviour
             SetTentacle(worldPoint);
         }
 
-        if (isExtended&& Vector3.Distance(transform.position, worldPoint)>= maxRange)
+// if the extended tentacle reached max distance
+        if (isExtended && Vector3.Distance(transform.position, worldPoint) >= maxRange)
         {
-            if (coroutine == null)
+            if (!isRecalled)
             {
-                coroutine = StartCoroutine(RetractAndShoot());
+                //coroutine = StartCoroutine(RetractAndShoot());
+                RetractTentacle();
             }
-        }else if (Vector3.Distance(transform.position, tentacleBall.transform.position) > maxRange * 1.1f)
+        }
+        // if the tentacle reached max distance and a bit without hitting anything
+        else if (Vector3.Distance(transform.position, tentacleBall.transform.position) > maxRange * 1.1f)
         {
-            if (coroutine == null)
+            if (!isRecalled)
             {
-                coroutine = StartCoroutine(RetractAndShoot());
+                //coroutine = StartCoroutine(RetractAndShoot());
+                RetractTentacle();
             }
         }
     }
@@ -108,9 +120,9 @@ public class Tentacle : MonoBehaviour
 
     public void ShootTentacle()
     {
-
-        animator.SetBool("Extended",true);
-        ShootTentacle(ballLaunchPoint.forward*shootStrength);
+        isRecalled = false;
+        animator.SetBool("Extended", true);
+        ShootTentacle(ballLaunchPoint.forward * shootStrength);
     }
 
     public void SetTentacleTarget(Vector3 target)
@@ -126,7 +138,9 @@ public class Tentacle : MonoBehaviour
 
     public void RetractTentacle()
     {
-        animator.SetBool("Extended",false);
+        animator.SetBool("Extended", false);
+        isRecalled = true;
+        tentaclesHandler?.AddToFreeStack(this);
     }
 
     IEnumerator RetractAndShoot()
@@ -140,19 +154,23 @@ public class Tentacle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (tentaclesHandler )
+        if (tentaclesHandler)
         {
-            if (tentaclesHandler.PlayerTagList.Contains(other.tag)&&!PlayerHandlerScript.IgnorePlayer)
+            if (tentaclesHandler.PlayerTagList.Contains(other.tag) && !PlayerHandlerScript.IgnorePlayer)
             {
                 // print($"{name} triggered by: {other.name}");
-                monsterAI.RecieveSoi(new SourceOfInterest("Player hit tentacle", other.ClosestPoint(transform.position),SourceOfInterestType.Tentacle,Vector3.Distance(other.transform.position,transform.position)*2f));
-            }else if (tentaclesHandler.ItemTagList.Contains(other.tag))
+                monsterAI.RecieveSoi(new SourceOfInterest("Player hit tentacle", other.ClosestPoint(transform.position),
+                    SourceOfInterestType.Tentacle,
+                    Vector3.Distance(other.transform.position, transform.position) * 2f));
+            }
+            else if (tentaclesHandler.ItemTagList.Contains(other.tag))
             {
                 PickUpInteractables temp = other.GetComponentInParent<PickUpInteractables>();
-                if (temp &&temp.isMoving())
+                if (temp && temp.isMoving())
                 {
-                    monsterAI.RecieveSoi(new SourceOfInterest(temp.name, other.ClosestPoint(transform.position),SourceOfInterestType.Tentacle,Vector3.Distance(other.transform.position,transform.position)*2f));
-
+                    monsterAI.RecieveSoi(new SourceOfInterest(temp.name, other.ClosestPoint(transform.position),
+                        SourceOfInterestType.Tentacle,
+                        Vector3.Distance(other.transform.position, transform.position) * 2f));
                 }
             }
         }
