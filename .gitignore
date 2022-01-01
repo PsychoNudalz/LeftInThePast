@@ -73,3 +73,5 @@ Assets/Prefabs.meta
 #/Assets/PBRMaterialBundleVol1/**/*.meta
 
 /Assets/DeepSpaceSkyboxPack/**/*.tif
+
+/Assets/Models\Imported\Flashlight/**/*.tga
