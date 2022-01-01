@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class Dimension : MonoBehaviour
 {
-    [SerializeField] PlayerCloneScript dimensionClone;
+    [SerializeField]
+    PlayerCloneScript dimensionClone;
+
+    [SerializeField]
+    private PatrolManager patrolManager;
+
+    public PatrolManager PatrolManager => patrolManager;
 
     private void Start()
     {
@@ -13,6 +19,12 @@ public class Dimension : MonoBehaviour
         {
             dimensionClone = GetComponentInChildren<PlayerCloneScript>();
         }
+
+        if (!patrolManager)
+        {
+            patrolManager = GetComponentInChildren<PatrolManager>();
+        }
+
         dimensionClone.SetActive(false);
     }
 
@@ -20,8 +32,8 @@ public class Dimension : MonoBehaviour
     {
         dimensionClone.SetActive(true);
         PlayerHandlerScript.current.TeleportEffect(dimensionClone.RenderTexture);
-        
-        
+
+
         //StartCoroutine(DisableCloneAfterDelay());
     }
 
@@ -40,5 +52,5 @@ public class Dimension : MonoBehaviour
     {
         return dimensionClone.RenderTexture;
     }
-
+    
 }

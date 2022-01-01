@@ -95,6 +95,7 @@ public class MonsterHandlerScript : MonoBehaviour
         yield return new WaitForSeconds(5f);
         transform.position += DimensionController.GetZDiff(currentDimension, d);
         currentDimension = d;
+        monsterAI.ChangeState(AIState.Idle);
         monsterEffects.StartSpawnEffect();
         //AI reenable in animation
     }

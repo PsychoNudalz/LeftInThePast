@@ -90,10 +90,16 @@ public class EnemyAI : MonoBehaviour
     GameObject playerGO;
 
     [SerializeField]
-    NavMeshAgent navMeshAgent;
+    protected NavMeshAgent navMeshAgent;
 
     [SerializeField]
     PatrolManager patrolManager;
+
+    protected PatrolManager PatrolManager
+    {
+        get => patrolManager;
+        set => patrolManager = value;
+    }
 
     [SerializeField]
     protected Transform head;

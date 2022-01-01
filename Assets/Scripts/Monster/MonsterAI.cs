@@ -127,6 +127,7 @@ public class MonsterAI : EnemyAI
             case AIState.Idle:
                 break;
             case AIState.MoveToPatrol:
+                PatrolManager = MonsterHandlerScript.current.CurrentDimension.PatrolManager;
                 break;
             case AIState.MoveToPlayer:
 
@@ -184,6 +185,17 @@ public class MonsterAI : EnemyAI
             case AIState.Investigate:
                 AIBehaviour_Investigate();
                 break;
+        }
+    }
+    
+    //Move To Patrol
+    protected override void AIThink_MoveToPatrol()
+    {
+        base.AIThink_MoveToPatrol();
+        if (!navMeshAgent.hasPath)
+        {
+            PatrolManager = MonsterHandlerScript.current.CurrentDimension.PatrolManager;
+            SetNewPatrolPoint();
         }
     }
 
