@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JukeBoxScript : MonoBehaviour
+public class DimensionTeleportScript : MonoBehaviour
 {
 
     public void TeleportPlayer()

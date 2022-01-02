@@ -31,6 +31,9 @@ public class PlayerHandlerScript : MonoBehaviour
     private PlayerFootstepsScript playerFootstepsScript;
 
     [SerializeField]
+    private PlayerLookingGlass playerLookingGlass;
+
+    [SerializeField]
     private LookingGlass lookingGlass;
 
     [field: Header("Debug")]
@@ -52,6 +55,7 @@ public class PlayerHandlerScript : MonoBehaviour
     public PlayerUIController PlayerUIController => playerUIController;
 
     public PlayerFootstepsScript PlayerFootstepsScript => playerFootstepsScript;
+    public PlayerLookingGlass PlayerLookingGlass => playerLookingGlass;
 
     private void Awake()
     {
@@ -96,10 +100,17 @@ public class PlayerHandlerScript : MonoBehaviour
         {
             playerInventory = GetComponent<PlayerInventory>();
         }
+
+        if (!playerLookingGlass)
+        {
+            playerLookingGlass = GetComponent<PlayerLookingGlass>();
+        }
     }
 
     public void TeleportMovePlayer(Vector3 transformOffset)
     {
+        playerLookingGlass.EquipLookingGlass(false);
+
         playerTeleportScript.TeleportMovePlayer(transformOffset);
     }
 

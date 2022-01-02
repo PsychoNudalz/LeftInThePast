@@ -31,6 +31,8 @@ public class LookingGlass : MonoBehaviour
 
     [SerializeField]
     private float rotateAmount = 5f;
+    
+    
 
     private void Awake()
     {
