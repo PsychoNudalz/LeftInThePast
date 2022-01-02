@@ -40,26 +40,29 @@ public class MonsterHandlerScript : MonoBehaviour
         {
             tentaclesHandler = GetComponentInChildren<TentaclesHandler>();
         }
-        
+
         if (!monsterEffects.TentaclesHandler)
         {
             monsterEffects.TentaclesHandler = tentaclesHandler;
         }
 
-        
+
         current = this;
     }
 
     private void Start()
     {
-        currentDimension = DimensionController.Current.CurrentDimension;
+        if (!currentDimension)
+        {
+            currentDimension = DimensionController.Current.CurrentDimension;
+        }
 
+        TeleportDimension(currentDimension, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void RecieveSoi(SourceOfInterest newSource)
@@ -75,31 +78,67 @@ public class MonsterHandlerScript : MonoBehaviour
     public void EnableAI()
     {
         SetAIActive(true);
-        
     }
-    
+
     public void DisableAI()
     {
         SetAIActive(false);
     }
 
-    public void TeleportDimension(Dimension d)
+    public void TeleportDimension(Dimension d, float f = 3f)
     {
-        StartCoroutine(teleportDimensionEnumerator(d));
+        if (f != 0)
+        {
+            StartCoroutine(teleportDimensionEnumerator(d, f,
+                transform.position + DimensionController.GetZDiff(currentDimension, d)));
+        }
+        else
+        {
+            DisableAI();
+
+            PostTeleport(d, transform.position + DimensionController.GetZDiff(currentDimension, d));
+        }
     }
 
-    IEnumerator teleportDimensionEnumerator(Dimension d)
+    public void TeleportDimension(Dimension d, Vector3 position, float f = 3f)
+    {
+        if (f != 0)
+        {
+            StartCoroutine(teleportDimensionEnumerator(d, f,
+                position));
+        }
+        else
+        {
+            DisableAI();
+            PostTeleport(d, position);
+        }
+    }
+
+
+    IEnumerator teleportDimensionEnumerator(Dimension d, float f, Vector3 position)
     {
         monsterEffects.StartDespawnEffect();
         DisableAI();
-        yield return new WaitForSeconds(5f);
-        transform.position += DimensionController.GetZDiff(currentDimension, d);
-        currentDimension = d;
-        monsterAI.ChangeState(AIState.Idle);
-        monsterEffects.StartSpawnEffect();
+        yield return new WaitForSeconds(f);
+        Dimension temp = currentDimension;
+        PostTeleport(d, position);
+        yield return new WaitForSeconds(2f);
+        temp.SetDimensionActive(false);
+
+
         //AI reenable in animation
     }
-    
+
+    private void PostTeleport(Dimension d, Vector3 position)
+    {
+        transform.position = position;
+        
+        currentDimension = d;
+        currentDimension.SetDimensionActive(true);
+
+        monsterAI.ChangeState(AIState.Idle);
+        monsterEffects.StartSpawnEffect();
+    }
 
 
     [Command()]
@@ -126,6 +165,7 @@ public class MonsterHandlerScript : MonoBehaviour
         {
             Debug.LogError("current dimension null");
         }
+
         current.TeleportDimension(DimensionController.Current.CurrentDimension);
     }
 }

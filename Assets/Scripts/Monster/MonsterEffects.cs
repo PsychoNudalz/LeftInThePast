@@ -77,6 +77,8 @@ public class MonsterEffects : MonoBehaviour
 
         passiveSound.Play();
         vfx_Chase.Play();
+        portalSphereRenderer.material.SetTexture("_MainTex",
+            MonsterHandlerScript.current.CurrentDimension.GetDimensionTexture());
     }
 
     private void Update()
@@ -126,6 +128,8 @@ public class MonsterEffects : MonoBehaviour
         vfx_Body.Play();
         
         animator.SetTrigger("Spawn");
+        tentaclesHandler.enabled = true;
+
     }
 
     public void StartDespawnEffect()
@@ -133,6 +137,8 @@ public class MonsterEffects : MonoBehaviour
         vfx_Eyes.Stop();
         vfx_Body.Stop();
         animator.SetTrigger("Despawn");
+        tentaclesHandler.RecallAllTentacles();
+        tentaclesHandler.enabled = false;
         faceAnimator.Play(eyeCloseAnimation);
         stareSound.Stop();
         portalSphereRenderer.material.SetTexture("_MainTex",

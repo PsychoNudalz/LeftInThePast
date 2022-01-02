@@ -16,7 +16,7 @@ public class PickUpInteractables : Interactable
     private float velocityMultiplier = 1f;
 
     [SerializeField]
-    private Vector3 throwTorque = new Vector3(50f,0,0);
+    private Vector3 throwTorque = new Vector3(0,50f,0);
 
     [SerializeField]
     private Rigidbody rb;
@@ -25,7 +25,7 @@ public class PickUpInteractables : Interactable
     [SerializeField]
     private OnCollisionSOI onCollisionSoi;
 
-    private float movingVelocityDeadzone = 0.01f;
+    private float movingVelocityDeadzone = 0.1f;
 
 
     void Start()

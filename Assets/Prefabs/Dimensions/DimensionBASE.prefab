@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dimensionClone: {fileID: 3825105877452507635}
+  patrolManager: {fileID: 0}
 --- !u!1001 &66531844558500420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -749,6 +750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerClone
       objectReference: {fileID: 0}
+    - target: {fileID: 4073112132874403229, guid: b8449c74a2164914ea8575389923b7f3, type: 3}
+      propertyPath: dimension
+      value: 
+      objectReference: {fileID: 8563547781599440263}
     - target: {fileID: 4073112132874403230, guid: b8449c74a2164914ea8575389923b7f3, type: 3}
       propertyPath: m_RootOrder
       value: 2

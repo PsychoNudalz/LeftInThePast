@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f975fe917226245a040e4043441eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SOIRange: {x: 5, y: 10}
+  SOIRange: {x: 8, y: 15}
   tags: []
 --- !u!1 &2300399932446216258
 GameObject:

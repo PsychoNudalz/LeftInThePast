@@ -10,7 +10,14 @@ public class ToggleInteractable : UsableInteractable
     private UnityEvent OnUnuse;
     [SerializeField]
     private bool toggleOn;
+
     [ContextMenu("Toggle")]
+    protected override void StartBehaviour()
+    {
+        base.StartBehaviour();
+           
+    }
+
     public override void OnInteract()
     {
         //base.OnInteract();

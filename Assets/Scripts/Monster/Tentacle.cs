@@ -116,6 +116,7 @@ public class Tentacle : MonoBehaviour
     {
         // print("Shoot Tentacle");
         isExtended = false;
+        tentacleBall.gameObject.SetActive(true);
 
         tentacleBall.transform.position = ballLaunchPoint.position;
         tentacleBall.LaunchBall(v);
@@ -132,6 +133,7 @@ public class Tentacle : MonoBehaviour
     {
         worldPoint = target;
         isExtended = true;
+        tentacleBall.gameObject.SetActive(false);
     }
 
     public void SetTentacle(Vector3 position)

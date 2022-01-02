@@ -52,5 +52,10 @@ public class Dimension : MonoBehaviour
     {
         return dimensionClone.RenderTexture;
     }
+
+    public void SetDimensionActive(bool b)
+    {
+        dimensionClone.SetActive(b);
+    }
     
 }

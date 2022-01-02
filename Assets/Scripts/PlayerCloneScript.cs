@@ -17,11 +17,15 @@ public class PlayerCloneScript : MonoBehaviour
 
     public Camera Camera => camera;
 
+    private void Awake()
+    {
+        CreateRenderTexture();
+
+    }
 
     private void Start()
     {
         StartBehaviour();
-        CreateRenderTexture();
     }
 [ContextMenu("Start")]
     private void StartBehaviour()
@@ -41,10 +45,10 @@ public class PlayerCloneScript : MonoBehaviour
     private void UpdatePositionAndCamera()
     {
         Transform transform2;
-        // if (!player)
-        // {
-        //     StartBehaviour();
-        // }
+        if (!player)
+        {
+            StartBehaviour();
+        }
         (transform2 = transform).position = player.transform.position + DimensionController.Current.GetZDiff(dimension);
         transform2.rotation = player.transform.rotation;
         var transform1 = mainCamera.transform;
@@ -60,6 +64,8 @@ public class PlayerCloneScript : MonoBehaviour
             UpdatePositionAndCamera();
         }
     }
+    
+    [ContextMenu("Create Render Texture")]
 
     void CreateRenderTexture()
     {

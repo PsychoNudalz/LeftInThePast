@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9111604773500585320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6474826393929915778}
+  - component: {fileID: 2184306512307193907}
+  m_Layer: 0
+  m_Name: MonsterSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6474826393929915778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9111604773500585320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.955, y: 0.545, z: 5.554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6435021343268331336}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2184306512307193907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9111604773500585320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba104de7ebf6b7c48991d8745f4bedce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMonster: {fileID: 0}
+  flag: 0
 --- !u!1001 &2801368757297943934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1908,6 +1953,38 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.z
       value: 2.7485018e+20
       objectReference: {fileID: 0}
+    - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2184306512307193907}
+    - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SpawnMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: InitialSpawnForEnemy, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7393878219855251374, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2402,6 +2479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+--- !u!4 &6435021343268331336 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8563547781599440260, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+  m_PrefabInstance: {fileID: 3430085422489891532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8768811576649431690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6209073209225300038, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}

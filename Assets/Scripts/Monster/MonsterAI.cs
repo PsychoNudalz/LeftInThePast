@@ -7,9 +7,9 @@ using Random = System.Random;
 
 public class MonsterAI : EnemyAI
 {
-    
     [Header("Monster AI")]
-    private SourceOfInterest currentSource;
+    [SerializeField]
+     SourceOfInterest currentSource = new SourceOfInterest("", new Vector3(), SourceOfInterestType.Noise, 0f);
 
     [FormerlySerializedAs("stareDuration")]
     [Header("Monster Stare")]
@@ -53,7 +53,7 @@ public class MonsterAI : EnemyAI
     private bool showDebug = false;
 
     [SerializeField]
-    private float debugSphereRadius = .3f; 
+    private float debugSphereRadius = .3f;
 
     public SourceOfInterest CurrentSource => currentSource;
 
@@ -64,7 +64,7 @@ public class MonsterAI : EnemyAI
         {
             if (currentSource?.SourceItem != null)
             {
-                Gizmos.DrawSphere(currentSource.Position,debugSphereRadius);
+                Gizmos.DrawSphere(currentSource.Position, debugSphereRadius);
             }
         }
     }
@@ -82,7 +82,7 @@ public class MonsterAI : EnemyAI
             return;
         }
 
-        if (currentSource == null ||(currentSource.SourceItem == null))
+        if (currentSource == null || (currentSource.SourceItem == null))
         {
             SetCurrentSource(newSource);
         }
@@ -95,6 +95,7 @@ public class MonsterAI : EnemyAI
                     {
                         SetCurrentSource(newSource);
                     }
+
                     break;
                 case SourceOfInterestType.Tentacle:
                     if (currentSource.SourceOfInterestType.Equals(SourceOfInterestType.Noise))
@@ -187,7 +188,7 @@ public class MonsterAI : EnemyAI
                 break;
         }
     }
-    
+
     //Move To Patrol
     protected override void AIThink_MoveToPatrol()
     {
@@ -223,11 +224,12 @@ public class MonsterAI : EnemyAI
     //Stare
     protected virtual void ChangeState_Stare()
     {
-        if (currentSource!= null)
+        if (currentSource != null)
         {
             head.LookAt(new Vector3(currentSource.Position.x, Mathf.Max(head.position.y, currentSource.Position.y),
                 currentSource.Position.z));
         }
+
         stareTime_Now = stareTime;
         BroadcastMessage("OnStare_Start");
     }
@@ -286,7 +288,7 @@ public class MonsterAI : EnemyAI
     void SetCurrentSource(SourceOfInterest newSource)
     {
         currentSource = newSource;
-        
+
 
         switch (newSource.SourceOfInterestType)
         {
@@ -324,6 +326,7 @@ public class MonsterAI : EnemyAI
         {
             distanceToPlayer = 1000f;
         }
+
         return distanceToPlayer;
     }
 }

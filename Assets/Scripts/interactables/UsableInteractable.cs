@@ -10,6 +10,11 @@ public class UsableInteractable : Interactable
     // Start is called before the first frame update
     void Start()
     {
+        StartBehaviour();
+    }
+
+    protected virtual void StartBehaviour()
+    {
         if (!highlightEffect)
         {
             highlightEffect = GetComponent<HighlightEffect>();
