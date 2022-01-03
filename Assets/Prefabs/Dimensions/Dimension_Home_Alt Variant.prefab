@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2851892177655781918, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d23ea84d0ff7893428c8218595e6daa6, type: 3}
     - target: {fileID: 2878553365072902211, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -198,6 +202,10 @@ PrefabInstance:
     - target: {fileID: 3114120093947813352, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_BoundingSphereOverride.z
       value: 2.6002e-41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134407695556360703, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: maskName
+      value: TPEffect3
       objectReference: {fileID: 0}
     - target: {fileID: 3153014502745674342, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_BoundingSphereOverride.w
@@ -687,10 +695,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d11dce6ae3b2d19498613b82e1f1ab6a, type: 2}
+    - target: {fileID: 7891862667406827447, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a0659e067900de43b03c8d18ef24402, type: 3}
     - target: {fileID: 7983472789652143825, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fde22f7fd3af8d740a66e8f6b70fda25, type: 2}
+    - target: {fileID: 8004678420270268365, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 447180199dfaecb45b838d77d6c58a09, type: 3}
     - target: {fileID: 8029638852012582846, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

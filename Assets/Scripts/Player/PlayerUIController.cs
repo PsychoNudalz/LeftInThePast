@@ -22,10 +22,19 @@ public class PlayerUIController : MonoBehaviour
     {
         
     }
-
-    public void SetTeleportEffect(Texture newTexture)
+    
+    
+    /// <summary>
+    /// Set the teleport texture, mask name for different masks
+    ///
+    /// TPEffect1: Circle
+    /// TPEffect2: Shatter
+    /// </summary>
+    /// <param name="newTexture"></param>
+    /// <param name="maskName"></param>
+    public void SetTeleportEffect(Texture newTexture,string maskName = "TPEffect1")
     {
         teleportScreen.texture = newTexture;
-        maskAnimator.SetTrigger("Play");
+        maskAnimator.Play(maskName);
     }
 }

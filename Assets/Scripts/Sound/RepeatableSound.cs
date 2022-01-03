@@ -44,7 +44,7 @@ public class RepeatableSound : Sound
         {
             if (sound is RepeatableSound)
             {
-                Debug.LogError($"{name} can not take {sound} as repeatable cant take repeartable");
+                Debug.LogError($"{name} can not take {sound} as this repeatable cant take repeatable");
             }
         }
     }
@@ -69,7 +69,7 @@ public class RepeatableSound : Sound
 
     public override void Play()
     {
-        lastPlayTime = 0;
+        //lastPlayTime = 0;
         isPlaying = true;
 
     }

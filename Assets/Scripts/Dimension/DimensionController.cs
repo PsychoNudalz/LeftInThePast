@@ -36,9 +36,9 @@ public class DimensionController : MonoBehaviour
     {
 
     }
-    public void LoopTeleport()
+    public void LoopTeleport(string maskName)
     {
-        currentDimension.TeleportPlayerFrom();
+        currentDimension.TeleportPlayerFrom(maskName);
 
         dimensionPointer++;
         dimensionPointer = dimensionPointer % dimensions.Length;
@@ -49,14 +49,14 @@ public class DimensionController : MonoBehaviour
 
     }
 
-    public void Teleport(int index)
+    public void Teleport(int index, string maskName)
     {
         if (index < 0 || index > dimensions.Length - 1)
         {
             Debug.LogError($"Dimension index: {index} out of range {dimensions.Length}");
             return;
         }
-        currentDimension.TeleportPlayerFrom();
+        currentDimension.TeleportPlayerFrom(maskName);
         
         //Updating to new dimension
         dimensionPointer = index;

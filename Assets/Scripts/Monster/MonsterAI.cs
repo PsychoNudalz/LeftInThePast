@@ -82,6 +82,11 @@ public class MonsterAI : EnemyAI
             return;
         }
 
+        if (!enabled)
+        {
+            return;
+        }
+
         if (currentSource == null || (currentSource.SourceItem == null))
         {
             SetCurrentSource(newSource);

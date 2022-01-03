@@ -382,6 +382,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  cooldownTime: 3
 --- !u!114 &3134713196116856298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95da949f5eed86646b3a2aec399c403e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maskName: TPEffect1
 --- !u!1001 &8514283175236725070
 PrefabInstance:
   m_ObjectHideFlags: 0

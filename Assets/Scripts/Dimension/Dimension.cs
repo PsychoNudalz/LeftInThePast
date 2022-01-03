@@ -28,10 +28,10 @@ public class Dimension : MonoBehaviour
         dimensionClone.SetActive(false);
     }
 
-    public void TeleportPlayerFrom()
+    public void TeleportPlayerFrom(string maskName)
     {
         dimensionClone.SetActive(true);
-        PlayerHandlerScript.current.TeleportEffect(dimensionClone.RenderTexture);
+        PlayerHandlerScript.current.TeleportEffect(dimensionClone.RenderTexture,maskName);
 
 
         //StartCoroutine(DisableCloneAfterDelay());

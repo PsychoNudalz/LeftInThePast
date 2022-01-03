@@ -7,6 +7,12 @@ using UnityEngine.Events;
 public class UsableInteractable : Interactable
 {
     public UnityEvent OnUse;
+
+    [SerializeField]
+    protected float cooldownTime;
+
+    // [SerializeField]
+    protected float cooldownTime_Last;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,14 +36,26 @@ public class UsableInteractable : Interactable
     [ContextMenu("Test/Enter")]
     public override void OnFocus_Enter()
     {
+        
         highlightEffect.SetHighlighted(true);
     }
 
     public override void OnInteract()
     {
+        if (Time.time - cooldownTime_Last < cooldownTime)
+        {
+            return;
+        }
         OnFocus_Exit();
         OnUse.Invoke();
+        RefreshCooldown();
     }
+
+    public void RefreshCooldown()
+    {
+        cooldownTime_Last = Time.time;
+    }
+
     [ContextMenu("Test/Exit")]
 
     public override void OnFocus_Exit()

@@ -949,6 +949,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.1608474
       objectReference: {fileID: 0}
+    - target: {fileID: 3134407695556360703, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: maskName
+      value: TPEffect2
+      objectReference: {fileID: 0}
     - target: {fileID: 3153014502745674342, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: -0.000036105703

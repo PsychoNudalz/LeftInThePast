@@ -236,6 +236,7 @@ MonoBehaviour:
           m_StringArgument: Right/1
           m_BoolArgument: 0
         m_CallState: 2
+  cooldownTime: 1
   OnUnuse:
     m_PersistentCalls:
       m_Calls:

@@ -119,10 +119,15 @@ public class PlayerHandlerScript : MonoBehaviour
         return firstPersonController.CinemachineCameraTarget;
     }
 
-    public void TeleportEffect(RenderTexture previousTexture)
+    public void TeleportEffect(RenderTexture previousTexture,string maskName = "TPEffect1")
     {
-        playerUIController.SetTeleportEffect(previousTexture);
+        playerUIController.SetTeleportEffect(previousTexture, maskName);
         lookingGlass.SetLookingGlass(previousTexture);
+    }
+
+    public void SetNewSet(FootstepSet newFootstepSet)
+    {
+        playerFootstepsScript.SetNewSet(newFootstepSet);
     }
 
     [Command()]

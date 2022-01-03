@@ -21,6 +21,11 @@ public class ToggleInteractable : UsableInteractable
     public override void OnInteract()
     {
         //base.OnInteract();
+        if (Time.time - cooldownTime_Last < cooldownTime)
+        {
+            return;
+        }
+        cooldownTime_Last = Time.time;
         OnFocus_Exit();
         if (!toggleOn)
         {

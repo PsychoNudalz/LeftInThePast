@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mono.CSharp;
 using StarterAssets;
 using UnityEngine;
 
 public class PlayerFootstepsScript : MonoBehaviour
 {
     [SerializeField]
-    private RepeatableSound footSteps;
+    private FootstepSet footSteps;
 
+    [SerializeField]
+    private Transform footstepParent;
+    
+    
+    [Header("Components")]
     [SerializeField]
     private FirstPersonController firstPersonController;
     // Start is called before the first frame update
@@ -24,14 +30,38 @@ public class PlayerFootstepsScript : MonoBehaviour
     {
     }
 
+    public void SetNewSet(FootstepSet newFootstepSet)
+    {
+        print($"Setting footsteps to: {newFootstepSet}");
+        foreach (Transform t in footstepParent.GetComponentsInChildren<Transform>())
+        {
+            if (!t.Equals(footstepParent))
+            {
+                Destroy(t.gameObject);
+            }
+        }
+
+        GameObject temp = Instantiate(newFootstepSet.gameObject, footstepParent);
+        temp.transform.localPosition = new Vector3();
+        footSteps = temp.GetComponent<FootstepSet>();
+    }
+
     public void PlayFootsteps()
     {
-        footSteps.Play();
+        if (!footSteps)
+        {
+            return;
+        }
+        footSteps.PlayFootsteps();
     }
 
     public void StopFootsteps()
     {
-        footSteps.Stop();
+        if (!footSteps)
+        {
+            return;
+        }
+        footSteps.StopFootsteps();
     }
 
 }

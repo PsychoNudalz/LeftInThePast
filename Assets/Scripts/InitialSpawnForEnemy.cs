@@ -21,7 +21,7 @@ public class InitialSpawnForEnemy : MonoBehaviour
     {
         if (!flag)
         {
-            currentMonster.TeleportDimension(DimensionController.Current.CurrentDimension,transform.position,1f);
+            currentMonster.TeleportDimension(DimensionController.Current.CurrentDimension,transform.position,2f);
             flag = true;
         }
     }
