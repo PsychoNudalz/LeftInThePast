@@ -60,7 +60,8 @@ public class UsableInteractable : Interactable
 
     public override void OnFocus_Exit()
     {
-        highlightEffect.SetHighlighted(false);
+        
+        highlightEffect?.SetHighlighted(false);
 
     }
 }

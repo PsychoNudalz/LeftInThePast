@@ -62,8 +62,10 @@ public class RandomSound : Sound
 
     Sound GetRandomSound()
     {
-        seed++;
-        seed = seed % sounds.Length;
+        // seed++;
+        // seed = seed % sounds.Length;
+        //
+        seed = UnityEngine.Random.Range(0, sounds.Length );
         Sound temp = sounds[seed];
         for (int i = 0; i < sounds.Length; i++)
         {
