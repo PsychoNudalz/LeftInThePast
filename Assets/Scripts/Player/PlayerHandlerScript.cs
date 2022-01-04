@@ -130,6 +130,11 @@ public class PlayerHandlerScript : MonoBehaviour
         playerFootstepsScript.SetNewSet(newFootstepSet);
     }
 
+    public static Vector3 GetPlayerLookingDir()
+    {
+        return current.playerInteract.Head.forward;
+    }
+
     [Command()]
     public static void SetIgnore(bool b)
     {

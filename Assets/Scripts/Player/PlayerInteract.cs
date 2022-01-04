@@ -18,6 +18,8 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField]
     private Transform head;
 
+    public Transform Head => head;
+
     [SerializeField]
     private float rayRange = 3f;
 
