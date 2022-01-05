@@ -11,6 +11,13 @@ public class Dimension : MonoBehaviour
     [SerializeField]
     private PatrolManager patrolManager;
 
+    [SerializeField]
+    private JukeBox dimensionJukeBox;
+
+    public PlayerCloneScript DimensionClone => dimensionClone;
+
+    public JukeBox DimensionJukeBox => dimensionJukeBox;
+
     public PatrolManager PatrolManager => patrolManager;
 
     private void Start()
@@ -25,6 +32,10 @@ public class Dimension : MonoBehaviour
             patrolManager = GetComponentInChildren<PatrolManager>();
         }
 
+        if (!dimensionJukeBox)
+        {
+            dimensionJukeBox = GetComponentInChildren<JukeBox>();
+        }
         dimensionClone.SetActive(false);
     }
 
@@ -55,6 +66,7 @@ public class Dimension : MonoBehaviour
 
     public void SetDimensionActive(bool b)
     {
+        
         dimensionClone.SetActive(b);
     }
     
