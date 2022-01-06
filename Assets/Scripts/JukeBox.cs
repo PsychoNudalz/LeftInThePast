@@ -69,7 +69,9 @@ public class JukeBox : MonoBehaviour
         }
 
         UpdateAllJukeBoxes();
+        CheckHasWin();
     }
+    
 
     public void AddNewDisc()
     {
@@ -144,5 +146,18 @@ public class JukeBox : MonoBehaviour
         {
             jukeBox.UpdateJukeBox();
         }
+    }
+
+    public void CheckHasWin()
+    {
+        foreach (var dEnum in Enum.GetValues(typeof(DiscEnum)))
+        {
+            if (!collectedDisks.Contains((DiscEnum)dEnum))
+            {
+                return;
+            }
+        }
+        GameManagerScript.SetGameWin();
+
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerCloneScript : MonoBehaviour
 {
+    private static bool _LOCKON = true; // Override so all clones keeps on
+    
     private PlayerHandlerScript player;
     [SerializeField] private Transform head;
     [SerializeField] private Camera camera;
@@ -58,6 +60,11 @@ public class PlayerCloneScript : MonoBehaviour
 
     public void SetActive(bool b)
     {
+        if (_LOCKON)
+        {
+            b = true;
+        }
+        
         gameObject.SetActive(b);
         if (b)
         {

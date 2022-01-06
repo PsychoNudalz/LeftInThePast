@@ -1,18 +1,48 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static bool gameWin = false;
+
+    private static bool gameOver = false;
+    public static bool GameWin => gameWin;
+
+    public static bool GameOver => gameOver;
+
+    public static GameManagerScript current;
+
+    private void Awake()
     {
-        
+        if (!current)
+        {
+            current = this;
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    public void SetInstanceGameWin()
+    {
+        Debug.Log("Game Win");
+        gameWin = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void SetGameWin()
     {
-        
+        current.SetInstanceGameWin();
+    }
+    public void SetInstanceGameOver()
+    {
+        gameOver = true;
+    }
+
+    public static void SetGameOver()
+    {
+        current.SetInstanceGameOver();
     }
 }
