@@ -8,7 +8,10 @@ public enum DiscEnum
     Home,
     Alt,
     Crystal,
-    Matrix
+    Matrix,
+    Extra1,
+    Extra2
+    
 }
 
 public class DiscScript : MonoBehaviour
@@ -51,4 +54,5 @@ public class DiscScript : MonoBehaviour
             transform.localRotation = Quaternion.identity;
         }
     }
+    
 }

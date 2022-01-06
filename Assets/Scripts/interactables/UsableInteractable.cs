@@ -56,6 +56,11 @@ public class UsableInteractable : Interactable
         cooldownTime_Last = Time.time;
     }
 
+    public bool CanInteract()
+    {
+        return Time.time - cooldownTime_Last >= cooldownTime;
+    }
+
     [ContextMenu("Test/Exit")]
 
     public override void OnFocus_Exit()

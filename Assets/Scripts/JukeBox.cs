@@ -19,6 +19,7 @@ public class JukeBox : MonoBehaviour
 
 
     private DiscScript newDisc;
+    private JukeBoxDisc currentDisc;
     public Transform SlotDiscParent => slotDiscParent;
 
 
@@ -31,6 +32,7 @@ public class JukeBox : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
+
         if (!slotDiscParent)
         {
             slotDiscParent = transform;
@@ -43,6 +45,7 @@ public class JukeBox : MonoBehaviour
         if (newDisc)
         {
             newDisc.OnSlot();
+            StopAllDisc();
             animator.SetTrigger("Insert");
         }
     }
@@ -50,13 +53,11 @@ public class JukeBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void AddDisc(DiscScript d)
@@ -66,8 +67,8 @@ public class JukeBox : MonoBehaviour
         {
             collectedDisks.Add(d.DiscEnum);
         }
+
         UpdateAllJukeBoxes();
-        
     }
 
     public void AddNewDisc()
@@ -88,8 +89,54 @@ public class JukeBox : MonoBehaviour
             }
         }
     }
-    
-    
+
+    public void PlayDisc(int i)
+    {
+        if (!collectedDisks.Contains((DiscEnum) i))
+        {
+            Debug.Log($"Player do not have {((DiscEnum) i).ToString()}");
+            return;
+        }
+        Debug.Log($"Player play {((DiscEnum) i).ToString()}");
+
+        StopAllDisc();
+        foreach (JukeBoxDisc jukeBoxDisc in jukeBoxDiscs)
+        {
+            if (jukeBoxDisc.DiscEnum.Equals((DiscEnum) i))
+            {
+                currentDisc = jukeBoxDisc;
+                PlayDiscAnimation(i);
+                return;
+            }
+        }
+    }
+
+    public void PlayDisc(DiscEnum discEnum)
+    {
+        PlayDisc((int)discEnum);
+    }
+
+    void PlayDiscAnimation(int i)
+    {
+        animator.SetTrigger("Play");
+        animator.SetInteger("CurrentDisc",i);
+
+    }
+
+    public void PlayCurrentDisc()
+    {
+        currentDisc.PlayMusic();
+    }
+
+    public void StopAllDisc()
+    {
+        foreach (JukeBoxDisc jukeBoxDisc in jukeBoxDiscs)
+        {
+            jukeBoxDisc.StopMusic();
+        }
+        animator.SetTrigger("ToIdle");
+    }
+
 
     public static void UpdateAllJukeBoxes()
     {

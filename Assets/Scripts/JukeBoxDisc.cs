@@ -33,5 +33,15 @@ public class JukeBoxDisc : MonoBehaviour
     {
         animatedShader.Play();
     }
+
+    public void PlayMusic()
+    {
+        music?.Play();
+    }
+
+    public void StopMusic()
+    {
+        music?.Stop();
+    }
     
 }

@@ -31,6 +31,10 @@ public class PlayerInteract : MonoBehaviour
     [Header("Player Pick Up")]
     private PlayerInventory playerInventory;
 
+    [Header("Debug")]
+    [SerializeField]
+    private bool isDebug = false;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -84,6 +88,14 @@ public class PlayerInteract : MonoBehaviour
 
     void SetCurrentObject(Interactable i)
     {
+        if (i is UsableInteractable)
+        {
+            if (!(i as UsableInteractable).CanInteract())
+            {
+                return;
+            }
+        }
+        
         if (currentObject)
         {
             currentObject.OnFocus_Exit();
