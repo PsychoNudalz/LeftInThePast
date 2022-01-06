@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
+    private static int _MAXFPS = 120;
+    
     private static bool gameWin = false;
 
     private static bool gameOver = false;
@@ -25,6 +27,8 @@ public class GameManagerScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        Application.targetFrameRate = _MAXFPS;
     }
     public void SetInstanceGameWin()
     {

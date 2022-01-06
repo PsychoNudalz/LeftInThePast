@@ -36,7 +36,7 @@ public class Dimension : MonoBehaviour
         {
             dimensionJukeBox = GetComponentInChildren<JukeBox>();
         }
-        dimensionClone.SetActive(false);
+        //dimensionClone.SetActive(false);
     }
 
     public void TeleportPlayerFrom(string maskName)
