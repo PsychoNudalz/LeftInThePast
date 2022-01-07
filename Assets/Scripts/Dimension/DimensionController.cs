@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using QFSW.QC;
@@ -80,6 +81,19 @@ public class DimensionController : MonoBehaviour
     public static Vector3 GetZDiff(Dimension c,Dimension d)
     {
         return d.transform.position - c.transform.position;
+    }
+
+    public Dimension GetDimension(int i)
+    {
+        try
+        {
+            return dimensions[i];
+        }
+        catch (IndexOutOfRangeException e)
+        {
+            Debug.LogError(e);
+            return null;
+        }
     }
 
     [Command()]

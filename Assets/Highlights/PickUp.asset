@@ -36,7 +36,7 @@ MonoBehaviour:
   outlineDownsampling: 2
   outlineVisibility: 0
   outlineIndependent: 0
-  glow: 1
+  glow: 0.5
   glowWidth: 1
   glowQuality: 2
   glowDownsampling: 2

@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888380afc233049ce9e618f9f36c8ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 0}
+  profile: {fileID: 11400000, guid: c641a21bff23c0d48b43784d02bc0183, type: 2}
   profileSync: 0
   previewInEditor: 1
   camerasLayerMask:
@@ -264,29 +264,29 @@ MonoBehaviour:
   flipY: 0
   constantWidth: 1
   subMeshMask: -1
-  overlay: 0.5
+  overlay: 0
   overlayColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   overlayAnimationSpeed: 1
   overlayMinIntensity: 0.5
   overlayBlending: 1
-  outline: 1
+  outline: 0
   outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 0.45
+  outlineWidth: 0
   outlineQuality: 3
   outlineDownsampling: 2
   outlineVisibility: 0
   outlineBlitDebug: 0
   outlineIndependent: 0
-  glow: 1
-  glowWidth: 0.4
-  glowQuality: 3
+  glow: 0.5
+  glowWidth: 1
+  glowQuality: 2
   glowDownsampling: 2
-  glowHQColor: {r: 0.64, g: 1, b: 0, a: 1}
+  glowHQColor: {r: 1, g: 1, b: 1, a: 1}
   glowDithering: 1
   glowMagicNumber1: 0.75
   glowMagicNumber2: 0.5
   glowAnimationSpeed: 1
-  glowVisibility: 0
+  glowVisibility: 1
   glowBlitDebug: 0
   glowBlendPasses: 1
   glowPasses:
@@ -317,7 +317,7 @@ MonoBehaviour:
   targetFXTransitionDuration: 0.5
   targetFXStayDuration: 1.5
   targetFXVisibility: 1
-  seeThrough: 0
+  seeThrough: 2
   seeThroughOccluderMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -356,7 +356,7 @@ MonoBehaviour:
   OnUse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4102140412894267398}
         m_TargetAssemblyTypeName: DimensionTeleportScript, Assembly-CSharp
         m_MethodName: TeleportPlayer
         m_Mode: 3
@@ -613,6 +613,10 @@ PrefabInstance:
     - target: {fileID: 3331988859078300393, guid: 56c43446cb6b08649b8ca466f20c2528, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Overridden
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546909455890641146, guid: 56c43446cb6b08649b8ca466f20c2528, type: 3}
+      propertyPath: dimensionIndex
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6027602225697978466, guid: 56c43446cb6b08649b8ca466f20c2528, type: 3}
       propertyPath: m_Materials.Array.data[0]

@@ -14,6 +14,7 @@ public class MaterialOverride : MonoBehaviour
     {
         SetRenderers();
     }
+    [ContextMenu("Set Renderers")]
 
     private void SetRenderers()
     {

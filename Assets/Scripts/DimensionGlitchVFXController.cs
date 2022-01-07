@@ -10,6 +10,9 @@ public class DimensionGlitchVFXController : MonoBehaviour
     private VisualEffect vfx;
 
     [SerializeField]
+    private int dimensionIndex = -1;
+
+    [SerializeField]
     private Dimension connectedDimention;
     // Start is called before the first frame update
     private void Awake()
@@ -22,6 +25,10 @@ public class DimensionGlitchVFXController : MonoBehaviour
 
     void Start()
     {
+        if (dimensionIndex >= 0)
+        {
+            connectedDimention = DimensionController.Current.GetDimension(dimensionIndex);
+        }
         if (connectedDimention)
         {
             vfx.SetTexture("RenderTexture",connectedDimention.GetDimensionTexture());
