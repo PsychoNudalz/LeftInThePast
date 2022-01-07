@@ -122,8 +122,8 @@ public class MonsterHandlerScript : MonoBehaviour
         yield return new WaitForSeconds(f);
         Dimension temp = currentDimension;
         PostTeleport(d, position);
-        yield return new WaitForSeconds(2f);
-        temp.SetDimensionActive(false);
+        yield return new WaitForSeconds(0f);
+        //temp.SetDimensionActive(false);
 
 
         //AI reenable in animation

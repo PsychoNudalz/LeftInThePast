@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerCloneScript : MonoBehaviour
 {
-    private static bool _LOCKON = true; // Override so all clones keeps on
+    private static bool _LOCKON = false; // Override so all clones keeps on
     
     private PlayerHandlerScript player;
     [SerializeField] private Transform head;

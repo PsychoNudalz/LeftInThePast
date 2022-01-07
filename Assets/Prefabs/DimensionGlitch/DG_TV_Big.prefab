@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2952053457092123606}
   - component: {fileID: 4972156615543175443}
   m_Layer: 6
-  m_Name: DG_TV
+  m_Name: DG_TV_Big
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

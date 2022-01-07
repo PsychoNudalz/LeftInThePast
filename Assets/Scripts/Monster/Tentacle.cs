@@ -177,6 +177,9 @@ public class Tentacle : MonoBehaviour
                         SourceOfInterestType.Tentacle,
                         Vector3.Distance(other.transform.position, transform.position) * 2f));
                 }
+            }else if (tentaclesHandler.CloneTagList.Contains(other.tag))
+            {
+                MonsterHandlerScript.Monster_TeleportToPlayerDimension();
             }
         }
     }

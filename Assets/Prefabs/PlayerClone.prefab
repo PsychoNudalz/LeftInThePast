@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4073112132651658380}
   - component: {fileID: 4073112132651658383}
   - component: {fileID: 4073112132651658381}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -117,9 +118,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4073112132874403230}
   - component: {fileID: 4073112132874403229}
-  m_Layer: 0
+  - component: {fileID: 4941729743787708729}
+  m_Layer: 10
   m_Name: PlayerClone
-  m_TagString: Untagged
+  m_TagString: PlayerClone
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +160,20 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   baseRenderTexture: {fileID: 8400000, guid: 79a69491444881349b0bda742e7d395f, type: 2}
   renderTexture: {fileID: 0}
+--- !u!136 &4941729743787708729
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4073112132874403228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &4073112133164216345
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +186,7 @@ GameObject:
   - component: {fileID: 4073112133164216349}
   - component: {fileID: 4073112133164216348}
   - component: {fileID: 4073112133164216347}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BodyTemp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4073112133378587819}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}

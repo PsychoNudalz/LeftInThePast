@@ -16,6 +16,10 @@ public class TentaclesHandler : MonoBehaviour
 
     [SerializeField]
     private List<string> itemTagList;
+    
+    
+    [SerializeField]
+    private List<string> cloneTagList;
 
     [Header("Spawn Pool")]
     [SerializeField]
@@ -37,10 +41,13 @@ public class TentaclesHandler : MonoBehaviour
     [SerializeField]
     float spawnFrequency = 0.5f;
 
+
     private float lastShootTentacleTime = 0;
 
     public List<string> PlayerTagList => playerTagList;
     public List<string> ItemTagList => itemTagList;
+
+    public List<string> CloneTagList => cloneTagList;
 
     [ContextMenu("Awake")]
     private void Awake()

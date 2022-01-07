@@ -39,23 +39,25 @@ public class Dimension : MonoBehaviour
         //dimensionClone.SetActive(false);
     }
 
+    /// <summary>
+    /// Preparing the player to teleport
+    /// 
+    /// </summary>
+    /// <param name="maskName"></param>
     public void TeleportPlayerFrom(string maskName)
     {
         dimensionClone.SetActive(true);
-        PlayerHandlerScript.current.TeleportEffect(dimensionClone.RenderTexture,maskName);
+        PlayerHandlerScript.current.TeleportEffect(dimensionClone.RenderTexture, maskName);
 
 
         //StartCoroutine(DisableCloneAfterDelay());
     }
 
+    /// <summary>
+    /// ending the player teleport
+    /// </summary>
     public void TeleportPlayerTo()
     {
-        dimensionClone.SetActive(false);
-    }
-
-    IEnumerator DisableCloneAfterDelay()
-    {
-        yield return new WaitForSeconds(2f);
         dimensionClone.SetActive(false);
     }
 
@@ -66,8 +68,6 @@ public class Dimension : MonoBehaviour
 
     public void SetDimensionActive(bool b)
     {
-        
-        dimensionClone.SetActive(b);
+        //dimensionClone.SetActive(b);
     }
-    
 }

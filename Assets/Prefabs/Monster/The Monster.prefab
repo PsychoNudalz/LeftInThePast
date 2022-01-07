@@ -1434,6 +1434,8 @@ MonoBehaviour:
   - Player
   itemTagList:
   - PickUp
+  cloneTagList:
+  - PlayerClone
   tentaclesPool: []
   size: 15
   freeTentacleStack: []

@@ -29,6 +29,7 @@ public class DimensionController : MonoBehaviour
     {
         currentDimension = dimensions[dimensionPointer];
         player = PlayerHandlerScript.current;
+        currentDimension.DimensionClone.SetActive(false);
     }
 
     // Update is called once per frame
