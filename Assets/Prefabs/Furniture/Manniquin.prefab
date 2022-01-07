@@ -469,7 +469,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1255656093130911609
 Transform:
@@ -1609,6 +1609,7 @@ MonoBehaviour:
     m_Bits: 384
   player: Player
   offset: {x: 0, y: 1, z: 0}
+  dotThresshold: 0.7
 --- !u!1 &6098990922022987606
 GameObject:
   m_ObjectHideFlags: 0

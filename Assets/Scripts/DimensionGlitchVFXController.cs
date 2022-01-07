@@ -35,9 +35,14 @@ public class DimensionGlitchVFXController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void Play()
     {
-        
+        vfx.Play();
+    }
+    public void Stop()
+    {
+        vfx.Reinit();
+        vfx.Stop();
     }
 }

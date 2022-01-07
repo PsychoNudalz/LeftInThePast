@@ -30,7 +30,9 @@ public class DimensionController : MonoBehaviour
     {
         currentDimension = dimensions[dimensionPointer];
         player = PlayerHandlerScript.current;
-        currentDimension.DimensionClone.SetActive(false);
+        currentDimension.TeleportPlayerTo();
+
+        
     }
 
     // Update is called once per frame
@@ -65,6 +67,7 @@ public class DimensionController : MonoBehaviour
         Vector3 transformOffset = GetZDiff(dimensionPointer);
         currentDimension = dimensions[dimensionPointer];
         player.TeleportMovePlayer(transformOffset);
+        currentDimension.TeleportPlayerTo();
 
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using QFSW.QC;
 using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
@@ -48,5 +49,12 @@ public class GameManagerScript : MonoBehaviour
     public static void SetGameOver()
     {
         current.SetInstanceGameOver();
+    }
+
+    [Command("Test1")]
+    public void Test1()
+    {
+        PlayerHandlerScript.SetIgnore();
+        Time.timeScale = 5f;
     }
 }

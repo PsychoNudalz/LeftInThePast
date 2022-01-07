@@ -14,6 +14,9 @@ public class Dimension : MonoBehaviour
     [SerializeField]
     private JukeBox dimensionJukeBox;
 
+    [SerializeField]
+    private DimensionGlitchVFXController[] dimensionGlitchVFXControllers;
+
     public PlayerCloneScript DimensionClone => dimensionClone;
 
     public JukeBox DimensionJukeBox => dimensionJukeBox;
@@ -36,7 +39,13 @@ public class Dimension : MonoBehaviour
         {
             dimensionJukeBox = GetComponentInChildren<JukeBox>();
         }
+
+        if (dimensionGlitchVFXControllers == null || dimensionGlitchVFXControllers.Length == 0)
+        {
+            dimensionGlitchVFXControllers = GetComponentsInChildren<DimensionGlitchVFXController>();
+        }
         //dimensionClone.SetActive(false);
+        SetGlitchVFX(false);
     }
 
     /// <summary>
@@ -48,6 +57,7 @@ public class Dimension : MonoBehaviour
     {
         dimensionClone.SetActive(true);
         PlayerHandlerScript.current.TeleportEffect(dimensionClone.RenderTexture, maskName);
+        SetGlitchVFX(false);
 
 
         //StartCoroutine(DisableCloneAfterDelay());
@@ -59,6 +69,8 @@ public class Dimension : MonoBehaviour
     public void TeleportPlayerTo()
     {
         dimensionClone.SetActive(false);
+        SetGlitchVFX(true);
+
     }
 
     public RenderTexture GetDimensionTexture()
@@ -69,5 +81,20 @@ public class Dimension : MonoBehaviour
     public void SetDimensionActive(bool b)
     {
         //dimensionClone.SetActive(b);
+    }
+
+    public void SetGlitchVFX(bool b)
+    {
+        foreach (DimensionGlitchVFXController dimensionGlitchVFXController in dimensionGlitchVFXControllers)
+        {
+            if (b)
+            {
+                dimensionGlitchVFXController.Play();
+            }
+            else
+            {
+                dimensionGlitchVFXController.Stop();
+            }
+        }
     }
 }

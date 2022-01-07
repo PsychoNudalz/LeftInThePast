@@ -1210,7 +1210,7 @@ MonoBehaviour:
   moveToPlayerWaitTime_Now: 0
   patrolPos: {x: 0, y: 0, z: 0}
   patrolIndex: -1
-  patrolStopRange: 0.2
+  patrolStopRange: 0.4
   patrolWaitTime: {x: 1, y: 2}
   patrolWaitTime_Now: 0
   visionConeDegree: 40
