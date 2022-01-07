@@ -12882,6 +12882,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f6fafbd9e51ec1d4c969ff028171a7a6, type: 2}
+    - target: {fileID: 3825105877452507635, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: renderTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 367660b1e2ca6dd40823b52281617e37, type: 2}
     - target: {fileID: 3901003772744144462, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

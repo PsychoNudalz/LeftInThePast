@@ -21,8 +21,8 @@ public class PlayerCloneScript : MonoBehaviour
 
     private void Awake()
     {
-        CreateRenderTexture();
-
+        //CreateRenderTexture();
+        ConnectRenderTexture();
     }
 
     private void Start()
@@ -77,6 +77,12 @@ public class PlayerCloneScript : MonoBehaviour
     void CreateRenderTexture()
     {
         renderTexture = new RenderTexture(baseRenderTexture);
+        camera.targetTexture = renderTexture;
+    }
+    [ContextMenu("Connect Texture to Camera")]
+
+    void ConnectRenderTexture()
+    {
         camera.targetTexture = renderTexture;
     }
 }

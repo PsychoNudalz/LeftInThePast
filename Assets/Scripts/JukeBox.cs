@@ -13,6 +13,9 @@ public class JukeBox : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private GameObject dgPlate;
+
     [Header("Disc Slots")]
     [SerializeField]
     private List<JukeBoxDisc> jukeBoxDiscs;
@@ -69,7 +72,6 @@ public class JukeBox : MonoBehaviour
         }
 
         UpdateAllJukeBoxes();
-        CheckHasWin();
     }
     
 
@@ -90,6 +92,8 @@ public class JukeBox : MonoBehaviour
                 }
             }
         }
+        CheckHasWin();
+
     }
 
     public void PlayDisc(int i)
@@ -157,7 +161,7 @@ public class JukeBox : MonoBehaviour
                 return;
             }
         }
-        GameManagerScript.SetGameWin();
-
+        //GameManagerScript.SetGameWin();
+        dgPlate.SetActive(true);
     }
 }

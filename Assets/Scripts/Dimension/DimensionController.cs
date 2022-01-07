@@ -99,6 +99,17 @@ public class DimensionController : MonoBehaviour
         }
     }
 
+    public static List<RenderTexture> GetAllDimensionTextures()
+    {
+        List<RenderTexture> temp = new List<RenderTexture>();
+        foreach (Dimension dimension in Current.dimensions)
+        {
+            temp.Add(dimension.GetDimensionTexture());
+        }
+
+        return temp;
+    }
+
     [Command()]
     public static void ShowCurrentDimension()
     {
