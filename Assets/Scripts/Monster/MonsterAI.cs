@@ -11,6 +11,12 @@ public class MonsterAI : EnemyAI
     [SerializeField]
      SourceOfInterest currentSource = new SourceOfInterest("", new Vector3(), SourceOfInterestType.Noise, 0f);
 
+     [SerializeField]
+     private int pathError_Max = 10;
+
+     [SerializeField]
+     private int pathError = 0;
+     
     [FormerlySerializedAs("stareDuration")]
     [Header("Monster Stare")]
     [SerializeField]
@@ -66,6 +72,8 @@ public class MonsterAI : EnemyAI
             {
                 Gizmos.DrawSphere(currentSource.Position, debugSphereRadius);
             }
+            Gizmos.DrawSphere(patrolPos,patrolStopRange);
+
         }
     }
 
@@ -200,8 +208,18 @@ public class MonsterAI : EnemyAI
         base.AIThink_MoveToPatrol();
         if (!navMeshAgent.hasPath)
         {
-            PatrolManager = MonsterHandlerScript.current.CurrentDimension.PatrolManager;
-            SetNewPatrolPoint();
+            pathError++;
+            if (pathError > pathError_Max)
+            {
+                if (showDebug)
+                {
+                    Debug.Log($"Monster can't path to {patrolIndex}");
+                }
+
+                PatrolManager = MonsterHandlerScript.current.CurrentDimension.PatrolManager;
+                SetNewPatrolPoint();
+                pathError = 0;
+            }
         }
     }
 
@@ -334,4 +352,6 @@ public class MonsterAI : EnemyAI
 
         return distanceToPlayer;
     }
+
+
 }

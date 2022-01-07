@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,35 @@ public class PatrolManager : MonoBehaviour
             return transform;
         }
 
-        return patrolPoints[patrolIndex % patrolPoints.Count];
+        try
+        {
+            return patrolPoints[patrolIndex % patrolPoints.Count];
+
+        }
+        catch (IndexOutOfRangeException e)
+        {
+            Console.WriteLine(e);
+            return patrolPoints[0];
+
+        }
+    }
+
+    public Tuple<Transform, int> GetRandomPatrolTuple()
+    {
+        Tuple<Transform, int> temp = new Tuple<Transform, int>(transform,0);
+        if (patrolPoints.Count == 0)
+        {
+            return temp;
+        }
+
+        int randomIndex = UnityEngine.Random.Range(0, patrolPoints.Count);
+        temp = new Tuple<Transform, int>(GetPatrol(randomIndex), randomIndex);
+        return temp;
+    }
+
+    public int GetRandomPatrolIndex()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, patrolPoints.Count);
+        return randomIndex;
     }
 }

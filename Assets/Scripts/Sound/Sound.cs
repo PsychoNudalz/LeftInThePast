@@ -69,7 +69,7 @@ public class Sound : MonoBehaviour
     {
         if (source == null && gameObject.TryGetComponent(out source))
         {
-            print("Auto found audio:" + source.clip);
+            // print("Auto found audio:" + source.clip);
         }
 
         if (soundManager != null)
@@ -126,7 +126,7 @@ public class Sound : MonoBehaviour
 
     private void OnDisable()
     {
-        if (source&& source.playOnAwake)
+        if (source && source.playOnAwake)
         {
             source.Stop();
         }

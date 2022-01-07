@@ -58,7 +58,7 @@ public class EnemyAI : MonoBehaviour
     protected Vector3 patrolPos;
 
     [SerializeField]
-    protected int patrolIndex = -1;
+    protected int patrolIndex = 0;
 
     [SerializeField]
     protected float patrolStopRange = 0.2f;
@@ -303,7 +303,14 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void SetNewPatrolPoint()
     {
-        patrolIndex++;
+        int temp = patrolManager.GetRandomPatrolIndex();
+        while (temp.Equals(patrolIndex))
+        {
+            temp = patrolManager.GetRandomPatrolIndex();
+        }
+
+        patrolIndex = temp;
+        Debug.Log($"New Patrol point {patrolIndex}: {patrolPos}");
         ResumePatrolPoint();
     }
 

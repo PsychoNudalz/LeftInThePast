@@ -1205,11 +1205,11 @@ MonoBehaviour:
   playerOffset: {x: 0, y: 1, z: 0}
   LOSLayer:
     serializedVersion: 2
-    m_Bits: 385
+    m_Bits: 449
   moveToPlayerWaitTime: {x: 4, y: 5}
   moveToPlayerWaitTime_Now: 0
   patrolPos: {x: 0, y: 0, z: 0}
-  patrolIndex: -1
+  patrolIndex: 0
   patrolStopRange: 0.4
   patrolWaitTime: {x: 1, y: 2}
   patrolWaitTime_Now: 0
@@ -1221,6 +1221,8 @@ MonoBehaviour:
   navMeshAgent: {fileID: 1572999886247796917}
   patrolManager: {fileID: 0}
   head: {fileID: 4150872482145935044}
+  pathError_Max: 10
+  pathError: 0
   stareTime: 5
   isEyeOpened: 0
   statesToStare: 040000000500000002000000
@@ -1242,9 +1244,9 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.4
   m_Speed: 3
-  m_Acceleration: 1
+  m_Acceleration: 5
   avoidancePriority: 50
-  m_AngularSpeed: 45
+  m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
