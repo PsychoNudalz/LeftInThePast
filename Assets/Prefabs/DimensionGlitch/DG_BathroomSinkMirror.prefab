@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95da949f5eed86646b3a2aec399c403e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maskName: TPEffect1
+  maskName: TPEffect5
 --- !u!1 &3454727773057895403
 GameObject:
   m_ObjectHideFlags: 0

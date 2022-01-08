@@ -321,7 +321,14 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void ResumePatrolPoint()
     {
-        SetNavAgent(patrolManager.GetPatrol(patrolIndex).position);
+        try
+        {
+            SetNavAgent(patrolManager.GetPatrol(patrolIndex).position);
+        }
+        catch (Exception e)
+        {
+            SetNewPatrolPoint();
+        }
     }
 
     protected virtual void SetNavAgent(Vector3 position)

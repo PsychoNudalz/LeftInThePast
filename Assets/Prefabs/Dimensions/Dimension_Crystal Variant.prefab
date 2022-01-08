@@ -2465,6 +2465,10 @@ PrefabInstance:
       propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7931440646278433923, guid: 92e7f4c68a64cd34a8fc6047e8666fdf, type: 3}
+      propertyPath: maskName
+      value: TPEffect2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e7f4c68a64cd34a8fc6047e8666fdf, type: 3}
 --- !u!4 &574184744391791983 stripped
@@ -5163,6 +5167,10 @@ PrefabInstance:
     - target: {fileID: 6124636735224229520, guid: 92e7f4c68a64cd34a8fc6047e8666fdf, type: 3}
       propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7931440646278433923, guid: 92e7f4c68a64cd34a8fc6047e8666fdf, type: 3}
+      propertyPath: maskName
+      value: TPEffect1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e7f4c68a64cd34a8fc6047e8666fdf, type: 3}
@@ -9001,6 +9009,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f6fafbd9e51ec1d4c969ff028171a7a6, type: 2}
+    - target: {fileID: 3517801662094855375, guid: 7762de6a7a6ae214fa321c5344b58ea2, type: 3}
+      propertyPath: maskName
+      value: TPEffect1
+      objectReference: {fileID: 0}
     - target: {fileID: 3759211620465088282, guid: 7762de6a7a6ae214fa321c5344b58ea2, type: 3}
       propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 0
@@ -12830,6 +12842,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f6fafbd9e51ec1d4c969ff028171a7a6, type: 2}
+    - target: {fileID: 3634653441806897684, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3664650038061064213, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -16004,6 +16020,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f6fafbd9e51ec1d4c969ff028171a7a6, type: 2}
+    - target: {fileID: 3517801662094855375, guid: 7762de6a7a6ae214fa321c5344b58ea2, type: 3}
+      propertyPath: maskName
+      value: TPEffect1
+      objectReference: {fileID: 0}
     - target: {fileID: 3759211620465088282, guid: 7762de6a7a6ae214fa321c5344b58ea2, type: 3}
       propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

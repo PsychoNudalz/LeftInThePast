@@ -77,6 +77,8 @@ namespace StarterAssets
 		[SerializeField]
 		private PlayerFootstepsScript playerFootstepsScript;
 
+		private bool GRAVITYOVERRIDE = false;
+
 		private void Awake()
 		{
 			// get a reference to our main camera
@@ -193,7 +195,7 @@ namespace StarterAssets
 
 		private void JumpAndGravity()
 		{
-			if (Grounded)
+			if (Grounded&&GRAVITYOVERRIDE)
 			{
 				// reset the fall timeout timer
 				_fallTimeoutDelta = FallTimeout;
@@ -257,5 +259,13 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
+
+		public void OverrideGravity()
+		{
+			Gravity = 0;
+			_verticalVelocity = 0;
+			GRAVITYOVERRIDE = true;
+		}
+
 	}
 }

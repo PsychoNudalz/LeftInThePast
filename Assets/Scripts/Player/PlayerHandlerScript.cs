@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 using QFSW.QC;
+using UnityEngine.InputSystem;
 
 public class PlayerHandlerScript : MonoBehaviour
 {
@@ -133,6 +134,19 @@ public class PlayerHandlerScript : MonoBehaviour
     public static Vector3 GetPlayerLookingDir()
     {
         return current.playerInteract.Head.forward;
+    }
+
+    public static void DisableGravity()
+    {
+        current.firstPersonController.OverrideGravity();
+    }
+
+    public static void FreezePlayer()
+    {
+        DisableGravity();
+        //current.GetComponent<PlayerInput>().enabled = false;
+        current.firstPersonController.MoveSpeed = 0;
+        current.firstPersonController.SprintSpeed = 0;
     }
 
     [Command()]

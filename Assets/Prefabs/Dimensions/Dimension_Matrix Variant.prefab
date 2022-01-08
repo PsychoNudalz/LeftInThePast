@@ -140,6 +140,10 @@ PrefabInstance:
       propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6434818175126931910, guid: 5ec31827270bc444dae7381a99374937, type: 3}
+      propertyPath: maskName
+      value: TPEffect2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ec31827270bc444dae7381a99374937, type: 3}
 --- !u!4 &2354792101868589406 stripped
@@ -223,6 +227,10 @@ PrefabInstance:
     - target: {fileID: 3479783477822904447, guid: ac0dc8fffc1913443a7e545b9753df3d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211459999363104749, guid: ac0dc8fffc1913443a7e545b9753df3d, type: 3}
+      propertyPath: maskName
+      value: TPEffect5
       objectReference: {fileID: 0}
     - target: {fileID: 4868846216395015845, guid: ac0dc8fffc1913443a7e545b9753df3d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -327,6 +335,10 @@ PrefabInstance:
     - target: {fileID: 3756434920172341068, guid: ac0dc8fffc1913443a7e545b9753df3d, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0.9238797
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211459999363104749, guid: ac0dc8fffc1913443a7e545b9753df3d, type: 3}
+      propertyPath: maskName
+      value: TPEffect2
       objectReference: {fileID: 0}
     - target: {fileID: 4868846216395015845, guid: ac0dc8fffc1913443a7e545b9753df3d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1212,6 +1224,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ef5b269dbd7eadc4d8c01da6584e0777, type: 2}
+    - target: {fileID: 3634653441806897684, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3664650038061064213, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4647,6 +4663,10 @@ PrefabInstance:
     - target: {fileID: 6334451540265299340, guid: 5ec31827270bc444dae7381a99374937, type: 3}
       propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434818175126931910, guid: 5ec31827270bc444dae7381a99374937, type: 3}
+      propertyPath: maskName
+      value: TPEffect5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ec31827270bc444dae7381a99374937, type: 3}

@@ -1275,6 +1275,10 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3634653441806897684, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3813881639193582549, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0044368654

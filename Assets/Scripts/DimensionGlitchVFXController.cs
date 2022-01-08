@@ -42,7 +42,7 @@ public class DimensionGlitchVFXController : MonoBehaviour
     }
     public void Stop()
     {
-        vfx.Reinit();
+        //vfx.Reinit();
         vfx.Stop();
     }
 }

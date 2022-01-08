@@ -1015,6 +1015,7 @@ MonoBehaviour:
   head: {fileID: 4323185438223476707}
   rayRange: 3
   castIntervals: 0.2
+  isDebug: 0
 --- !u!114 &7052932178690939329
 MonoBehaviour:
   m_ObjectHideFlags: 0

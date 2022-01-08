@@ -25,6 +25,8 @@ public class UsableInteractable : Interactable
         {
             highlightEffect = GetComponent<HighlightEffect>();
         }
+
+        cooldownTime_Last = -cooldownTime;
     }
 
     // Update is called once per frame
