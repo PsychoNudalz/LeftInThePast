@@ -122,4 +122,10 @@ public class DimensionController : MonoBehaviour
             Debug.LogError("Current dimension is null");
         }
     }
+
+    [Command()]
+    public static void TeleportDimension(int i = 4)
+    {
+        Current.Teleport(i,"TPEffect1");
+    }
 }
