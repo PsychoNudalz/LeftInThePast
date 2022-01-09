@@ -1244,8 +1244,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 1017.6000366210938,
-            "y": 395.20001220703127
+            "x": 1128.7999267578125,
+            "y": 306.3999938964844
         },
         "m_Blocks": [
             {
@@ -1261,8 +1261,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 1017.6000366210938,
-            "y": 623.2000122070313
+            "x": 1128.7999267578125,
+            "y": 534.4000244140625
         },
         "m_Blocks": [
             {
@@ -2276,10 +2276,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 568.9999389648438,
-            "y": 615.3999633789063,
+            "x": 618.4000854492188,
+            "y": 623.2000122070313,
             "width": 208.0,
-            "height": 302.39996337890627
+            "height": 301.5999755859375
         }
     },
     "m_Slots": [
@@ -4422,7 +4422,7 @@
     ],
     "synonyms": [],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []

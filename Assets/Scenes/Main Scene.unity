@@ -2476,6 +2476,10 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2068524561903499767, guid: d2fd0d44ad8e9784da4f88b6081add50, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ef5b269dbd7eadc4d8c01da6584e0777, type: 2}
     - target: {fileID: 2168726391450573444, guid: d2fd0d44ad8e9784da4f88b6081add50, type: 3}
       propertyPath: m_BoundingSphereOverride.y
       value: 0.440125

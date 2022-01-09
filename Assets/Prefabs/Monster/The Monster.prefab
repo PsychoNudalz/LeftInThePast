@@ -1214,7 +1214,7 @@ MonoBehaviour:
   patrolWaitTime: {x: 1, y: 2}
   patrolWaitTime_Now: 0
   visionConeDegree: 40
-  attackRange: 1
+  attackRange: 0.5
   attackDuration: 1
   attackCooldown: 2
   playerGO: {fileID: 0}
@@ -1243,7 +1243,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.4
-  m_Speed: 3
+  m_Speed: 2.5
   m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 180
@@ -1382,7 +1382,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7428355872608747190}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1

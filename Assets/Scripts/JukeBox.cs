@@ -117,6 +117,16 @@ public class JukeBox : MonoBehaviour
         }
     }
 
+    public void PlayDiscForAllDiscs(int i)
+    {
+        foreach (JukeBox jukeBox in FindObjectsOfType<JukeBox>())
+        {
+            jukeBox.PlayDisc(i);
+        }
+    }
+
+
+
     public void PlayDisc(DiscEnum discEnum)
     {
         PlayDisc((int)discEnum);
