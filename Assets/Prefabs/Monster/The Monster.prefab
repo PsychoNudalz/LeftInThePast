@@ -1213,7 +1213,7 @@ MonoBehaviour:
   patrolStopRange: 0.4
   patrolWaitTime: {x: 1, y: 2}
   patrolWaitTime_Now: 0
-  visionConeDegree: 40
+  visionConeDegree: 60
   attackRange: 0.5
   attackDuration: 1
   attackCooldown: 2
