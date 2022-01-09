@@ -2711,6 +2711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11f9b9237fd8b744a23b5dcaeef44e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dimensionEnum: 4
   dimensionClone: {fileID: 3825105877452507635}
   patrolManager: {fileID: 0}
   dimensionJukeBox: {fileID: 0}
@@ -3040,6 +3041,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4073112132874403230, guid: b8449c74a2164914ea8575389923b7f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941729743787708729, guid: b8449c74a2164914ea8575389923b7f3, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

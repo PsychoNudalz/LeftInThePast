@@ -159,7 +159,7 @@ public class MonsterHandlerScript : MonoBehaviour
     }
 
     [Command()]
-    public static void Monster_TeleportToPlayerDimension()
+    public static void Monster_TeleportToPlayerDimension(bool forced = false)
     {
         if (!current)
         {
@@ -171,6 +171,9 @@ public class MonsterHandlerScript : MonoBehaviour
             Debug.LogError("current dimension null");
         }
 
-        current.TeleportDimension(DimensionController.Current.CurrentDimension);
+        if (!DimensionController.Current.CurrentDimension.DimensionEnum.Equals(DimensionEnum.Final))
+        {
+            current.TeleportDimension(DimensionController.Current.CurrentDimension);
+        }
     }
 }

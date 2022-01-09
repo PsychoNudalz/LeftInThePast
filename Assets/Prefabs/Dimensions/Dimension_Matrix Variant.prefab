@@ -2396,6 +2396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dimension_Matrix Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8563547781599440263, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: dimensionEnum
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8598687286682414258, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

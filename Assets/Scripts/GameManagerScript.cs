@@ -70,6 +70,7 @@ public class GameManagerScript : MonoBehaviour
     {
         Debug.Log("juke box completed");
         jukeboxCompleted = true;
+        
     }
 
     public static void SetJukebox()

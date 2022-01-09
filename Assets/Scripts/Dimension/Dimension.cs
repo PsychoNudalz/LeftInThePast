@@ -3,8 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DimensionEnum
+{
+    Home,
+    Alt,
+    Crystal,
+    Matrix,
+    Final
+}
+
 public class Dimension : MonoBehaviour
 {
+    [SerializeField]
+    private DimensionEnum dimensionEnum;
+
+    public DimensionEnum DimensionEnum => dimensionEnum;
+
     [SerializeField]
     PlayerCloneScript dimensionClone;
 
