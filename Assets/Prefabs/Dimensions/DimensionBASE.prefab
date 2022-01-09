@@ -1245,6 +1245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dimensionClone: {fileID: 3825105877452507635}
   patrolManager: {fileID: 0}
+  dimensionJukeBox: {fileID: 0}
+  dimensionGlitchVFXControllers: []
 --- !u!1001 &66531844558500420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1314,6 +1316,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8563547781599440260}
     m_Modifications:
+    - target: {fileID: 3643403536343524865, guid: ea4944cdc0b78fa44ad8d893979306e0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8514283175213447290, guid: ea4944cdc0b78fa44ad8d893979306e0, type: 3}
       propertyPath: m_Name
       value: JukeBox
@@ -1859,7 +1865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1233255481376882658, guid: a677f9e8dd54cd94f88e210cdbdb0f97, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.4960194
+      value: -2.434
       objectReference: {fileID: 0}
     - target: {fileID: 1233255481376882658, guid: a677f9e8dd54cd94f88e210cdbdb0f97, type: 3}
       propertyPath: m_LocalRotation.w

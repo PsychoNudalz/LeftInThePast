@@ -16,10 +16,21 @@ public class GameManagerScript : MonoBehaviour
     private static bool gameOver = false;
     public static bool GameWin => gameWin;
 
+    [SerializeField]
+    private float startTime = 0;
+    
+    [SerializeField]
+    private float completionTime = 0;
+
+    public float CompletionTime => completionTime;
+
+
     public static bool JukeboxCompleted => jukeboxCompleted;
     public static bool GameOver => gameOver;
 
     public static GameManagerScript current;
+    
+    
 
     private void Awake()
     {
@@ -36,10 +47,18 @@ public class GameManagerScript : MonoBehaviour
         Application.targetFrameRate = _MAXFPS;
     }
 
+    private void Start()
+    {
+        startTime = Time.time;
+    }
+
     public void SetInstanceGameWin()
     {
         Debug.Log("Game Win");
         gameWin = true;
+        completionTime = Time.time - startTime;
+        PlayerUIController.current.PlayGameWin();
+
     }
 
     public static void SetGameWin()
@@ -61,6 +80,9 @@ public class GameManagerScript : MonoBehaviour
     public void SetInstanceGameOver()
     {
         gameOver = true;
+        SoundManager.current.StopAllSounds();
+        MonsterHandlerScript.SetActive(false);
+        PlayerUIController.current.PlayGameOver();
     }
 
     public static void SetGameOver()
@@ -92,5 +114,10 @@ public class GameManagerScript : MonoBehaviour
     {
         PlayerHandlerScript.SetIgnore();
         Time.timeScale = 5f;
+    }
+
+    public string CompletionTimeString()
+    {
+        return String.Concat((completionTime / 60f).ToString("0"), ":", (completionTime % 60f).ToString("0"));
     }
 }

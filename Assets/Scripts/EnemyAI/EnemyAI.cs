@@ -380,6 +380,7 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual IEnumerator AttackCoroutine()
     {
+        GameManagerScript.SetGameOver();
         yield return new WaitForSeconds(attackDuration);
         EndAttack();
     }

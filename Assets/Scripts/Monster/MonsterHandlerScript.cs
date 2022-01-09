@@ -140,6 +140,11 @@ public class MonsterHandlerScript : MonoBehaviour
         monsterEffects.StartSpawnEffect();
     }
 
+    public static void SetActive(bool b)
+    {
+        current.gameObject.SetActive(b);
+    }
+
 
     [Command()]
     public static void Monster_ChangeState(string state)

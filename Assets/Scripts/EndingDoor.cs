@@ -18,6 +18,9 @@ public class EndingDoor : MonoBehaviour
 [SerializeField]
     private Rigidbody[] fracturePieces = Array.Empty<Rigidbody>();
 
+    [SerializeField]
+    private float timeUntilEnding = 5f;
+
 
     private void Awake()
     {
@@ -64,5 +67,15 @@ public class EndingDoor : MonoBehaviour
         {
             StartCoroutine(BreakPiece(i));
         }
+        else
+        {
+            StartCoroutine(StartEnd());
+        }
+    }
+
+    IEnumerator StartEnd()
+    {
+        yield return new WaitForSeconds(timeUntilEnding);
+        GameManagerScript.SetGameWin();
     }
 }

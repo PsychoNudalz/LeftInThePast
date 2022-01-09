@@ -828,10 +828,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 3
   SprintSpeed: 3
-  RotationSpeed: 1
+  RotationSpeed: 0.25
   SpeedChangeRate: 10
   JumpHeight: 0
-  Gravity: -15
+  Gravity: -12
   JumpTimeout: 0.1
   FallTimeout: 0.15
   Grounded: 1
@@ -1011,7 +1011,7 @@ MonoBehaviour:
   - PickUp
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   head: {fileID: 4323185438223476707}
   rayRange: 3
   castIntervals: 0.2
