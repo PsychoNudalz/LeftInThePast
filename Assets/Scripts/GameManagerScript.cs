@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
-    private static int _MAXFPS = 120;
+    private static int _MAXFPS = 150;
 
     private static bool gameWin = false;
     private static bool jukeboxCompleted = false;
@@ -45,6 +45,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         Application.targetFrameRate = _MAXFPS;
+        // QualitySettings.vSyncCount = 0;
     }
 
     private void Start()
@@ -119,6 +120,6 @@ public class GameManagerScript : MonoBehaviour
 
     public string CompletionTimeString()
     {
-        return String.Concat((completionTime / 60f).ToString("0"), ":", (completionTime % 60f).ToString("0"));
+        return String.Concat((Mathf.FloorToInt(completionTime / 60f)).ToString(), ":", (completionTime % 60f).ToString("0"));
     }
 }
