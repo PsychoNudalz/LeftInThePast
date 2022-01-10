@@ -44,6 +44,13 @@ public class Tentacle : MonoBehaviour
         set => tentaclesHandler = value;
     }
 
+    [Header("Sounds")]
+    [SerializeField]
+    private Sound stickSound;
+
+    [SerializeField]
+    private Sound retractSound;
+
 
     [Header("Debug")]
     [SerializeField]
@@ -134,6 +141,7 @@ public class Tentacle : MonoBehaviour
         worldPoint = target;
         isExtended = true;
         tentacleBall.gameObject.SetActive(false);
+        stickSound?.PlayF();
     }
 
     public void SetTentacle(Vector3 position)
@@ -146,6 +154,7 @@ public class Tentacle : MonoBehaviour
         animator.SetBool("Extended", false);
         isRecalled = true;
         tentaclesHandler?.AddToFreeStack(this);
+        retractSound?.PlayF();
     }
 
     IEnumerator RetractAndShoot()
@@ -177,7 +186,8 @@ public class Tentacle : MonoBehaviour
                         SourceOfInterestType.Tentacle,
                         Vector3.Distance(other.transform.position, transform.position) * 2f));
                 }
-            }else if (tentaclesHandler.CloneTagList.Contains(other.tag))
+            }
+            else if (tentaclesHandler.CloneTagList.Contains(other.tag))
             {
                 MonsterHandlerScript.Monster_TeleportToPlayerDimension();
             }
