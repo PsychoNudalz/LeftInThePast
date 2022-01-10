@@ -132,6 +132,11 @@ namespace QFSW.QC
         
         public bool IsActive { get; private set; }
 
+        /// <summary>
+        /// If any actions are currently executing
+        /// </summary>
+        public bool AreActionsExecuting => _currentActions.Count > 0;
+
         private readonly List<string> _previousCommands = new List<string>();
         private readonly List<Task> _currentTasks = new List<Task>();
         private readonly List<IEnumerator<ICommandAction>> _currentActions = new List<IEnumerator<ICommandAction>>();
@@ -246,7 +251,6 @@ namespace QFSW.QC
                 }
             }
         }
-
 
         private void LateUpdate()
         {

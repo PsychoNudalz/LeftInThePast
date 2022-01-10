@@ -13,6 +13,10 @@ namespace QFSW.QC.Editor
         private SerializedProperty _showConsoleKeyProperty;
         private SerializedProperty _toggleConsoleVisibilityKeyProperty;
 
+        private SerializedProperty _zoomInKeyProperty;
+        private SerializedProperty _zoomOutKeyProperty;
+        private SerializedProperty _dragConsoleKeyProperty;
+
         private SerializedProperty _suggestNextCommandKeyProperty;
         private SerializedProperty _suggestPreviousCommandKeyProperty;
 
@@ -31,6 +35,10 @@ namespace QFSW.QC.Editor
             _hideConsoleKeyProperty = serializedObject.FindProperty("HideConsoleKey");
             _showConsoleKeyProperty = serializedObject.FindProperty("ShowConsoleKey");
             _toggleConsoleVisibilityKeyProperty = serializedObject.FindProperty("ToggleConsoleVisibilityKey");
+
+            _zoomInKeyProperty = serializedObject.FindProperty("ZoomInKey");
+            _zoomOutKeyProperty = serializedObject.FindProperty("ZoomOutKey");
+            _dragConsoleKeyProperty = serializedObject.FindProperty("DragConsoleKey");
 
             _suggestNextCommandKeyProperty = serializedObject.FindProperty("SuggestNextCommandKey");
             _suggestPreviousCommandKeyProperty = serializedObject.FindProperty("SuggestPreviousCommandKey");
@@ -51,6 +59,12 @@ namespace QFSW.QC.Editor
             EditorGUILayout.PropertyField(_showConsoleKeyProperty, new GUIContent("Show Console", "The key used to show and activate the console."));
             EditorGUILayout.PropertyField(_hideConsoleKeyProperty, new GUIContent("Hide Console", "The key used to hide and deactivate the console."));
             EditorGUILayout.PropertyField(_toggleConsoleVisibilityKeyProperty, new GUIContent("Toggle Console", "The key used to toggle the active and visibility state of the console."));
+            EditorGUILayout.Space();
+
+            EditorGUILayout.LabelField(new GUIContent("UI"), EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(_zoomInKeyProperty, new GUIContent("Zoom In", "Zooms in the console scaling."));
+            EditorGUILayout.PropertyField(_zoomOutKeyProperty, new GUIContent("Zoom Out", "Zooms out the console scaling."));
+            EditorGUILayout.PropertyField(_dragConsoleKeyProperty, new GUIContent("Drag Console", "Drags the console window with the cursor."));
             EditorGUILayout.Space();
 
             EditorGUILayout.LabelField(new GUIContent("Command Suggestions"), EditorStyles.boldLabel);

@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using QFSW.QC;
+using Unity.Mathematics;
 using UnityEngine;
 
-public class EndingDoor : MonoBehaviour
+
+public class FinalDimension : MonoBehaviour
 {
     [Header("House")]
     [SerializeField]
@@ -14,12 +16,19 @@ public class EndingDoor : MonoBehaviour
     private GameObject houseFracture;
 
     [SerializeField]
-    private float timeBetweenBreak = 0.1f;
-[SerializeField]
+    private Vector2 timeBetweenBreak = new Vector2(0.05f, .2f);
+
+    [SerializeField]
     private Rigidbody[] fracturePieces = Array.Empty<Rigidbody>();
 
     [SerializeField]
     private float timeUntilEnding = 5f;
+
+    [Space(10)]
+    [SerializeField]
+    private GameObject fractureSound;
+
+    //private List<Sound> breakSounds = new List<Sound>();
 
 
     private void Awake()
@@ -37,6 +46,8 @@ public class EndingDoor : MonoBehaviour
             fracturePiece.isKinematic = true;
         }
 
+        AddSoundsToPieces();
+
         houseFracture.SetActive(false);
     }
 
@@ -50,8 +61,8 @@ public class EndingDoor : MonoBehaviour
 
         houseOriginal.SetActive(false);
         houseFracture.SetActive(true);
-        
-        PlayerHandlerScript.FreezePlayer();
+
+        //PlayerHandlerScript.FreezePlayer();
 
         int i = 0;
         StartCoroutine(BreakPiece(i));
@@ -60,9 +71,10 @@ public class EndingDoor : MonoBehaviour
     IEnumerator BreakPiece(int i)
     {
         fracturePieces[i].isKinematic = false;
+        fracturePieces[i].GetComponentInChildren<RandomSound>()?.Play();
         i++;
         Debug.Log("Break");
-        yield return new WaitForSeconds(timeBetweenBreak);
+        yield return new WaitForSeconds(UnityEngine.Random.Range(timeBetweenBreak.x, timeBetweenBreak.y));
         if (i < fracturePieces.Length)
         {
             StartCoroutine(BreakPiece(i));
@@ -77,5 +89,22 @@ public class EndingDoor : MonoBehaviour
     {
         yield return new WaitForSeconds(timeUntilEnding);
         GameManagerScript.SetGameWin();
+    }
+
+
+    void AddSoundsToPieces()
+    {
+        GameObject temp;
+        MeshCollider mesh;
+        foreach (Rigidbody fracturePiece in fracturePieces)
+        {
+            temp = Instantiate(fractureSound, fracturePiece.transform);
+            temp.transform.localPosition = new Vector3();
+            temp = temp.GetComponentInChildren<OnCollisionSound>().gameObject;
+            temp.AddComponent(typeof(MeshCollider));
+            mesh = temp.GetComponent<MeshCollider>();
+            mesh.sharedMesh = fracturePiece.GetComponent<MeshCollider>().sharedMesh;
+            mesh.convex = true;
+        }
     }
 }

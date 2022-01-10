@@ -1069,7 +1069,8 @@ MonoBehaviour:
   pitchVariance: 0.1
   audioMixer: {fileID: 0}
   sound: {fileID: 6751614841123428152}
-  frequency: {x: 0.3, y: 0.5}
+  frequency: {x: 0.3, y: 0.4}
+  playF: 1
 --- !u!114 &6751614841123428152
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,7 +22,12 @@ public class LightingAndThunder : MonoBehaviour
     [SerializeField]
     private Light[] lights = Array.Empty<Light>();
 
-    
+    [SerializeField]
+    private Sound thunderSound;
+
+    private bool wasLightning = false;
+
+
     [ContextMenu("Start")]
     // Start is called before the first frame update
     void Start()
@@ -47,15 +52,23 @@ public class LightingAndThunder : MonoBehaviour
         }
 
         float intensity = CalculateIntensity();
+        if (!wasLightning &&!lights[0].intensity.Equals(intensity))
+        {
+            thunderSound.Play();
+        }
+
         foreach (Light light1 in lights)
         {
             if (light1.intensity.Equals(intensity))
             {
+                wasLightning = false;
                 return;
             }
 
             light1.intensity = intensity;
         }
+
+        wasLightning = lights[0].intensity.Equals(intensity);
     }
 
     float CalculateIntensity()
@@ -77,7 +90,7 @@ public class LightingAndThunder : MonoBehaviour
             light1.intensity = maxIntensity;
         }
     }
-    
+
     [ContextMenu("Set To Min")]
     public void SetToMin()
     {

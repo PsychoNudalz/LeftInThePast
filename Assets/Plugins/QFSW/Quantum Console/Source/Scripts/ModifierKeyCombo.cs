@@ -33,6 +33,11 @@ namespace QFSW.QC
             }
         }
 
+        public bool IsHeld()
+        {
+            return ModifiersActive && InputHelper.GetKey(Key);
+        }
+
         public bool IsPressed()
         {
             return ModifiersActive && InputHelper.GetKeyDown(Key);

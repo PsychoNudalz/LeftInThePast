@@ -31,9 +31,10 @@ public class Dimension : MonoBehaviour
     [SerializeField]
     private DimensionGlitchVFXController[] dimensionGlitchVFXControllers;
 
-    [Space(10)]
+    [Header("Sounds")]
     [SerializeField]
     private Sound transitionSound;
+
 
     public PlayerCloneScript DimensionClone => dimensionClone;
 
@@ -62,6 +63,7 @@ public class Dimension : MonoBehaviour
         {
             dimensionGlitchVFXControllers = GetComponentsInChildren<DimensionGlitchVFXController>();
         }
+
         //dimensionClone.SetActive(false);
         SetGlitchVFX(false);
     }
@@ -89,7 +91,6 @@ public class Dimension : MonoBehaviour
         transitionSound?.PlayF();
         dimensionClone.SetActive(false);
         SetGlitchVFX(true);
-
     }
 
     public RenderTexture GetDimensionTexture()

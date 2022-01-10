@@ -1,3 +1,10 @@
+V2.5.4
+Addition 0121: Console zoom can now be triggered with hotkeys (default: ctrl+ and ctrl-)
+Addition 0122: Hotkey for dragging the console is now configurable (default: shift click)
+Addition 0123: AreActionsExecuting added to query if the console is currently executing actions
+Change 0064: Optimised input handling under new input system
+Bug Fix 0064: Fixed bug where speechmarks were not parsed properly for GameObject arguments
+
 V2.5.3
 Addition 0120: New core command: max-logs
 Change 0063: QC will now ignore compiler generated types during table generation resulting in faster load times

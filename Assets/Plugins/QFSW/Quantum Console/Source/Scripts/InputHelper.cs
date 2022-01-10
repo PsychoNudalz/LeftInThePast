@@ -1,10 +1,9 @@
 ﻿#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
 #define NEW_INPUT
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 #endif
 
-using System;
-using System.Linq;
 using UnityEngine;
 
 namespace QFSW.QC
@@ -14,9 +13,23 @@ namespace QFSW.QC
         private static bool IsKeySupported(KeyCode key)
         {
 #if NEW_INPUT
+            bool KeyExists()
+            {
+                Key keyConverted = key.ToKey();
+                foreach (KeyControl k in Keyboard.current.allKeys)
+                {
+                    if (k.keyCode == keyConverted)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
             return key != KeyCode.None
                    && Keyboard.current != null
-                   && Keyboard.current.allKeys.Any(k => k.keyCode == key.ToKey());
+                   && KeyExists();
 #else
             return true;
 #endif

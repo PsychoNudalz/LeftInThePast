@@ -17,6 +17,9 @@ public class RepeatableSound : Sound
     [SerializeField]
     private Vector2 frequency = new Vector2(1, 1);
 
+    [SerializeField]
+    private bool playF = true;
+    
     private float randomFrequency = 0;
 
     private float lastPlayTime = 0;
@@ -88,7 +91,15 @@ public class RepeatableSound : Sound
     {
         if (Time.time-lastPlayTime > randomFrequency)
         {
-            sound.Play();
+            if (playF)
+            {
+                sound.PlayF();
+            }
+
+            else
+            {
+                sound.Play();
+            }
             lastPlayTime = Time.time;
             randomFrequency = UnityEngine.Random.Range(frequency.x, frequency.y);
             

@@ -1219,6 +1219,10 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.z
       value: 4.5905e-41
       objectReference: {fileID: 0}
+    - target: {fileID: 3207171459493728045, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b6a070d757de3314186c217984730dc4, type: 2}
     - target: {fileID: 3276829425126795627, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1379,6 +1383,10 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.z
       value: 1.1704978e-19
       objectReference: {fileID: 0}
+    - target: {fileID: 4019207873948386581, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b6a070d757de3314186c217984730dc4, type: 2}
     - target: {fileID: 4034656097709805691, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2214,7 +2222,7 @@ PrefabInstance:
     - target: {fileID: 7252366978733188752, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 69a8832e5af8d1f4389abec9449f8c49, type: 2}
+      objectReference: {fileID: 2100000, guid: b6a070d757de3314186c217984730dc4, type: 2}
     - target: {fileID: 7271863939285523789, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_SourcePositions.Array.size
       value: 206
@@ -2345,34 +2353,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
-      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
-      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 2184306512307193907}
     - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
-      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
-      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: SpawnMonster
       objectReference: {fileID: 0}
     - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
-      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: InitialSpawnForEnemy, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
-      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7356985797757227064, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
-      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: OnUse.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7393878219855251374, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
@@ -2615,6 +2619,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 74be35dbcdb8218468314b6a18fa4331, type: 3}
+    - target: {fileID: 8533251521165730961, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b6a070d757de3314186c217984730dc4, type: 2}
     - target: {fileID: 8562054498783094121, guid: 40a15ab5021fa814fa41bb41836ac12b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

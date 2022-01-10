@@ -24,6 +24,10 @@ public class WeepingAngel : MonoBehaviour
 
     [SerializeField]
     private float dotThresshold = 0.7f;
+
+    [Space(10)]
+    [SerializeField]
+    private Sound moveSound;
     private bool wasLooked;
 
     // Start is called before the first frame update
@@ -70,6 +74,7 @@ public class WeepingAngel : MonoBehaviour
             if (wasLooked)
             {
                 wasLooked = false;
+                moveSound?.Play();
             }
         }
         

@@ -15,6 +15,7 @@ namespace QFSW.QC.UI
         [SerializeField] private Button _zoomUpBtn = null;
 
         [SerializeField] private DynamicCanvasScaler _scaler = null;
+        [SerializeField] private QuantumConsole _quantumConsole = null;
         [SerializeField] private TextMeshProUGUI _text = null;
 
         private float _lastZoom = -1;
@@ -34,6 +35,15 @@ namespace QFSW.QC.UI
         public void ZoomDown()
         {
             _scaler.ZoomMagnification = ClampAndSnapZoom(_scaler.ZoomMagnification - _zoomIncrement);
+        }
+
+        private void Update()
+        {
+            if (_quantumConsole && _quantumConsole.KeyConfig)
+            {
+                if (_quantumConsole.KeyConfig.ZoomInKey.IsPressed()) { ZoomUp(); }
+                if (_quantumConsole.KeyConfig.ZoomOutKey.IsPressed()) { ZoomDown(); }
+            }
         }
 
         private void LateUpdate()

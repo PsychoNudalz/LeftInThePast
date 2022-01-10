@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
@@ -10,7 +9,7 @@ namespace QFSW.QC.UI
     public class DraggableUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] private RectTransform _dragRoot = null;
-        [SerializeField] private KeyCode[] _requiredKeys = new KeyCode[0];
+        [SerializeField] private QuantumConsole _quantumConsole = null;
         [SerializeField] private bool _lockInScreen = true;
 
         [SerializeField] private UnityEvent _onBeginDrag = null;
@@ -22,7 +21,11 @@ namespace QFSW.QC.UI
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            _isDragging = _requiredKeys.All(InputHelper.GetKey);
+            _isDragging =
+                _quantumConsole &&
+                _quantumConsole.KeyConfig &&
+                _quantumConsole.KeyConfig.DragConsoleKey.IsHeld();
+
             if (_isDragging)
             {
                 _onBeginDrag.Invoke();

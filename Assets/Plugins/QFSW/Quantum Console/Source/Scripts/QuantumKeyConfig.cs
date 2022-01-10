@@ -10,6 +10,10 @@ namespace QFSW.QC
         public ModifierKeyCombo HideConsoleKey = KeyCode.None;
         public ModifierKeyCombo ToggleConsoleVisibilityKey = KeyCode.Escape;
 
+        public ModifierKeyCombo ZoomInKey = new ModifierKeyCombo { Key = KeyCode.Equals, Ctrl = true };
+        public ModifierKeyCombo ZoomOutKey = new ModifierKeyCombo { Key = KeyCode.Minus, Ctrl = true };
+        public ModifierKeyCombo DragConsoleKey = new ModifierKeyCombo { Key = KeyCode.Mouse0, Shift = true };
+
         public ModifierKeyCombo SuggestNextCommandKey = KeyCode.Tab;
         public ModifierKeyCombo SuggestPreviousCommandKey = new ModifierKeyCombo { Key = KeyCode.Tab, Shift = true };
 

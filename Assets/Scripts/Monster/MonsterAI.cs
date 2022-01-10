@@ -31,6 +31,7 @@ public class MonsterAI : EnemyAI
     [SerializeField]
     private List<AIState> statesToStare = new List<AIState>();
 
+
     public bool IsEyeOpened
     {
         get => isEyeOpened;
@@ -299,7 +300,7 @@ public class MonsterAI : EnemyAI
         {
             if (showDebug)
             {
-                Debug.Log("Monster can't sees player");
+                //Debug.Log("Monster can't sees player");
             }
         }
     }
