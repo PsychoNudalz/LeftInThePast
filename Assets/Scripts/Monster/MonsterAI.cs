@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using QFSW.QC;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = System.Random;
@@ -57,6 +58,12 @@ public class MonsterAI : EnemyAI
     [Header("Debugger")]
     [SerializeField]
     private bool showDebug = false;
+
+    public bool ShowDebug
+    {
+        get => showDebug;
+        set => showDebug = value;
+    }
 
     [SerializeField]
     private float debugSphereRadius = .3f;
@@ -240,8 +247,9 @@ public class MonsterAI : EnemyAI
     protected override void AIBehaviour_MoveToPlayer()
     {
         base.AIBehaviour_MoveToPlayer();
-        head.LookAt(new Vector3(playerPos.x, Mathf.Max(head.position.y, playerPos.y),
-            playerPos.z));
+        // head.LookAt(new Vector3(playerPos.x, Mathf.Max(head.position.y, playerPos.y),
+        //     playerPos.z));
+        head.LookAt(PlayerHandlerScript.current.GetHead().transform.position);
     }
 
     //Stare
@@ -280,8 +288,19 @@ public class MonsterAI : EnemyAI
         stareTime_Now -= Time.deltaTime;
         if (LineOfSight())
         {
+            if (showDebug)
+            {
+                Debug.Log("Monster sees player");
+            }
             currentSource = null;
             ChangeState(AIState.MoveToPlayer);
+        }
+        else
+        {
+            if (showDebug)
+            {
+                Debug.Log("Monster can't sees player");
+            }
         }
     }
 
@@ -352,6 +371,8 @@ public class MonsterAI : EnemyAI
 
         return distanceToPlayer;
     }
+    
+
 
 
 }

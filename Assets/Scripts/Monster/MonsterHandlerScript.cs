@@ -91,7 +91,7 @@ public class MonsterHandlerScript : MonoBehaviour
     {
         if (f != 0)
         {
-            if (teleportCoroutine != null)
+            if (teleportCoroutine == null)
             {
                 teleportCoroutine= StartCoroutine(teleportDimensionEnumerator(d, f,
                     transform.position + DimensionController.GetZDiff(currentDimension, d)));
@@ -182,7 +182,14 @@ public class MonsterHandlerScript : MonoBehaviour
 
         if (!DimensionController.Current.CurrentDimension.DimensionEnum.Equals(DimensionEnum.Final))
         {
+            Debug.Log($"Teleporting Monster to {DimensionController.Current.CurrentDimension}");
             current.TeleportDimension(DimensionController.Current.CurrentDimension);
         }
     }
+
+    [Command()]
+    public static void MonsterAI_ShowDebug(bool b)
+    {
+        current.monsterAI.ShowDebug = b;
+    } 
 }
