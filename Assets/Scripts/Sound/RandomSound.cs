@@ -27,6 +27,25 @@ public class RandomSound : Sound
             soundManager = SoundManager.current;
         }
         seed = (int) UnityEngine.Random.Range(0, 100f);
+        if (sounds.Length == 0)
+        {
+            SetAllChildrenSounds();
+        }
+    }
+
+    [ContextMenu("Set all children sounds")]
+    public void SetAllChildrenSounds()
+    {
+        List<Sound> temp = new List<Sound>();
+        foreach (Sound s in GetComponentsInChildren<Sound>())
+        {
+            if (!s.Equals(this))
+            {
+                temp.Add(s);
+            }
+        }
+
+        sounds = temp.ToArray();
     }
 
     public override void Pause()
@@ -60,6 +79,10 @@ public class RandomSound : Sound
         GetRandomSound().Stop();
     }
 
+    /// <summary>
+    /// Gets a random sound, will prioritize getting sounds that is not playing
+    /// </summary>
+    /// <returns></returns>
     Sound GetRandomSound()
     {
         // seed++;

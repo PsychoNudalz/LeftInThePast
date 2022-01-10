@@ -89,10 +89,13 @@ public class MonsterHandlerScript : MonoBehaviour
 
     public void TeleportDimension(Dimension d, float f = 3f)
     {
-        if (f != 0&&teleportCoroutine!=null)
+        if (f != 0)
         {
-            teleportCoroutine= StartCoroutine(teleportDimensionEnumerator(d, f,
-                transform.position + DimensionController.GetZDiff(currentDimension, d)));
+            if (teleportCoroutine != null)
+            {
+                teleportCoroutine= StartCoroutine(teleportDimensionEnumerator(d, f,
+                    transform.position + DimensionController.GetZDiff(currentDimension, d)));
+            }
         }
         else
         {
@@ -104,10 +107,13 @@ public class MonsterHandlerScript : MonoBehaviour
 
     public void TeleportDimension(Dimension d, Vector3 position, float f = 3f)
     {
-        if (f != 0&&teleportCoroutine!=null)
+        if (f != 0)
         {
-            teleportCoroutine= StartCoroutine(teleportDimensionEnumerator(d, f,
-                position));
+            if (teleportCoroutine == null)
+            {
+                teleportCoroutine= StartCoroutine(teleportDimensionEnumerator(d, f,
+                    position));
+            }
         }
         else
         {

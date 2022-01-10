@@ -53,6 +53,8 @@ public class MonsterEffects : MonoBehaviour
 
     [SerializeField]
     private Sound stareSound;
+    [SerializeField]
+    private Sound spottedSound;
 
     [SerializeField]
     private Sound chaseSound;
@@ -106,6 +108,7 @@ public class MonsterEffects : MonoBehaviour
         vfx_Chase.gameObject.SetActive(true);
         vfx_Chase.Play();
         chaseSound.Play();
+        spottedSound.Play();
         isChase = true;
     }
 
