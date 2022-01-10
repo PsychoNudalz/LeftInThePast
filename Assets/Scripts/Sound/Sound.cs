@@ -79,6 +79,11 @@ public class Sound : MonoBehaviour
 
         baseVolume = volume;
         basePitch = pitch;
+        if (source)
+        {
+            source.volume = baseVolume;
+            source.pitch = basePitch;
+        }
     }
 
     public virtual bool IsPlaying()

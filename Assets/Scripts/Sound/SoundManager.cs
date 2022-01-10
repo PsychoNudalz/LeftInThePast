@@ -39,6 +39,7 @@ public class SoundManager : MonoBehaviour
     }
 
 
+    [ContextMenu("Update Sounds")]
     public void UpdateSounds()
     {
         List<Sound> newSounds = new List<Sound>(FindObjectsOfType<Sound>());

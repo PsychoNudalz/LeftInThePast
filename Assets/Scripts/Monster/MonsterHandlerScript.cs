@@ -17,6 +17,8 @@ public class MonsterHandlerScript : MonoBehaviour
     [SerializeField]
     private TentaclesHandler tentaclesHandler;
 
+    private Coroutine teleportCoroutine;
+
     [Header("Current Dimension")]
     [SerializeField]
     private Dimension currentDimension;
@@ -87,9 +89,9 @@ public class MonsterHandlerScript : MonoBehaviour
 
     public void TeleportDimension(Dimension d, float f = 3f)
     {
-        if (f != 0)
+        if (f != 0&&teleportCoroutine!=null)
         {
-            StartCoroutine(teleportDimensionEnumerator(d, f,
+            teleportCoroutine= StartCoroutine(teleportDimensionEnumerator(d, f,
                 transform.position + DimensionController.GetZDiff(currentDimension, d)));
         }
         else
@@ -102,9 +104,9 @@ public class MonsterHandlerScript : MonoBehaviour
 
     public void TeleportDimension(Dimension d, Vector3 position, float f = 3f)
     {
-        if (f != 0)
+        if (f != 0&&teleportCoroutine!=null)
         {
-            StartCoroutine(teleportDimensionEnumerator(d, f,
+            teleportCoroutine= StartCoroutine(teleportDimensionEnumerator(d, f,
                 position));
         }
         else
@@ -122,7 +124,8 @@ public class MonsterHandlerScript : MonoBehaviour
         yield return new WaitForSeconds(f);
         Dimension temp = currentDimension;
         PostTeleport(d, position);
-        yield return new WaitForSeconds(0f);
+        teleportCoroutine = null;
+        //yield return new WaitForSeconds(0f);
         //temp.SetDimensionActive(false);
 
 
