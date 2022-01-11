@@ -631,6 +631,7 @@ MonoBehaviour:
   audioMixer: {fileID: 0}
   sound: {fileID: 2273425872614414921}
   frequency: {x: 0.3, y: 0.7}
+  playF: 1
 --- !u!1 &2871951754082403210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,7 +1833,7 @@ MonoBehaviour:
   patrolWaitTime: {x: 1, y: 2}
   patrolWaitTime_Now: 0
   visionConeDegree: 60
-  attackRange: 0.5
+  attackRange: 1
   attackDuration: 1
   attackCooldown: 2
   playerGO: {fileID: 0}
