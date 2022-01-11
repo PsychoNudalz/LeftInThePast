@@ -76,7 +76,7 @@ public class EnemyAI : MonoBehaviour
     private float visionConeDegree = 45f;
 
     [SerializeField]
-    float attackRange = 5f;
+    protected float attackRange = 5f;
 
     [SerializeField]
     float attackDuration = 1;
@@ -254,7 +254,7 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual float GetDistanceToPlayer()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, playerGO.transform.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, PlayerHandlerScript.current.transform.position);
         if (PlayerHandlerScript.IgnorePlayer)
         {
             distanceToPlayer = 1000f;
@@ -293,6 +293,7 @@ public class EnemyAI : MonoBehaviour
         if (Vector3.Distance(transform.position, playerPos) < attackRange)
         {
             moveToPlayerWaitTime_Now -= Time.deltaTime;
+            
         }
     }
 

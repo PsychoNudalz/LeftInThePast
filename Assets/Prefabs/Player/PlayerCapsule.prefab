@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5571865732106843897}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FootstepSoundParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}

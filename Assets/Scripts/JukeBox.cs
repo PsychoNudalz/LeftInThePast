@@ -40,6 +40,8 @@ public class JukeBox : MonoBehaviour
         {
             slotDiscParent = transform;
         }
+
+        collectedDisks = new List<DiscEnum>();
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -175,6 +175,10 @@ public class MonsterAI : EnemyAI
             case AIState.MoveToPatrol:
                 break;
             case AIState.MoveToPlayer:
+                if (showDebug)
+                {
+                    Debug.Log($"{GetDistanceToPlayer()}, {attackRange}");
+                }
                 break;
             case AIState.Attack:
                 break;
@@ -251,6 +255,10 @@ public class MonsterAI : EnemyAI
         // head.LookAt(new Vector3(playerPos.x, Mathf.Max(head.position.y, playerPos.y),
         //     playerPos.z));
         head.LookAt(PlayerHandlerScript.current.GetHead().transform.position);
+        if (showDebug)
+        {
+            //Debug.Log(moveToPlayerWaitTime_Now);
+        }
     }
 
     //Stare

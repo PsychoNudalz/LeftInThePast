@@ -1144,6 +1144,10 @@ PrefabInstance:
       propertyPath: discEnum
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6544181845389715744, guid: 474f503b3c94b1b418a1f948e89c6e09, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0b1ba76013d9f7c459fa57b0c42c51b6, type: 3}
     - target: {fileID: 6912384756952294242, guid: 474f503b3c94b1b418a1f948e89c6e09, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1380,6 +1384,10 @@ PrefabInstance:
       propertyPath: discEnum
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6544181845389715744, guid: 474f503b3c94b1b418a1f948e89c6e09, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c4674d92d0ff4b48bc81916068eafe7, type: 3}
     - target: {fileID: 6912384756952294242, guid: 474f503b3c94b1b418a1f948e89c6e09, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1835,6 +1843,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 335f7d813cd2dc0438b526f14333329b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6694755761742603305, guid: 335f7d813cd2dc0438b526f14333329b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6373952049729801173, guid: 335f7d813cd2dc0438b526f14333329b, type: 3}

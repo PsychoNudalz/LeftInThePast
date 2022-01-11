@@ -1832,8 +1832,8 @@ MonoBehaviour:
   patrolStopRange: 0.4
   patrolWaitTime: {x: 1, y: 2}
   patrolWaitTime_Now: 0
-  visionConeDegree: 60
-  attackRange: 1
+  visionConeDegree: 70
+  attackRange: 1.1
   attackDuration: 1
   attackCooldown: 2
   playerGO: {fileID: 0}
