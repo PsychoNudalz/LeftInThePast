@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Play set of footstep
+/// </summary>
 public class FootstepSet : MonoBehaviour
 {
     [SerializeField]

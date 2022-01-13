@@ -5,6 +5,9 @@ using QFSW.QC;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// manages the game
+/// </summary>
 public class GameManagerScript : MonoBehaviour
 {
     private static int _MAXFPS = 150;

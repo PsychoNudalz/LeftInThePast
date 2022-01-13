@@ -18273,6 +18273,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6782550270765487123, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782550270765487123, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -18323,6 +18327,14 @@ PrefabInstance:
     - target: {fileID: 7428355872589626972, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
       propertyPath: m_Name
       value: The Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428355872589626972, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428355873952862764, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7428355873952862764, guid: 1765df6c2f5f663479100ee7259ae5ef, type: 3}
       propertyPath: m_Materials.Array.data[0]

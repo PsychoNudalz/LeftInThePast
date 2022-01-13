@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Teleporting the player
+/// </summary>
 public class PlayerTeleportScript : MonoBehaviour
 {
     [SerializeField] CharacterController characterController;
@@ -31,6 +34,11 @@ public class PlayerTeleportScript : MonoBehaviour
         characterController.enabled = true;
     }
 
+    /// <summary>
+    /// Main teleport method for teleporting the player, janky but need to disable and enable a lot of stuff and forcing
+    /// positions.
+    /// </summary>
+    /// <param name="move"></param>
     public void TeleportMovePlayer(Vector3 move)
     {
         characterController.enabled = false;
@@ -45,6 +53,10 @@ public class PlayerTeleportScript : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// have to disable and reenable the CinemaMachine's camera for a frame to teleport the camera instead of it moving smoothly.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator DelayActiveCinemachine()
     {
         yield return new WaitForEndOfFrame();

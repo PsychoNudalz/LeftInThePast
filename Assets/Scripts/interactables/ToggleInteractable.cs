@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// for toggling, extends the usable interactable class
+/// </summary>
 public class ToggleInteractable : UsableInteractable
 {
     [Header("Toggle")]
@@ -18,6 +21,9 @@ public class ToggleInteractable : UsableInteractable
            
     }
 
+    /// <summary>
+    /// flips between invoking the Use and Unuse unity event
+    /// </summary>
     public override void OnInteract()
     {
         //base.OnInteract();

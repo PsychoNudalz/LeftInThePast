@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
-
+/// <summary>
+/// controls and sets the texture of the dimension glitch
+/// </summary>
 public class DimensionGlitchVFXController : MonoBehaviour
 {
 

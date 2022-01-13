@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// communicates from the player to the looking glass
+/// </summary>
 public class PlayerLookingGlass : MonoBehaviour
 {
     [SerializeField]

@@ -4,6 +4,9 @@ using HighlightPlus;
 using UnityEngine;
 using UnityEngine.Events;
 
+    /// <summary>
+    /// for using objects
+    /// </summary>
 public class UsableInteractable : Interactable
 {
     public UnityEvent OnUse;
@@ -42,6 +45,9 @@ public class UsableInteractable : Interactable
         highlightEffect.SetHighlighted(true);
     }
 
+    /// <summary>
+    /// invokes OnUse unity event, cooldown timer to stop the player from spamming interactions intentional and unintentionally
+    /// </summary>
     public override void OnInteract()
     {
         if (Time.time - cooldownTime_Last < cooldownTime)

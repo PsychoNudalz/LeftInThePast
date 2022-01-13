@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.VFX;
-
+/// <summary>
+/// play effects mostly for calling unity events inside an animation
+/// </summary>
 public class EffectPlayer : MonoBehaviour
 {
     [SerializeField] ParticleSystem[] particleSystems;

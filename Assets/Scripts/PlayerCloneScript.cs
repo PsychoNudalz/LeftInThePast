@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// clones of players in other dimensions in order to capture the camera for a render texture,  the texture will be used to display effects
+/// </summary>
 public class PlayerCloneScript : MonoBehaviour
 {
     private static bool _LOCKON = false; // Override so all clones keeps on
@@ -44,6 +47,9 @@ public class PlayerCloneScript : MonoBehaviour
 
 
 
+    /// <summary>
+    /// copy the position of the player's camera plus the offset of the dimension.
+    /// </summary>
     private void UpdatePositionAndCamera()
     {
         Transform transform2;

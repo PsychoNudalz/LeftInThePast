@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Sets the material for the shattered dimension
+/// kinda depreciated
+/// </summary>
 public class ShatterShaderController : MonoBehaviour
 {
     private MeshRenderer[] meshRenderer;

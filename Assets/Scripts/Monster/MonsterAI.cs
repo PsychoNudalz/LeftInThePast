@@ -10,14 +10,14 @@ public class MonsterAI : EnemyAI
 {
     [Header("Monster AI")]
     [SerializeField]
-     SourceOfInterest currentSource = new SourceOfInterest("", new Vector3(), SourceOfInterestType.Noise, 0f);
+    SourceOfInterest currentSource = new SourceOfInterest("", new Vector3(), SourceOfInterestType.Noise, 0f);
 
-     [SerializeField]
-     private int pathError_Max = 10;
+    [SerializeField]
+    private int pathError_Max = 10;
 
-     [SerializeField]
-     private int pathError = 0;
-     
+    [SerializeField]
+    private int pathError = 0;
+
     [FormerlySerializedAs("stareDuration")]
     [Header("Monster Stare")]
     [SerializeField]
@@ -80,12 +80,20 @@ public class MonsterAI : EnemyAI
             {
                 Gizmos.DrawSphere(currentSource.Position, debugSphereRadius);
             }
-            Gizmos.DrawSphere(patrolPos,patrolStopRange);
 
+            Gizmos.DrawSphere(patrolPos, patrolStopRange);
         }
     }
 
-
+    /// <summary>
+    ///Will only react to SOI when not in MoveToPlayer or Attack state, when SOI is in range and when the AI is enabled
+    /// 
+    /// When the AI receive an SOI, the new SOI can override the current SOI the Monster
+    /// is reacting to. A Tentacle SOI will override a Noise SOI and if both are the same SOI type, the SOI that
+    /// is further away will get overridden.
+    /// </summary>
+    /// <param name="newSource"></param>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
     public void RecieveSoi(SourceOfInterest newSource)
     {
         if (currentState.Equals(AIState.MoveToPlayer) || currentState.Equals(AIState.Attack))
@@ -179,6 +187,7 @@ public class MonsterAI : EnemyAI
                 {
                     Debug.Log($"{GetDistanceToPlayer()}, {attackRange}");
                 }
+
                 break;
             case AIState.Attack:
                 break;
@@ -301,6 +310,7 @@ public class MonsterAI : EnemyAI
             {
                 Debug.Log("Monster sees player");
             }
+
             currentSource = null;
             ChangeState(AIState.MoveToPlayer);
         }
@@ -356,6 +366,12 @@ public class MonsterAI : EnemyAI
         }
     }
 
+
+    /// <summary>
+    /// Line of sight can only be maintained during stats contained with in the statesToStareList
+    /// Stats: Stare, Investigate and MoveToPlayer
+    /// </summary>
+    /// <returns></returns>
     protected override bool LineOfSight()
     {
         if ((stareTime_Now < stareTime - stareDelay && statesToStare.Contains(currentState)))
@@ -380,8 +396,4 @@ public class MonsterAI : EnemyAI
 
         return distanceToPlayer;
     }
-    
-
-
-
 }

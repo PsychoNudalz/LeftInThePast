@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Controls the jukebox
+/// </summary>
 public class JukeBox : MonoBehaviour
 
 {
@@ -44,6 +46,10 @@ public class JukeBox : MonoBehaviour
         collectedDisks = new List<DiscEnum>();
     }
 
+    /// <summary>
+    /// mainly checking collision with discs
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
         newDisc = collision.collider.GetComponentInParent<DiscScript>();
@@ -98,6 +104,10 @@ public class JukeBox : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Playing a disc.  It will not play if the disc is not in the jukebox
+    /// </summary>
+    /// <param name="i"> value corresponds with DiscEnum </param>
     public void PlayDisc(int i)
     {
         if (!collectedDisks.Contains((DiscEnum) i))
@@ -119,7 +129,11 @@ public class JukeBox : MonoBehaviour
         }
     }
 
-    public void PlayDiscForAllDiscs(int i)
+    /// <summary>
+    /// Play discs for a jukeboxes in the scene
+    /// </summary>
+    /// <param name="i"></param>
+    public void PlayDiscForAllJukeboxs(int i)
     {
         foreach (JukeBox jukeBox in FindObjectsOfType<JukeBox>())
         {

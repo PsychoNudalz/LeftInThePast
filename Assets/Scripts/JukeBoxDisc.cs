@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// links the discs the player picks up with discs in the jukebox and the usic they will be playing
+/// </summary>
 public class JukeBoxDisc : MonoBehaviour
 {
     [SerializeField]

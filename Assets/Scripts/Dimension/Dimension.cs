@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// enum for each dimension
+/// </summary>
 public enum DimensionEnum
 {
     Home,
@@ -11,7 +14,9 @@ public enum DimensionEnum
     Matrix,
     Final
 }
-
+/// <summary>
+/// control each dimension
+/// </summary>
 public class Dimension : MonoBehaviour
 {
     [SerializeField]
@@ -103,6 +108,10 @@ public class Dimension : MonoBehaviour
         //dimensionClone.SetActive(b);
     }
 
+    /// <summary>
+    /// disable glitch VFX when leaving the dimension, seeing the vfx from another dimension will cause an infinite glow glitch
+    /// </summary>
+    /// <param name="b"></param>
     public void SetGlitchVFX(bool b)
     {
         foreach (DimensionGlitchVFXController dimensionGlitchVFXController in dimensionGlitchVFXControllers)

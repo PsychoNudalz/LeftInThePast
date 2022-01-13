@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using QFSW.QC;
 using UnityEngine;
 
+/// <summary>
+/// controls all dimension
+/// </summary>
 public class DimensionController : MonoBehaviour
 {
     [SerializeField] PlayerHandlerScript player = PlayerHandlerScript.current;
@@ -40,6 +43,11 @@ public class DimensionController : MonoBehaviour
     {
 
     }
+    
+    /// <summary>
+    /// teleport to the next dimension
+    /// </summary>
+    /// <param name="maskName">name of the teleport mask effect animation</param>
     public void LoopTeleport(string maskName)
     {
         currentDimension.TeleportPlayerFrom(maskName);
@@ -53,6 +61,11 @@ public class DimensionController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// teleport to a set dimension
+    /// </summary>
+    /// <param name="index">index of dimension</param>
+    /// <param name="maskName">name of the teleport mask effect animation</param>
     public void Teleport(int index, string maskName)
     {
         if (index < 0 || index > dimensions.Length - 1)

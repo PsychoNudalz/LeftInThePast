@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// makes the Mannequins to move
+/// </summary>
 public class WeepingAngel : MonoBehaviour
 {
     [Header("Player")]
@@ -36,6 +38,7 @@ public class WeepingAngel : MonoBehaviour
     }
 
     // Update is called once per frame
+    
     void Update()
     {
         RaycastHit hit;
@@ -67,6 +70,7 @@ public class WeepingAngel : MonoBehaviour
                 RotateToPlayer();
             }
 
+            //was looked to keep track if the player have looked at it the last frame or not, so it only rotates once and dont rotate when looked at
             wasLooked = true;
         }
         else

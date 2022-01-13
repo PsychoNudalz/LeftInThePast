@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = Unity.Mathematics.Random;
 
+/// <summary>
+/// creates a noise SOI on collision 
+/// </summary>
 public class OnCollisionSOI : MonoBehaviour
 {
     [SerializeField]

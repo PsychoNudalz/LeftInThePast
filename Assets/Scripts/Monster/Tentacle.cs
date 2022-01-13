@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
+/// <summary>
+/// Script to control a single tentacle
+/// </summary>
 public class Tentacle : MonoBehaviour
 {
     [SerializeField]
@@ -43,8 +46,6 @@ public class Tentacle : MonoBehaviour
         get => tentaclesHandler;
         set => tentaclesHandler = value;
     }
-
-
 
 
     [Header("Debug")]
@@ -87,10 +88,12 @@ public class Tentacle : MonoBehaviour
     {
         if (!isExtended)
         {
+            //update the position to the ball while extending
             SetTentacle(tentacleBall.transform.position);
         }
         else
         {
+            //update position to a global world point when it is stuck to a wall, as the monster moving also moves the tentacles
             SetTentacle(worldPoint);
         }
 
@@ -159,10 +162,15 @@ public class Tentacle : MonoBehaviour
         coroutine = null;
     }
 
+    /// <summary>
+    /// when an object or player touches a tentacle
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (tentaclesHandler)
         {
+            //If a player touches it
             if (tentaclesHandler.PlayerTagList.Contains(other.tag) && !PlayerHandlerScript.IgnorePlayer)
             {
                 // print($"{name} triggered by: {other.name}");
@@ -170,6 +178,7 @@ public class Tentacle : MonoBehaviour
                     SourceOfInterestType.Tentacle,
                     Vector3.Distance(other.transform.position, transform.position) * 2f));
             }
+            //if an item with a specific tag under ItemTagList touches it
             else if (tentaclesHandler.ItemTagList.Contains(other.tag))
             {
                 PickUpInteractables temp = other.GetComponentInParent<PickUpInteractables>();
@@ -180,6 +189,7 @@ public class Tentacle : MonoBehaviour
                         Vector3.Distance(other.transform.position, transform.position) * 2f));
                 }
             }
+            //if a clone touches it
             else if (tentaclesHandler.CloneTagList.Contains(other.tag))
             {
                 MonsterHandlerScript.Monster_TeleportToPlayerDimension();

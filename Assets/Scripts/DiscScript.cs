@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enum for each disc
+/// </summary>
 public enum DiscEnum
 {
     Home,
@@ -13,7 +16,9 @@ public enum DiscEnum
     Extra2
     
 }
-
+/// <summary>
+/// class for discs
+/// </summary>
 public class DiscScript : MonoBehaviour
 {
     [SerializeField]
@@ -45,6 +50,9 @@ public class DiscScript : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// called when it hits the jukebox
+    /// </summary>
     public void OnSlot()
     {
         if (pickUpInteractables)

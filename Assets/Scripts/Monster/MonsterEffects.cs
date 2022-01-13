@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.VFX;
 
+/// <summary>
+/// Controls effect on the monster
+/// </summary>
 public class MonsterEffects : MonoBehaviour
 {
     [SerializeField]

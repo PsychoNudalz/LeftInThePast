@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
 
+/// <summary>
+/// plays a sound
+/// </summary>
 [RequireComponent(typeof(AudioSource))]
 [System.Serializable]
 public class Sound : MonoBehaviour

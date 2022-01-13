@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using QFSW.QC;
 using UnityEngine;
 
+/// <summary>
+/// main script on controlling the monster, other scripts outside the monster will communicate with it via this
+/// </summary>
 public class MonsterHandlerScript : MonoBehaviour
 {
     public static MonsterHandlerScript current;
@@ -87,6 +90,11 @@ public class MonsterHandlerScript : MonoBehaviour
         SetAIActive(false);
     }
 
+    /// <summary>
+    /// Teleport to a dimension
+    /// </summary>
+    /// <param name="d">dimension specified</param>
+    /// <param name="f">time until it arrives at the new dimension</param>
     public void TeleportDimension(Dimension d, float f = 3f)
     {
         if (f != 0)
@@ -105,6 +113,12 @@ public class MonsterHandlerScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Teleport to a dimension with a set global position
+    /// </summary>
+    /// <param name="d">dimension specified</param>
+    /// <param name="position"> global position in the new dimension</param>
+    /// <param name="f">time until it arrives at the new dimension</param>
     public void TeleportDimension(Dimension d, Vector3 position, float f = 3f)
     {
         if (f != 0)
@@ -154,7 +168,10 @@ public class MonsterHandlerScript : MonoBehaviour
         current.gameObject.SetActive(b);
     }
 
-
+/// <summary>
+/// Forcefully change the monster’s AI state.
+/// </summary>
+/// <param name="state"></param>
     [Command()]
     public static void Monster_ChangeState(string state)
     {
@@ -166,7 +183,10 @@ public class MonsterHandlerScript : MonoBehaviour
             }
         }
     }
-
+/// <summary>
+/// teleports the monster to the player’s dimension. Forced = true to teleport to final dimension.
+/// </summary>
+/// <param name="forced"></param>
     [Command()]
     public static void Monster_TeleportToPlayerDimension(bool forced = false)
     {
@@ -186,7 +206,10 @@ public class MonsterHandlerScript : MonoBehaviour
             current.TeleportDimension(DimensionController.Current.CurrentDimension);
         }
     }
-
+/// <summary>
+/// Set if AI will print logs in the console.
+/// </summary>
+/// <param name="b"></param>
     [Command()]
     public static void MonsterAI_ShowDebug(bool b)
     {

@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// saves and controls a set of patrol points
+/// </summary>
 public class PatrolManager : MonoBehaviour
 {
 

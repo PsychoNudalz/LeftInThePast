@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// keep track of what the player is holding and position of it
+/// also handles drop and throwing
+/// </summary>
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField]

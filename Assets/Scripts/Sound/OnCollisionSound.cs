@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// plays sounds on collision.  will play sound on any collision if no tags are supplied
+/// </summary>
 public class OnCollisionSound : MonoBehaviour
 {
     [SerializeField]

@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// script on the physics ball to determine where yhe tentacle will stick to
+/// </summary>
 public class TentacleBall : MonoBehaviour
 {
     [SerializeField]
@@ -31,6 +34,10 @@ public class TentacleBall : MonoBehaviour
         rb.AddForce(v);
     }
 
+    /// <summary>
+    /// set the position it collided as the end point of the tentacle
+    /// </summary>
+    /// <param name="other"></param>
     private void OnCollisionEnter(Collision other)
     {
         if (tagList.Contains(other.collider.tag))

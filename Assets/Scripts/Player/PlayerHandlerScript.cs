@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.Serialization;
-
 using QFSW.QC;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Main script for handling the player, all scripts outside the player will need to communicate through this
+/// </summary>
 public class PlayerHandlerScript : MonoBehaviour
 {
     public static PlayerHandlerScript current;
@@ -120,12 +122,21 @@ public class PlayerHandlerScript : MonoBehaviour
         return firstPersonController.CinemachineCameraTarget;
     }
 
-    public void TeleportEffect(RenderTexture previousTexture,string maskName = "TPEffect1")
+    /// <summary>
+    /// plays the teleport effects
+    /// </summary>
+    /// <param name="previousTexture"></param>
+    /// <param name="maskName"></param>
+    public void TeleportEffect(RenderTexture previousTexture, string maskName = "TPEffect1")
     {
         playerUIController.SetTeleportEffect(previousTexture, maskName);
         lookingGlass.SetLookingGlass(previousTexture);
     }
 
+    /// <summary>
+    /// set new set of foot steps
+    /// </summary>
+    /// <param name="newFootstepSet"></param>
     public void SetNewSet(FootstepSet newFootstepSet)
     {
         playerFootstepsScript.SetNewSet(newFootstepSet);
@@ -149,14 +160,20 @@ public class PlayerHandlerScript : MonoBehaviour
         current.firstPersonController.SprintSpeed = 0;
     }
 
+    /// <summary>
+    /// Set the Player to be ignored by the AI, can not be detected by tentacles, but will trigger game over if
+    ///touches the monster’s main body. Used for exploring the house without getting chased.
+    /// </summary>
+    /// <param name="b"></param>
     [Command()]
     public static void SetIgnore(bool b)
     {
         IgnorePlayer = b;
     }
-
+/// <summary>
+/// toggles ignore
+/// </summary>
     [Command()]
-
     public static void SetIgnore()
     {
         IgnorePlayer = !IgnorePlayer;

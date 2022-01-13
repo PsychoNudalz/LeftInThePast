@@ -6,6 +6,9 @@ using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 
+/// <summary>
+/// AI State
+/// </summary>
 public enum AIState
 {
     Idle,
@@ -13,9 +16,12 @@ public enum AIState
     MoveToPlayer,
     Attack,
     Stare,
-    Investigate
+    Investigate // overrides the patrol to move to an SOI
 }
 
+/// <summary>
+/// Main Enemy AI super class from pass project
+/// </summary>
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyAI : MonoBehaviour
 {
@@ -269,6 +275,9 @@ public class EnemyAI : MonoBehaviour
         playerPos = navMeshAgent.destination;
     }
 
+    /// <summary>
+    /// only move to player's last known position
+    /// </summary>
     protected virtual void AIThink_MoveToPlayer()
     {
         if (LineOfSight())
@@ -301,12 +310,13 @@ public class EnemyAI : MonoBehaviour
     {
         
     }
-
+    
     protected virtual void SetNewPatrolPoint()
     {
         int temp = patrolManager.GetRandomPatrolIndex();
         while (temp.Equals(patrolIndex))
         {
+            //making sure it is not the same patrol point
             temp = patrolManager.GetRandomPatrolIndex();
         }
 
@@ -387,6 +397,10 @@ public class EnemyAI : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// checks line of sight, only evaluates layers specified by LOSLayer
+    /// </summary>
+    /// <returns></returns>
     protected virtual bool LineOfSight()
     {
 

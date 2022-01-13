@@ -5,7 +5,9 @@ using QFSW.QC;
 using Unity.Mathematics;
 using UnityEngine;
 
-
+/// <summary>
+/// custom script to control the final dimension and ending
+/// </summary>
 public class FinalDimension : MonoBehaviour
 {
     [Header("House")]
@@ -51,6 +53,9 @@ public class FinalDimension : MonoBehaviour
         houseFracture.SetActive(false);
     }
 
+    /// <summary>
+    /// starts collapsing the level
+    /// </summary>
     [ContextMenu("Break")]
     public void StartChainBreak()
     {
@@ -68,6 +73,11 @@ public class FinalDimension : MonoBehaviour
         StartCoroutine(BreakPiece(i));
     }
 
+    /// <summary>
+    /// recursively calls to break each piece
+    /// </summary>
+    /// <param name="i"> index value of the piece</param>
+    /// <returns></returns>
     IEnumerator BreakPiece(int i)
     {
         fracturePieces[i].isKinematic = false;

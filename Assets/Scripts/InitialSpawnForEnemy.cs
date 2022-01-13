@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// spawns the monster in for one time
+/// </summary>
 public class InitialSpawnForEnemy : MonoBehaviour
 {
     [SerializeField]

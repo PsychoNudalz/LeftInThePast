@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// controls the UI
+/// </summary>
 public class PlayerUIController : MonoBehaviour
 {
     [Header("Teleport Effects")]
@@ -39,9 +41,7 @@ public class PlayerUIController : MonoBehaviour
 
     /// <summary>
     /// Set the teleport texture, mask name for different masks
-    ///
-    /// TPEffect1: Circle
-    /// TPEffect2: Shatter
+    /// Double check with the maskAnimator for animation names
     /// </summary>
     /// <param name="newTexture"></param>
     /// <param name="maskName"></param>

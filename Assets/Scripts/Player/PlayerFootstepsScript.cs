@@ -4,6 +4,9 @@ using Mono.CSharp;
 using StarterAssets;
 using UnityEngine;
 
+/// <summary>
+/// Sets the footstep on the player
+/// </summary>
 public class PlayerFootstepsScript : MonoBehaviour
 {
     [SerializeField]
@@ -30,6 +33,10 @@ public class PlayerFootstepsScript : MonoBehaviour
     {
     }
 
+    /// <summary>
+    /// sets will need to be destroyed and added, as they will need to be under the player and are 3D sounds
+    /// </summary>
+    /// <param name="newFootstepSet"></param>
     public void SetNewSet(FootstepSet newFootstepSet)
     {
         print($"Setting footsteps to: {newFootstepSet}");

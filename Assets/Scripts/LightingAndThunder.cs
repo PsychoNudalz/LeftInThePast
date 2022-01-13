@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Plays lightning and thunder effect
+/// </summary>
 public class LightingAndThunder : MonoBehaviour
 {
     [SerializeField]
@@ -70,7 +73,12 @@ public class LightingAndThunder : MonoBehaviour
 
         wasLightning = lights[0].intensity.Equals(intensity);
     }
-
+    
+    
+/// <summary>
+/// essentially transforms a sin wave, when the value is more than the flash point, it will then increase the intensity of the lights
+/// </summary>
+/// <returns></returns>
     float CalculateIntensity()
     {
         float temp = 0f;

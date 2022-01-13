@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Applies a material to all child renders
+/// </summary>
 public class MaterialOverride : MonoBehaviour
 {
     [SerializeField]

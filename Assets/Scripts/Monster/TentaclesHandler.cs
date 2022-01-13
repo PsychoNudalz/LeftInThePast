@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Random = System.Random;
 
+/// <summary>
+/// Controls all tentacles on the monster
+/// shoots tentacles at a fixed random rate
+/// </summary>
 public class TentaclesHandler : MonoBehaviour
 {
     [SerializeField]
@@ -82,6 +86,10 @@ public class TentaclesHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// retracted tentacles will be added to a stack to signify they are free to shoot
+    /// this methods shoots the tentacle at the top of the stack
+    /// </summary>
     private void ShootFreeTentacle()
     {
         Tentacle tentacle = freeTentacleStack[0];

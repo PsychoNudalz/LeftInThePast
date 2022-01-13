@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls an animator by passing a string
+/// Mostly for playing an animation in a unity event
+/// </summary>
 public class AnimationObject : MonoBehaviour
 {
 

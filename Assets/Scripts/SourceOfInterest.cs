@@ -4,12 +4,20 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
+/// <summary>
+/// SOI type
+/// </summary>
 public enum SourceOfInterestType
 {
     Noise,
     Tentacle
 }
 
+/// <summary>
+/// SOI creates a stimuli that maks the monster react
+/// Noise to make it move to an area to investigate
+/// Tentacle to cause it to stare when something touches the tentacle
+/// </summary>
 [Serializable]
 public class SourceOfInterest
 {

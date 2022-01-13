@@ -2840,6 +2840,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tentacle
       objectReference: {fileID: 0}
+    - target: {fileID: 7629819291014932304, guid: a3084032904dc1448b42f4318eafa65a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3084032904dc1448b42f4318eafa65a, type: 3}
 --- !u!4 &6555289141204591551 stripped

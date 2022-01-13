@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 
+/// <summary>
+/// creates object pool of sounds
+/// good for sounds that plays multiple times without restarting it
+/// </summary>
 public class SoundPool : Sound
 {
     [Header("Pool Handling")]

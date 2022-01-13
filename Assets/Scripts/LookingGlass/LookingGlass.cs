@@ -5,6 +5,9 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+/// <summary>
+/// the main looking glass script
+/// </summary>
 public class LookingGlass : MonoBehaviour
 {
     [SerializeField]
@@ -61,6 +64,10 @@ public class LookingGlass : MonoBehaviour
         UpdateLookingGlass();
     }
 
+    /// <summary>
+    /// sets the render texture of the glass, texture should be a texture for a dimension
+    /// </summary>
+    /// <param name="rt"></param>
     public void SetLookingGlass(RenderTexture rt)
     {
         foreach (Material material in lookingGlassMaterials)
@@ -69,6 +76,9 @@ public class LookingGlass : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// animates the looking glass to float up and down and rotate a little bit
+    /// </summary>
     public void UpdateLookingGlass()
     {
         for (int i = 0; i < lookingGlassTransforms.Count; i++)

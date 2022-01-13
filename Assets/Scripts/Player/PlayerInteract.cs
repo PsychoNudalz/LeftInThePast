@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// script for raycasting from the player to select interactable objects to interact with
+/// </summary>
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField]
@@ -86,6 +89,10 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// sets the object it is in focus with
+    /// </summary>
+    /// <param name="i"></param>
     void SetCurrentObject(Interactable i)
     {
         if (i is UsableInteractable)

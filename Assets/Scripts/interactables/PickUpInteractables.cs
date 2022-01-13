@@ -4,6 +4,9 @@ using HighlightPlus;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+/// <summary>
+/// for pick ups
+/// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class PickUpInteractables : Interactable
 {
@@ -111,6 +114,9 @@ public class PickUpInteractables : Interactable
         }
     }
 
+    /// <summary>
+    /// orientate the object based on the handPosition transform
+    /// </summary>
      void OrientateItem()
     {
         transform.localPosition = new Vector3();
