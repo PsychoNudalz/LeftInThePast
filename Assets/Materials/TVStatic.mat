@@ -2,14 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TVStatic
   m_Shader: {fileID: -6465566751694194690, guid: 889d70a277f066d4e82090726e47cad6, type: 3}
-  m_ShaderKeywords: 
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -31,11 +32,27 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - Boolean_0c812fd81ec443109c16bf6d9058143c: 1
     - Vector1_623a94b7d0b44f608fd10d132944bc79: 0.05
     - Vector1_812d3013ef9c4a1d94f4974070eb6141: 5
     - Vector1_efa327633f504cc89363f7eecfabc211: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - Vector2_053b6daac6c34e1788081e1e9c32c0da: {r: 10, g: 10, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &5237961404202100615
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
