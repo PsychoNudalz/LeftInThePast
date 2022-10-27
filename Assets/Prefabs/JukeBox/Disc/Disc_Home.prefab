@@ -53,7 +53,57 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 257950085376692669, guid: 0649c25ad7f3a0245b91d2eaf5c274fd, type: 3}
       propertyPath: m_Name
-      value: Disc_Base
+      value: Disc_Home
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0649c25ad7f3a0245b91d2eaf5c274fd, type: 3}
+--- !u!1 &957898747208520815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1557137990071235367, guid: 0649c25ad7f3a0245b91d2eaf5c274fd, type: 3}
+  m_PrefabInstance: {fileID: 1789955544913667912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2518880851697020590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957898747208520815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &5574895216924201846 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6163513348246434878, guid: 0649c25ad7f3a0245b91d2eaf5c274fd, type: 3}
+  m_PrefabInstance: {fileID: 1789955544913667912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8143827594523557687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574895216924201846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
