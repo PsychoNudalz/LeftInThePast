@@ -1,6 +1,6 @@
 Shader "HighlightPlus/Geometry/SeeThroughMask" {
 Properties {
-    _MainTex ("Texture", 2D) = "white" {}
+    _MainTex ("Texture", Any) = "white" {}
     _Color ("Color", Color) = (1,1,1) // not used; dummy property to avoid inspector warning "material has no _Color property"
 }
      SubShader
@@ -10,6 +10,7 @@ Properties {
         // See through effect
         Pass
         { 
+            Name "See-through mask"
             Stencil {
                 WriteMask 3
                 Ref 1

@@ -18,7 +18,9 @@ namespace HighlightPlus {
         public static int BaseMap = Shader.PropertyToID("_BaseMap");
         public static int BaseMapST = Shader.PropertyToID("_BaseMap_ST");
         public static int AspectRatio = Shader.PropertyToID("_AspectRatio");
-
+        public static int BlendSrc = Shader.PropertyToID("_BlendSrc");
+        public static int BlendDst = Shader.PropertyToID("_BlendDst");
+		
         // outline uniforms
         public static int OutlineWidth = Shader.PropertyToID("_OutlineWidth");
         public static int OutlineZTest = Shader.PropertyToID("_OutlineZTest");
@@ -27,6 +29,7 @@ namespace HighlightPlus {
 
         // glow uniforms
         public static int GlowZTest = Shader.PropertyToID("_GlowZTest");
+        public static int GlowStencilComp = Shader.PropertyToID("_GlowStencilComp");
         public static int GlowStencilOp = Shader.PropertyToID("_GlowStencilOp");
         public static int GlowDirection = Shader.PropertyToID("_GlowDirection");
         public static int Glow = Shader.PropertyToID("_Glow");
@@ -49,16 +52,25 @@ namespace HighlightPlus {
         // inner glow uniforms
         public static int InnerGlowWidth = Shader.PropertyToID("_InnerGlowWidth");
         public static int InnerGlowZTest = Shader.PropertyToID("_InnerGlowZTest");
+        public static int InnerGlowColor = Shader.PropertyToID("_InnerGlowColor");
 
         // overlay uniforms
         public static int OverlayData = Shader.PropertyToID("_OverlayData");
         public static int OverlayBackColor = Shader.PropertyToID("_OverlayBackColor");
+        public static int OverlayColor = Shader.PropertyToID("_OverlayColor");
+        public static int OverlayHitPosData = Shader.PropertyToID("_OverlayHitPosData");
+        public static int OverlayHitStartTime = Shader.PropertyToID("_OverlayHitStartTime");
+        public static int OverlayTexture = Shader.PropertyToID("_OverlayTexture");
+
+        // target uniforms
+        public static int TargetFXRenderData = Shader.PropertyToID("_TargetFXRenderData");
 
         // keywords
         public const string SKW_ALPHACLIP = "HP_ALPHACLIP";
         public const string SKW_DEPTHCLIP = "HP_DEPTHCLIP";
         public const string SKW_DEPTH_OFFSET = "HP_DEPTH_OFFSET";
-
+        public const string SKW_USES_OVERLAY_TEXTURE = "HP_USES_OVERLAY_TEXTURE";
+        public const string SKW_SEETHROUGH_ONLY_BORDER = "HP_SEETHROUGH_ONLY_BORDER";
     }
 }
 

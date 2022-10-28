@@ -7,7 +7,7 @@ namespace HighlightPlus {
     [CustomEditor(typeof(HighlightManager))]
     public class HighlightManagerEditor : Editor {
 
-        SerializedProperty highlightOnHover, layerMask, raycastCamera, raycastSource, maxDistance, respectUI;
+        SerializedProperty highlightOnHover, layerMask, raycastCamera, raycastSource, minDistance, maxDistance, respectUI;
         SerializedProperty selectOnClick, selectedProfile, selectedAndHighlightedProfile, singleSelection, toggleOnClick;
 
         void OnEnable() {
@@ -15,6 +15,7 @@ namespace HighlightPlus {
             layerMask = serializedObject.FindProperty("layerMask");
             raycastCamera = serializedObject.FindProperty("raycastCamera");
             raycastSource = serializedObject.FindProperty("raycastSource");
+            minDistance = serializedObject.FindProperty("minDistance");
             maxDistance = serializedObject.FindProperty("maxDistance");
             respectUI = serializedObject.FindProperty("respectUI");
             selectOnClick = serializedObject.FindProperty("selectOnClick");
@@ -33,7 +34,8 @@ namespace HighlightPlus {
             EditorGUILayout.PropertyField(layerMask);
             EditorGUILayout.PropertyField(raycastCamera);
             EditorGUILayout.PropertyField(raycastSource);
-            EditorGUILayout.PropertyField(maxDistance, new GUIContent("Max Distance", "Max distance for target. 0 = infinity")); ;
+            EditorGUILayout.PropertyField(minDistance);
+            EditorGUILayout.PropertyField(maxDistance);
             EditorGUILayout.PropertyField(respectUI);
             EditorGUILayout.PropertyField(highlightOnHover);
             EditorGUILayout.PropertyField(selectOnClick);

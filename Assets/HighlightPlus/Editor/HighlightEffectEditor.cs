@@ -15,15 +15,17 @@ namespace HighlightPlus {
         SerializedProperty profile, profileSync, camerasLayerMask, ignoreObjectVisibility, reflectionProbes, GPUInstancing;
         SerializedProperty ignore, previewInEditor, effectGroup, effectGroupLayer, effectNameFilter, combineMeshes, alphaCutOff, cullBackFaces, normalsOption;
         SerializedProperty highlighted, fadeInDuration, fadeOutDuration, flipY, constantWidth, subMeshMask;
-        SerializedProperty overlay, overlayColor, overlayAnimationSpeed, overlayMinIntensity, overlayBlending;
+        SerializedProperty overlay, overlayColor, overlayAnimationSpeed, overlayMinIntensity, overlayBlending, overlayTexture, overlayTextureScale;
         SerializedProperty outline, outlineColor, outlineWidth, outlineQuality, outlineDownsampling, outlineVisibility, outlineBlitDebug, outlineIndependent;
         SerializedProperty glow, glowWidth, glowQuality, glowDownsampling, glowHQColor, glowDithering, glowMagicNumber1, glowMagicNumber2, glowAnimationSpeed;
-        SerializedProperty glowBlendPasses, glowPasses, glowVisibility, glowBlitDebug;
+        SerializedProperty glowBlendPasses, glowPasses, glowVisibility, glowBlendMode, glowBlitDebug, glowIgnoreMask;
         SerializedProperty innerGlow, innerGlowWidth, innerGlowColor, innerGlowVisibility;
         SerializedProperty seeThrough, seeThroughOccluderMask, seeThroughOccluderMaskAccurate, seeThroughOccluderThreshold, seeThroughOccluderCheckInterval, seeThroughOccluderCheckIndividualObjects, seeThroughDepthOffset, seeThroughMaxDepth;
-        SerializedProperty seeThroughIntensity, seeThroughTintAlpha, seeThroughTintColor, seeThroughNoise, seeThroughBorder, seeThroughBorderWidth, seeThroughBorderColor, seeThroughOrdered;
-        SerializedProperty targetFX, targetFXTexture, targetFXColor, targetFXCenter, targetFXRotationSpeed, targetFXInitialScale, targetFXEndScale, targetFXScaleToRenderBounds, targetFXTransitionDuration, targetFXStayDuration, targetFXVisibility;
-        SerializedProperty hitFxInitialIntensity, hitFxMode, hitFxFadeOutDuration, hitFxColor;
+        SerializedProperty seeThroughIntensity, seeThroughTintAlpha, seeThroughTintColor, seeThroughNoise, seeThroughBorder, seeThroughBorderWidth, seeThroughBorderColor, seeThroughOrdered, seeThroughBorderOnly;
+        SerializedProperty targetFX, targetFXTexture, targetFXColor, targetFXCenter, targetFXRotationSpeed, targetFXInitialScale, targetFXEndScale, targetFXScaleToRenderBounds;
+        SerializedProperty targetFXAlignToGround, targetFXFadePower, targetFXGroundMaxDistance, targetFXGroundLayerMask, targetFXTransitionDuration, targetFXStayDuration, targetFXVisibility;
+        SerializedProperty hitFxInitialIntensity, hitFxMode, hitFxFadeOutDuration, hitFxColor, hitFxRadius;
+        SerializedProperty cameraDistanceFade, cameraDistanceFadeNear, cameraDistanceFadeFar;
         HighlightEffect thisEffect;
         bool profileChanged, enableProfileApply;
 
@@ -64,6 +66,8 @@ namespace HighlightPlus {
             overlayAnimationSpeed = serializedObject.FindProperty("overlayAnimationSpeed");
             overlayMinIntensity = serializedObject.FindProperty("overlayMinIntensity");
             overlayBlending = serializedObject.FindProperty("overlayBlending");
+            overlayTexture = serializedObject.FindProperty("overlayTexture");
+            overlayTextureScale = serializedObject.FindProperty("overlayTextureScale");
             outline = serializedObject.FindProperty("outline");
             outlineColor = serializedObject.FindProperty("outlineColor");
             outlineWidth = serializedObject.FindProperty("outlineWidth");
@@ -84,7 +88,9 @@ namespace HighlightPlus {
             glowAnimationSpeed = serializedObject.FindProperty("glowAnimationSpeed");
             glowPasses = serializedObject.FindProperty("glowPasses");
             glowVisibility = serializedObject.FindProperty("glowVisibility");
+            glowBlendMode = serializedObject.FindProperty("glowBlendMode");
             glowBlitDebug = serializedObject.FindProperty("glowBlitDebug");
+			glowIgnoreMask = serializedObject.FindProperty("glowIgnoreMask");
             glowDownsampling = serializedObject.FindProperty("glowDownsampling");
             innerGlow = serializedObject.FindProperty("innerGlow");
             innerGlowColor = serializedObject.FindProperty("innerGlowColor");
@@ -106,12 +112,17 @@ namespace HighlightPlus {
             seeThroughBorderWidth = serializedObject.FindProperty("seeThroughBorderWidth");
             seeThroughBorderColor = serializedObject.FindProperty("seeThroughBorderColor");
             seeThroughOrdered = serializedObject.FindProperty("seeThroughOrdered");
+            seeThroughBorderOnly = serializedObject.FindProperty("seeThroughBorderOnly");
             targetFX = serializedObject.FindProperty("targetFX");
             targetFXTexture = serializedObject.FindProperty("targetFXTexture");
             targetFXRotationSpeed = serializedObject.FindProperty("targetFXRotationSpeed");
             targetFXInitialScale = serializedObject.FindProperty("targetFXInitialScale");
             targetFXEndScale = serializedObject.FindProperty("targetFXEndScale");
             targetFXScaleToRenderBounds = serializedObject.FindProperty("targetFXScaleToRenderBounds");
+            targetFXAlignToGround = serializedObject.FindProperty("targetFXAlignToGround");
+            targetFXFadePower = serializedObject.FindProperty("targetFXFadePower");
+            targetFXGroundMaxDistance = serializedObject.FindProperty("targetFXGroundMaxDistance");
+            targetFXGroundLayerMask = serializedObject.FindProperty("targetFXGroundLayerMask");
             targetFXColor = serializedObject.FindProperty("targetFXColor");
             targetFXCenter = serializedObject.FindProperty("targetFXCenter");
             targetFXTransitionDuration = serializedObject.FindProperty("targetFXTransitionDuration");
@@ -121,6 +132,10 @@ namespace HighlightPlus {
             hitFxMode = serializedObject.FindProperty("hitFxMode");
             hitFxFadeOutDuration = serializedObject.FindProperty("hitFxFadeOutDuration");
             hitFxColor = serializedObject.FindProperty("hitFxColor");
+            hitFxRadius = serializedObject.FindProperty("hitFxRadius");
+            cameraDistanceFade = serializedObject.FindProperty("cameraDistanceFade");
+            cameraDistanceFadeNear = serializedObject.FindProperty("cameraDistanceFadeNear");
+            cameraDistanceFadeFar = serializedObject.FindProperty("cameraDistanceFadeFar");
 
             thisEffect = (HighlightEffect)target;
             thisEffect.Refresh();
@@ -158,7 +173,7 @@ namespace HighlightPlus {
                 EditorGUILayout.Separator();
             }
 
-            bool isManager = thisEffect.GetComponent<HighlightManager>() != null;
+            bool isManager = IsDefaultEffectUsedByManager();
             serializedObject.Update();
 
             if (foldoutBold == null) {
@@ -236,7 +251,17 @@ namespace HighlightPlus {
                 EditorGUILayout.PropertyField(reflectionProbes);
                 EditorGUILayout.PropertyField(normalsOption);
                 EditorGUILayout.PropertyField(GPUInstancing);
+                EditorGUILayout.Separator();
+            }
 
+            if (!isManager) {
+                EditorGUILayout.LabelField("State", EditorStyles.boldLabel);
+                if (isManager) {
+                    EditorGUILayout.LabelField(new GUIContent("Highlighted", "Highlight state (controlled by Highlight Manager)."), new GUIContent(thisEffect.highlighted.ToString()));
+                } else {
+                    EditorGUILayout.PropertyField(highlighted);
+                }
+                EditorGUILayout.LabelField(new GUIContent("Selected", "Selection state (used by Highlight Trigger or Manager) when using multi-selection option."), new GUIContent(thisEffect.isSelected.ToString()));
                 EditorGUILayout.Separator();
             }
 
@@ -250,9 +275,6 @@ namespace HighlightPlus {
                 EditorGUI.BeginChangeCheck();
                 if (!isManager) {
                     EditorGUILayout.PropertyField(ignore, new GUIContent("Ignore", "This object won't be highlighted."));
-                    if (!ignore.boolValue) {
-                        EditorGUILayout.PropertyField(highlighted);
-                    }
                 }
                 if (!ignore.boolValue) {
                     EditorGUILayout.PropertyField(effectGroup, new GUIContent("Include", "Additional objects to highlight. Pro tip: when highlighting multiple objects at the same time include them in the same layer or under the same parent."));
@@ -271,6 +293,13 @@ namespace HighlightPlus {
                     EditorGUILayout.PropertyField(cullBackFaces);
                     EditorGUILayout.PropertyField(fadeInDuration);
                     EditorGUILayout.PropertyField(fadeOutDuration);
+                    EditorGUILayout.PropertyField(cameraDistanceFade);
+                    if (cameraDistanceFade.boolValue) {
+                        EditorGUI.indentLevel++;
+                        EditorGUILayout.PropertyField(cameraDistanceFadeNear, new GUIContent("Near Distance"));
+                        EditorGUILayout.PropertyField(cameraDistanceFadeFar, new GUIContent("Far Distance"));
+                        EditorGUI.indentLevel--;
+                    }
                     if ((PlayerSettings.virtualRealitySupported && ((outlineQuality.intValue == (int)QualityLevel.Highest && outline.floatValue > 0) || (glowQuality.intValue == (int)QualityLevel.Highest && glow.floatValue > 0)))) {
                         EditorGUILayout.PropertyField(flipY, new GUIContent("Flip Y Fix", "Flips outline/glow effect to fix bug introduced in Unity 2019.1.0 when VR is enabled."));
                     }
@@ -278,6 +307,7 @@ namespace HighlightPlus {
                         EditorGUILayout.PropertyField(constantWidth, new GUIContent("Constant Width", "Compensates outline/glow width with depth increase."));
                     }
                     EditorGUILayout.PropertyField(subMeshMask);
+                    EditorGUILayout.PropertyField(outlineIndependent, new GUIContent("Independent", "Do not combine outline or glow with other highlighted objects."));
                 }
             }
 
@@ -301,7 +331,7 @@ namespace HighlightPlus {
                     EditorGUILayout.EndHorizontal();
                     CheckVRSupport(outlineQuality.intValue);
                     if (outlineQuality.intValue == (int)QualityLevel.Highest) {
-                        CheckDepthTextureSupport();
+                        CheckDepthTextureSupport("Highest Quality");
                         EditorGUILayout.PropertyField(outlineDownsampling, new GUIContent("Downsampling"));
                     }
                     if (outlineQuality.intValue == (int)QualityLevel.Highest) {
@@ -315,7 +345,6 @@ namespace HighlightPlus {
                         outlineVisibility.intValue = glowVisibility.intValue;
                     }
                     EditorGUILayout.PropertyField(outlineVisibility, new GUIContent("Visibility"));
-                    EditorGUILayout.PropertyField(outlineIndependent, new GUIContent("Independent", "Do not combine outline with other highlighted objects."));
 
                     EditorGUI.indentLevel--;
                 }
@@ -336,7 +365,7 @@ namespace HighlightPlus {
                     EditorGUILayout.EndHorizontal();
                     CheckVRSupport(glowQuality.intValue);
                     if (glowQuality.intValue == (int)QualityLevel.Highest) {
-                        CheckDepthTextureSupport();
+                        CheckDepthTextureSupport("Highest Quality");
                         EditorGUILayout.PropertyField(glowDownsampling, new GUIContent("Downsampling"));
                         EditorGUILayout.PropertyField(glowHQColor, new GUIContent("Color"));
                     }
@@ -347,6 +376,7 @@ namespace HighlightPlus {
                             EditorGUILayout.HelpBox("Enable \"Preview In Editor\" and \"Highlighted\" to display the glow Debug View.", MessageType.Warning);
                         }
                         EditorGUILayout.PropertyField(glowVisibility, new GUIContent("Visibility"));
+                        EditorGUILayout.PropertyField(glowBlendMode, new GUIContent("Blend Mode"));
                     } else {
                         EditorGUILayout.PropertyField(glowVisibility, new GUIContent("Visibility"));
                         EditorGUILayout.PropertyField(glowDithering, new GUIContent("Dithering"));
@@ -369,6 +399,7 @@ namespace HighlightPlus {
                         }
                         EditorGUILayout.PropertyField(glowPasses, true);
                     }
+                    EditorGUILayout.PropertyField(glowIgnoreMask, new GUIContent("Ignore Mask"));
                     EditorGUI.indentLevel--;
                 }
                 EditorGUILayout.EndVertical();
@@ -389,6 +420,10 @@ namespace HighlightPlus {
                 if (overlay.floatValue > 0) {
                     EditorGUI.indentLevel++;
                     EditorGUILayout.PropertyField(overlayColor, new GUIContent("Color"));
+                    EditorGUILayout.PropertyField(overlayTexture, new GUIContent("Texture"));
+                    if (overlayTexture.objectReferenceValue != null) {
+                        EditorGUILayout.PropertyField(overlayTextureScale, new GUIContent("Texture Scale"));
+                    }
                     EditorGUILayout.PropertyField(overlayBlending, new GUIContent("Blending"));
                     EditorGUILayout.PropertyField(overlayMinIntensity, new GUIContent("Min Intensity"));
                     EditorGUILayout.PropertyField(overlayAnimationSpeed, new GUIContent("Animation Speed"));
@@ -407,6 +442,22 @@ namespace HighlightPlus {
                     EditorGUILayout.PropertyField(targetFXInitialScale, new GUIContent("Initial Scale"));
                     EditorGUILayout.PropertyField(targetFXEndScale, new GUIContent("End Scale"));
                     EditorGUILayout.PropertyField(targetFXScaleToRenderBounds, new GUIContent("Scale To Object Bounds"));
+                    EditorGUILayout.PropertyField(targetFXAlignToGround, new GUIContent("Align To Ground"));
+                    if (targetFXAlignToGround.boolValue) {
+                        CheckDepthTextureSupport("Align To Ground option");
+                        EditorGUI.indentLevel++;
+                        if (thisEffect.includedObjectsCount > 1 && targetFXCenter.objectReferenceValue == null && effectGroup.intValue != (int)TargetOptions.OnlyThisObject) {
+                            EditorGUILayout.HelpBox("It's recommended to specify in the 'Center' property above, the specific object used to position the target fx image (will be rendered under that object on the ground).", MessageType.Info);
+                        }
+                        EditorGUILayout.PropertyField(targetFXGroundMaxDistance, new GUIContent("Ground Max Distance"));
+                        EditorGUILayout.PropertyField(targetFXGroundLayerMask, new GUIContent("Ground Layer Mask"));
+                        HighlightEffect he = (HighlightEffect)target;
+                        if ((targetFXGroundLayerMask.intValue & (1<<he.gameObject.layer)) != 0) {
+                            EditorGUILayout.HelpBox("Ground Layer Mask should not include this object layer.", MessageType.Warning);
+                        }
+                        EditorGUILayout.PropertyField(targetFXFadePower, new GUIContent("Fade Power"));
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUILayout.PropertyField(targetFXTransitionDuration, new GUIContent("Transition Duration"));
                     EditorGUILayout.PropertyField(targetFXStayDuration, new GUIContent("Stay Duration"));
                     EditorGUILayout.PropertyField(targetFXVisibility, new GUIContent("Visibility"));
@@ -466,7 +517,7 @@ namespace HighlightPlus {
                 EditorGUILayout.PropertyField(seeThroughDepthOffset, new GUIContent("Depth Offset" + ((seeThroughDepthOffset.floatValue > 0) ? " •" : "")));
                 EditorGUILayout.PropertyField(seeThroughMaxDepth, new GUIContent("Max Depth" + ((seeThroughMaxDepth.floatValue > 0) ? " •" : "")));
                 if (seeThroughDepthOffset.floatValue > 0 || seeThroughMaxDepth.floatValue > 0) {
-                    CheckDepthTextureSupport();
+                    CheckDepthTextureSupport("See-Through Depth Options");
                 }
                 EditorGUILayout.PropertyField(seeThroughIntensity, new GUIContent("Intensity"));
                 EditorGUILayout.PropertyField(seeThroughTintColor, new GUIContent("Color"));
@@ -477,6 +528,7 @@ namespace HighlightPlus {
                     EditorGUI.indentLevel++;
                     EditorGUILayout.PropertyField(seeThroughBorderWidth, new GUIContent("Width"));
                     EditorGUILayout.PropertyField(seeThroughBorderColor, new GUIContent("Color"));
+                    EditorGUILayout.PropertyField(seeThroughBorderOnly, new GUIContent("Border Only"));
                     EditorGUI.indentLevel--;
                 }
                 EditorGUILayout.PropertyField(seeThroughOrdered, new GUIContent("Ordered"));
@@ -492,6 +544,9 @@ namespace HighlightPlus {
                 EditorGUILayout.PropertyField(hitFxMode, new GUIContent("Mode"));
                 EditorGUILayout.PropertyField(hitFxFadeOutDuration, new GUIContent("Fade Out Duration"));
                 EditorGUILayout.PropertyField(hitFxColor, new GUIContent("Color"));
+                if ((HitFxMode)hitFxMode.intValue == HitFxMode.LocalHit) {
+                    EditorGUILayout.PropertyField(hitFxRadius, new GUIContent("Radius"));
+                }
                 EditorGUI.indentLevel--;
             }
 
@@ -535,10 +590,10 @@ namespace HighlightPlus {
             }
         }
 
-        void CheckDepthTextureSupport() {
+        void CheckDepthTextureSupport(string feature) {
             if (pipe == null) return;
             if (!pipe.supportsCameraDepthTexture) {
-                EditorGUILayout.HelpBox("Highest Quality requires Depth Texture support and currently it's not enabled in the Rendering Pipeline asset.", MessageType.Error);
+                EditorGUILayout.HelpBox(feature + " requires Depth Texture support and currently it's not enabled in the Rendering Pipeline asset.", MessageType.Error);
                 if (pipe != null && GUILayout.Button("Go to Universal Rendering Pipeline Asset")) {
                     Selection.activeObject = pipe;
                 }
@@ -551,6 +606,19 @@ namespace HighlightPlus {
 
         public static void QualityPropertyField(SerializedProperty prop) {
             prop.intValue = EditorGUILayout.IntPopup(new GUIContent("Quality", "Default and High use a mesh displacement technique. Highest quality can provide best look and also performance depending on the complexity of mesh."), prop.intValue, qualityTexts, qualityValues);
+        }
+
+        bool IsDefaultEffectUsedByManager() {
+            MonoBehaviour[] components = thisEffect.GetComponents<MonoBehaviour>();
+            if (components != null) {
+                for (int k = 0; k < components.Length; k++) {
+                    if (components[k] == null || !components[k].enabled)
+                        continue;
+                    string name = components[k].GetType().Name;
+                    if ("HighlightManager".Equals(name)) return true;
+                }
+            }
+            return false;
         }
 
         #region Profile handling

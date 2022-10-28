@@ -1,16 +1,19 @@
 Shader "HighlightPlus/Geometry/ComposeGlow" {
 Properties {
-    _MainTex ("Texture", 2D) = "black" {}
+    _MainTex ("Texture", Any) = "black" {}
     _Color ("Color", Color) = (1,1,1) // not used; dummy property to avoid inspector warning "material has no _Color property"
     [HideInInspector] _Cull ("Cull Mode", Int) = 2
     [HideInInspector] _ZTest ("ZTest Mode", Int) = 0
 	[HideInInspector] _Flip("Flip", Vector) = (0, 1, 0)
+	[HideInInspector] _BlendSrc("Blend Src", Int) = 1
+	[HideInInspector] _BlendDst("Blend Dst", Int) = 1
 	_Debug("Debug Color", Color) = (0,0,0,0)
+    [HideInInspector] _GlowStencilComp ("Stencil Comp", Int) = 6
 }
     SubShader
     {
         Tags { "Queue"="Transparent+102" "RenderType"="Transparent" "DisableBatching" = "True" }
-        Blend One One
+        Blend [_BlendSrc] [_BlendDst]
 
         // Compose effect on camera target
         Pass
@@ -20,7 +23,7 @@ Properties {
 			Cull Off //[_Cull]
         	Stencil {
                 Ref 2
-                Comp NotEqual
+                Comp [_GlowStencilComp]
                 Pass keep 
 		ReadMask 2
 		WriteMask 2

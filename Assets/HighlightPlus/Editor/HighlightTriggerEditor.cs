@@ -5,7 +5,7 @@ namespace HighlightPlus {
     [CustomEditor(typeof(HighlightTrigger))]
     public class HighlightTriggerEditor : Editor {
 
-        SerializedProperty highlightOnHover, triggerMode, raycastCamera, raycastSource, maxDistance, respectUI, volumeLayerMask;
+        SerializedProperty highlightOnHover, triggerMode, raycastCamera, raycastSource, minDistance, maxDistance, respectUI, volumeLayerMask;
         SerializedProperty selectOnClick, selectedProfile, selectedAndHighlightedProfile, singleSelection, toggleOnClick;
         HighlightTrigger trigger;
 
@@ -14,6 +14,7 @@ namespace HighlightPlus {
             triggerMode = serializedObject.FindProperty("triggerMode");
             raycastCamera = serializedObject.FindProperty("raycastCamera");
             raycastSource = serializedObject.FindProperty("raycastSource");
+            minDistance = serializedObject.FindProperty("minDistance");
             maxDistance = serializedObject.FindProperty("maxDistance");
             respectUI = serializedObject.FindProperty("respectUI");
             volumeLayerMask = serializedObject.FindProperty("volumeLayerMask");
@@ -34,8 +35,13 @@ namespace HighlightPlus {
 				if (trigger.colliders == null || trigger.colliders.Length == 0) {
 					EditorGUILayout.HelpBox ("No collider found on this object or any of its children. Add colliders to allow automatic highlighting.", MessageType.Warning);
 				}
-			} else {
-				if (trigger.GetComponent<Collider> () == null) {
+            } else {
+#if ENABLE_INPUT_SYSTEM
+                if (trigger.triggerMode == TriggerMode.ColliderEventsOnlyOnThisObject) {
+                    EditorGUILayout.HelpBox("This trigger mode is not compatible with the new input system.", MessageType.Error);
+                }
+#endif
+                if (trigger.GetComponent<Collider>() == null) {
 					EditorGUILayout.HelpBox ("No collider found on this object. Add a collider to allow automatic highlighting.", MessageType.Error);
                 }
             }
@@ -46,7 +52,8 @@ namespace HighlightPlus {
                     EditorGUI.indentLevel++;
                     EditorGUILayout.PropertyField(raycastCamera);
                     EditorGUILayout.PropertyField(raycastSource);
-                    EditorGUILayout.PropertyField(maxDistance, new GUIContent("Max Distance", "Max distance for target. 0 = infinity")); ;
+                    EditorGUILayout.PropertyField(minDistance);
+                    EditorGUILayout.PropertyField(maxDistance);
                     EditorGUI.indentLevel--;
                     break;
                 case TriggerMode.Volume:

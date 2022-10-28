@@ -1,6 +1,6 @@
 Shader "HighlightPlus/Geometry/SolidColor" {
 Properties {
-    _MainTex ("Texture", 2D) = "white" {}
+    _MainTex ("Texture", Any) = "white" {}
     _Color ("Color", Color) = (1,1,1) // not used; dummy property to avoid inspector warning "material has no _Color property"
     _CutOff("CutOff", Float ) = 0.5
     _Cull ("Cull Mode", Int) = 2
@@ -24,8 +24,8 @@ Properties {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #pragma multi_compile _ HP_ALPHACLIP
-            #pragma multi_compile _ HP_DEPTHCLIP
+            #pragma multi_compile_local _ HP_ALPHACLIP
+            #pragma multi_compile_local _ HP_DEPTHCLIP
 
             #include "UnityCG.cginc"
             #include "CustomVertexTransform.cginc"
@@ -67,7 +67,7 @@ Properties {
 				o.pos = ComputeVertexPosition(v.vertex);
 				o.uv = TRANSFORM_TEX (v.uv, _MainTex);
                 #if HP_DEPTHCLIP
-                    o.depth = COMPUTE_DEPTH_01;
+                    COMPUTE_EYEDEPTH(o.depth);
                     o.scrPos = ComputeScreenPos(o.pos);
                 #endif
 				return o;
@@ -83,7 +83,13 @@ Properties {
             	    clip(col.a - _CutOff);
             	#endif
                 #if HP_DEPTHCLIP
-                    float vz = Linear01Depth(SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, UnityStereoTransformScreenSpaceTex(i.scrPos.xy / i.scrPos.w )));
+                    float depthRaw = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, UnityStereoTransformScreenSpaceTex(i.scrPos.xy / i.scrPos.w ));
+                    float depthPersp = LinearEyeDepth(depthRaw);
+                    #if defined(UNITY_REVERSED_Z)
+                        depthRaw = 1.0 - depthRaw;
+                    #endif
+                    float depthOrtho = lerp(_ProjectionParams.y, _ProjectionParams.z, depthRaw);
+                    float vz = unity_OrthoParams.w ? depthOrtho : depthPersp;
                     clip( vz - i.depth * 0.999);
                 #endif
 

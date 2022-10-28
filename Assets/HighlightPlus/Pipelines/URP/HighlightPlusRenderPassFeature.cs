@@ -9,7 +9,7 @@ namespace HighlightPlus {
         class HighlightPass : ScriptableRenderPass {
 
             // far objects render first
-            class DistanceComparer: IComparer<HighlightEffect> {
+            class DistanceComparer : IComparer<HighlightEffect> {
 
                 public Vector3 camPos;
 
@@ -36,10 +36,13 @@ namespace HighlightPlus {
             ScriptableRenderer renderer;
             RenderTextureDescriptor cameraTextureDescriptor;
             DistanceComparer effectDistanceComparer;
-            bool isVREnabled;
+            static bool isVREnabled;
+            bool clearStencil;
+            FullScreenBlitMethod fullScreenBlitMethod = FullScreenBlit;
 
-            public void Setup(RenderPassEvent renderPassEvent, ScriptableRenderer renderer) {
-                this.renderPassEvent = renderPassEvent;
+            public void Setup(HighlightPlusRenderPassFeature passFeature, ScriptableRenderer renderer) {
+                this.renderPassEvent = passFeature.renderPassEvent;
+                this.clearStencil = passFeature.clearStencil;
                 this.renderer = renderer;
                 if (effectDistanceComparer == null) {
                     effectDistanceComparer = new DistanceComparer();
@@ -49,6 +52,9 @@ namespace HighlightPlus {
 
             public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor) {
                 this.cameraTextureDescriptor = cameraTextureDescriptor;
+#if UNITY_2021_2_OR_NEWER
+                ConfigureInput(ScriptableRenderPassInput.Depth);
+#endif
             }
 
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData) {
@@ -58,29 +64,34 @@ namespace HighlightPlus {
 
                 RenderTargetIdentifier cameraColorTarget = renderer.cameraColorTarget;
                 RenderTargetIdentifier cameraDepthTarget = renderer.cameraDepthTarget;
+#if !UNITY_2021_2_OR_NEWER
+                // In Unity 2021.2, when MSAA > 1, cameraDepthTarget is no longer cameraColorTarget
                 if (!usesCameraOverlay && (cameraTextureDescriptor.msaaSamples > 1 || cam.cameraType == CameraType.SceneView)) {
                     cameraDepthTarget = cameraColorTarget;
                 }
-                if (Time.frameCount % 10 == 0 || !Application.isPlaying) {
+#endif
+                if (!HighlightEffect.customSorting && (Time.frameCount % 10 == 0 || !Application.isPlaying)) {
                     effectDistanceComparer.camPos = cam.transform.position;
-                    HighlightEffect.instances.Sort(effectDistanceComparer);
+                    HighlightEffect.effects.Sort(effectDistanceComparer);
                 }
 
-                int count = HighlightEffect.instances.Count;
+                int count = HighlightEffect.effects.Count;
+                bool clearStencil = this.clearStencil;
                 for (int k = 0; k < count; k++) {
-                    HighlightEffect effect = HighlightEffect.instances[k];
+                    HighlightEffect effect = HighlightEffect.effects[k];
                     if (effect.isActiveAndEnabled) {
                         if ((effect.camerasLayerMask & camLayer) == 0) continue;
-                        CommandBuffer cb = effect.GetCommandBuffer(cam, cameraColorTarget, cameraDepthTarget, FullScreenBlit);
+                        CommandBuffer cb = effect.GetCommandBuffer(cam, cameraColorTarget, cameraDepthTarget, fullScreenBlitMethod, clearStencil);
                         if (cb != null) {
                             context.ExecuteCommandBuffer(cb);
+                            clearStencil = false;
                         }
                     }
                 }
             }
 
             static Matrix4x4 matrix4x4identity = Matrix4x4.identity;
-            void FullScreenBlit(CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, Material material, int passIndex) {
+            static void FullScreenBlit(CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, Material material, int passIndex) {
                 destination = new RenderTargetIdentifier(destination, 0, CubemapFace.Unknown, -1);
                 cmd.SetRenderTarget(destination);
                 cmd.SetGlobalTexture(ShaderParams.MainTex, source);
@@ -94,6 +105,8 @@ namespace HighlightPlus {
 
         HighlightPass renderPass;
         public RenderPassEvent renderPassEvent = RenderPassEvent.AfterRenderingTransparents;
+        [Tooltip("Clears stencil buffer before rendering highlight effects. This option can solve compatibility issues with shaders that also use stencil buffers.")]
+        public bool clearStencil;
         public static bool installed;
 
 
@@ -113,7 +126,7 @@ namespace HighlightPlus {
                 renderPass.usesCameraOverlay = cam.GetUniversalAdditionalCameraData().cameraStack.Count > 0;
             }
 #endif
-            renderPass.Setup(renderPassEvent, renderer);
+            renderPass.Setup(this, renderer);
             renderer.EnqueuePass(renderPass);
             installed = true;
         }

@@ -1,7 +1,8 @@
 Shader "HighlightPlus/Geometry/InnerGlow" {
 Properties {
-    _MainTex ("Texture", 2D) = "white" {}
-    _Color ("Color", Color) = (1,1,1,1)
+    _MainTex ("Texture", Any) = "white" {}
+    _Color ("Color", Color) = (1,1,1) // not used; dummy property to avoid inspector warning "material has no _Color property"
+    _InnerGlowColor ("Inner Glow Color", Color) = (1,1,1,1)
     _InnerGlowWidth ("Width", Float) = 1.0
     _CutOff("CutOff", Float ) = 0.5
     _Cull ("Cull Mode", Int) = 2
@@ -29,7 +30,7 @@ Properties {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #pragma multi_compile _ HP_ALPHACLIP
+            #pragma multi_compile_local _ HP_ALPHACLIP
 
             #include "UnityCG.cginc"
             #include "CustomVertexTransform.cginc"
@@ -54,7 +55,7 @@ Properties {
             sampler _MainTex;
             float4 _MainTex_ST;
             fixed _CutOff;
-      		fixed4 _Color;
+      		fixed4 _InnerGlowColor;
       		fixed _InnerGlowWidth;
 
 
@@ -80,7 +81,7 @@ Properties {
             
             	float3 viewDir = normalize(i.wpos - _WorldSpaceCameraPos.xyz);
             	fixed dx = saturate(_InnerGlowWidth - abs(dot(viewDir, normalize(i.normal)))) / _InnerGlowWidth;
-                fixed4 col = _Color * dx;
+                fixed4 col = _InnerGlowColor * dx;
 				return col;
             }
             ENDCG

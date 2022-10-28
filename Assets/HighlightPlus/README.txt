@@ -1,4 +1,4 @@
-﻿**************************************
+**************************************
 *          HIGHLIGHT PLUS            *
 * Created by Ramiro Oliva (Kronnect) * 
 *            README FILE             *
@@ -59,9 +59,9 @@ Help & Support Forum
 Check the Documentation (PDF) for detailed instructions:
 
 Have any question or issue?
-* Email: contact@kronnect.com
 * Support Forum: https://kronnect.com/support
 * Twitter: @Kronnect
+* Email (non support): contact@kronnect.com
 
 If you like Highlight Plus, please rate it on the Asset Store. It encourages us to keep improving it! Thanks!
 
@@ -87,6 +87,88 @@ https://assetstore.unity.com/publishers/15018
 
 Version history
 ---------------
+
+Current version
+- Added "Camera Distance Fade" option
+- Improved see-through accurate method which now takes into account multi-part meshes from compound parents
+- [Fix] Fixed glow/outline aspect ratio in Single Pass Instanced VR mode
+
+Version 8.5
+- Improved outline effect when combining "Independent" option with many elements in "Children" selection
+- Improved see-through border only effect
+
+Version 8.4.1
+- [Fix] Fixed unnecessary memory allocation in the render feature
+
+Version 8.4
+- Added "Border Only" option to See-Through effect
+- Adding a Highlight Effect component to a parent no longer deactivates highlighted children
+
+Version 8.3
+- Upgraded to Unity 2020.3.16 as minimum
+
+Version 8.2
+- Added "Ignore Mask" option to glow. Can be used to render the glow effect alone
+- [Fix] Fixed issue with new input system and highlight manager/trigger if no Event System is present in the scene
+
+
+Version 8.1
+- Selection state is now visible in inspector (used only by trigger and manager components)
+- [Fix] Fixed outer glow not showing in higher quality with visibility set to normal and orthographic camera
+- [Fix] Fixed mobile input using the new input system
+- [Fix] Fixed outline settings mismatch when using a combination of Highlight Trigger and Manager
+
+Version 8.0
+- Added SelectObject / ToggleObject / UnselectObject methods to Highlight Manager
+- Added ability to apply custom sorting to effects (check documentation: Custom sorting section)
+- Independent option is now moved to Highlight Options section and affects both outline and glow
+- Added "Clear Stencil" option to Highlight Plus Render Feature (useful to solve compatibility with other assets that use stencil buffers)
+
+Version 7.9.2
+- [Fix] Fixed an issue in Unity 2021.2 when using MSAA and High Quality outline/glow
+
+Version 7.9.1
+- Default values for all effects are now 0 (disabled) except outline so desired effects must be enabled. This option allows you to ensure no extra/undesired effects are activated by mistake
+- Redesigned Highlight Plus Profile editor interface
+- Removed dependency of HighlightManager
+
+Version 7.8
+- Added outer glow blend mode option
+- API: added OnObjectHighlightStart/End events to HighlightTrigger (check documentation for differences with similar events on Highlight Effect main script)
+- [Fix] API: Fixed specific issues with SetTarget method when used on shader graph based materials that don't use standard texture names
+
+Version 7.7.2
+- [Fix] Fixed fade in/out issue when disabling/enabling objects
+
+Version 7.7
+- Added support for the new Input System
+- [Fix] Fixes to the align to ground option of target fx effect
+
+Version 7.6.2
+- [Fix] VR: fixed target effect "Align to Ground" issue with Single Pass Instanced
+
+Version 7.6.1
+- [Fix] Fixed overlay animation speed issue
+
+Version 7.6
+- Added "Target FX Align to Ground" option
+- Added isSeeThroughOccluded(camera). Is true when any see-through occluder using raycast mode is blocking the see-through effect
+- All shader keywords are now of local type reducing global keyword usage
+- Fixes and improvements to see-through when combined with outline/outer glow
+
+Version 7.5.2
+- [Fix] See-through is now visible when using glow/outline/inner glow with Always Visible option
+
+
+
+Version 7.5
+- Added new HitFX style: "Local Hit"
+- Added new demo scene showcasing the HitFx variations
+- Added "Overlay Texture" option
+- Added "Min Distance" option to Highlight Manager and Highlight Trigger
+- Added support for "Domain Reload" disabled option
+- API: added OnObjectHighlightStart, OnObjectHighlightEnd events to HighlightManager
+- [Fix] Fixed inner glow and overlay issue when MaterialPropertyBlock is used on the character material
 
 Version 7.1
 - Added "Respect UI" to Highlight Manager and Trigger which blocks interaction if pointer is over an UI element

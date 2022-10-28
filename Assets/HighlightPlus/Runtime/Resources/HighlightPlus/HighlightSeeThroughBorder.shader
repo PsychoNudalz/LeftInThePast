@@ -1,9 +1,11 @@
 Shader "HighlightPlus/Geometry/SeeThroughBorder" {
 Properties {
-    _MainTex ("Texture", 2D) = "white" {}
+    _MainTex ("Texture", Any) = "white" {}
     _SeeThroughBorderColor ("Outline Color", Color) = (0,0,0,1)
     _Color ("Color", Color) = (1,1,1) // not used; dummy property to avoid inspector warning "material has no _Color property"
     _CutOff("CutOff", Float ) = 0.5
+    _SeeThroughBorderWidth ("Outline Offset", Float) = 0.01
+    _SeeThroughBorderConstantWidth ("Constant Width", Float) = 1
     _SeeThroughStencilRef ("Stencil Ref", Int) = 2
     _SeeThroughStencilComp ("Stencil Comp", Int) = 5
     _SeeThroughDepthOffset ("Depth Offset", Float) = 0
@@ -17,6 +19,7 @@ Properties {
         // See through effect
         Pass
         {
+            Name "See-through border"
             Stencil {
                 ReadMask 3
                 WriteMask 3
@@ -32,8 +35,8 @@ Properties {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #pragma multi_compile _ HP_ALPHACLIP
-            #pragma multi_compile _ HP_DEPTH_OFFSET
+            #pragma multi_compile_local _ HP_ALPHACLIP
+            #pragma multi_compile_local _ HP_DEPTH_OFFSET
 
             #include "UnityCG.cginc"
             #include "CustomVertexTransform.cginc"
@@ -42,6 +45,7 @@ Properties {
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
+                float3 normal : NORMAL;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
@@ -62,6 +66,8 @@ Properties {
             fixed _CutOff;
             float _SeeThroughDepthOffset;
             float _SeeThroughMaxDepth;
+            float _SeeThroughBorderWidth;
+            float _SeeThroughBorderConstantWidth;
 	        UNITY_DECLARE_DEPTH_TEXTURE(_CameraDepthTexture);
 
             v2f vert (appdata v)
@@ -75,6 +81,13 @@ Properties {
                     o.scrPos = ComputeScreenPos(o.pos);
                     COMPUTE_EYEDEPTH(o.depth);
                 #endif
+
+                float3 norm   = mul ((float3x3)UNITY_MATRIX_IT_MV, v.normal);
+                float2 offset = any(norm.xy)!=0 ? TransformViewToProjection(normalize(norm.xy)) : 0.0.xx;
+                float z = lerp(UNITY_Z_0_FAR_FROM_CLIPSPACE(o.pos.z), 2.0, UNITY_MATRIX_P[3][3]);
+                z = _SeeThroughBorderConstantWidth * (z - 2.0) + 2.0;
+                o.pos.xy += offset * z * _SeeThroughBorderWidth;
+
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 return o;
             }

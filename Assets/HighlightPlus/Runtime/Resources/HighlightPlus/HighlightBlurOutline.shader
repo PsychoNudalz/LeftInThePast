@@ -1,6 +1,5 @@
 ﻿Shader "HighlightPlus/Geometry/BlurOutline" {
 Properties {
-    _MainTex ("Texture", Any) = "white" {}
     _Color ("Color", Color) = (1,1,0) // not used; dummy property to avoid inspector warning "material has no _Color property"
     _BlurScale("Blur Scale", Float) = 2.0
 }
@@ -17,6 +16,7 @@ Properties {
     float4     _MainTex_TexelSize;
     float4     _MainTex_ST;
     float     _BlurScale;
+    float     _AspectRatio;
 
     struct appdata {
         float4 vertex : POSITION;
@@ -40,15 +40,12 @@ Properties {
         UNITY_SETUP_INSTANCE_ID(v);
         UNITY_TRANSFER_INSTANCE_ID(v, o);
         UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
-        o.pos = UnityObjectToClipPos(v.vertex);
-        #if UNITY_UV_STARTS_AT_TOP
-        if (_MainTex_TexelSize.y < 0) {
-            // Texture is inverted WRT the main texture
-            v.texcoord.y = 1.0 - v.texcoord.y;
-        }
-        #endif   
-        o.uv = v.texcoord;
-        float3 offsets = _MainTex_TexelSize.xyx * float3(1,1,-1);
+
+	    o.pos = v.vertex;
+	    o.pos.y *= _ProjectionParams.x;
+
+	    o.uv = v.texcoord;
+	    float3 offsets = _MainTex_TexelSize.xyx * float3(1, _AspectRatio, -1);
         o.uv1 = v.texcoord - offsets.xy;
         o.uv2 = v.texcoord - offsets.zy;
         o.uv3 = v.texcoord + offsets.zy;
@@ -62,14 +59,11 @@ Properties {
         UNITY_SETUP_INSTANCE_ID(v);
         UNITY_TRANSFER_INSTANCE_ID(v, o);
         UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
-        o.pos = UnityObjectToClipPos(v.vertex);
-        #if UNITY_UV_STARTS_AT_TOP
-        if (_MainTex_TexelSize.y < 0) {
-            // Texture is inverted WRT the main texture
-            v.texcoord.y = 1.0 - v.texcoord.y;
-        }
-        #endif   
+
+		o.pos = v.vertex;
+		o.pos.y *= _ProjectionParams.x;
         o.uv = v.texcoord;
+
         float2 inc = float2(_MainTex_TexelSize.x * 1.3846153846 * _BlurScale, 0);
         o.uv1 = v.texcoord - inc;   
         o.uv2 = v.texcoord + inc;
@@ -84,13 +78,10 @@ Properties {
         UNITY_SETUP_INSTANCE_ID(v);
         UNITY_TRANSFER_INSTANCE_ID(v, o);
         UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
-        o.pos = UnityObjectToClipPos(v.vertex);
-        #if UNITY_UV_STARTS_AT_TOP
-        if (_MainTex_TexelSize.y < 0) {
-            // Texture is inverted WRT the main texture
-            v.texcoord.y = 1.0 - v.texcoord.y;
-        }
-        #endif   
+
+		o.pos = v.vertex;
+		o.pos.y *= _ProjectionParams.x;
+
         o.uv = v.texcoord;
         float2 inc = float2(0, _MainTex_TexelSize.y * 1.3846153846 * _BlurScale);    
         o.uv1 = v.texcoord - inc;   
