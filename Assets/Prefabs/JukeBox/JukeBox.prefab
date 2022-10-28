@@ -377,6 +377,10 @@ MonoBehaviour:
   ignoreObjectVisibility: 0
   reflectionProbes: 0
   GPUInstancing: 1
+  depthClip: 0
+  cameraDistanceFade: 0
+  cameraDistanceFadeNear: 0
+  cameraDistanceFadeFar: 1000
   normalsOption: 0
   ignore: 0
   _highlighted: 0
@@ -390,12 +394,15 @@ MonoBehaviour:
   overlayAnimationSpeed: 1
   overlayMinIntensity: 0.5
   overlayBlending: 1
+  overlayTexture: {fileID: 0}
+  overlayTextureScale: 1
   outline: 0
   outlineColor: {r: 0, g: 0, b: 0, a: 1}
   outlineWidth: 0
   outlineQuality: 3
   outlineDownsampling: 2
   outlineVisibility: 0
+  glowBlendMode: 0
   outlineBlitDebug: 0
   outlineIndependent: 0
   glow: 0.5
@@ -423,6 +430,7 @@ MonoBehaviour:
   - offset: 1
     alpha: 0.4
     color: {r: 0.64, g: 1, b: 0, a: 1}
+  glowIgnoreMask: 0
   innerGlow: 0
   innerGlowWidth: 1
   innerGlowColor: {r: 1, g: 1, b: 1, a: 1}
@@ -435,6 +443,12 @@ MonoBehaviour:
   targetFXInitialScale: 4
   targetFXEndScale: 1.5
   targetFXScaleToRenderBounds: 1
+  targetFXAlignToGround: 0
+  targetFXFadePower: 32
+  targetFXGroundMaxDistance: 10
+  targetFXGroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   targetFXTransitionDuration: 0.5
   targetFXStayDuration: 1.5
   targetFXVisibility: 1
@@ -454,6 +468,7 @@ MonoBehaviour:
   seeThroughNoise: 1
   seeThroughBorder: 0
   seeThroughBorderColor: {r: 0, g: 0, b: 0, a: 1}
+  seeThroughBorderOnly: 0
   seeThroughBorderWidth: 0.45
   seeThroughOrdered: 0
   rmsCount: 1
@@ -461,6 +476,7 @@ MonoBehaviour:
   hitFxMode: 0
   hitFxFadeOutDuration: 0.25
   hitFxColor: {r: 1, g: 1, b: 1, a: 1}
+  hitFxRadius: 0.5
 --- !u!114 &5720060422838904582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1893,6 +1909,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -215091031665861440, guid: 335f7d813cd2dc0438b526f14333329b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aa8248203452e2745925cfa7ea0c6e10, type: 2}
     - target: {fileID: 635547659545568360, guid: 335f7d813cd2dc0438b526f14333329b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1

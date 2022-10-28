@@ -1,116 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31a5fe32-3749-48c9-bea7-1ac0b178da18" name="Changes" comment="FIXED THE FKING CAMERA!!!!!!!">
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Demo1_HighlightExample.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Demo1_HighlightExample.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Demo2_SelectionExample.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Demo2_SelectionExample.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Materials/Floor.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Materials/Floor.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Materials/Gold.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Materials/Gold.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Materials/PlasticGlossy.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Materials/PlasticGlossy.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Materials/Silk.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Materials/Silk.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Materials/Wall.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Materials/Wall.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Profiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Profiles/Selected.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Profiles/Selected.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Profiles/SelectedAndHighlighted.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Profiles/SelectedAndHighlighted.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Scripts/SphereHighlightEventExample.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Scripts/SphereHighlightEventExample.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Scripts/SphereSelectionEventsExample.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Scripts/SphereSelectionEventsExample.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/floor_tiles_06_diff_1k.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/floor_tiles_06_diff_1k.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/floor_tiles_06_nor_1k.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/floor_tiles_06_nor_1k.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/red_brick_plaster_patch_02_AO_1k.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/red_brick_plaster_patch_02_AO_1k.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/red_brick_plaster_patch_02_Nor_1k.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/red_brick_plaster_patch_02_Nor_1k.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/red_brick_plaster_patch_02_bump_1k.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/red_brick_plaster_patch_02_bump_1k.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/red_brick_plaster_patch_02_diff_1k.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Demo/Textures/red_brick_plaster_patch_02_diff_1k.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Documentation/Documentation.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Documentation/Documentation.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Documentation/Documentation.pdf.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Documentation/Documentation.pdf.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Documentation/Kronnect Assets.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Documentation/Kronnect Assets.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Documentation/Kronnect Assets.pdf.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Documentation/Kronnect Assets.pdf.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightEffectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightEffectEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightEffectEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightEffectEditor.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightManagerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightManagerEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightManagerEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightManagerEditor.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightProfileEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightProfileEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightProfileEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightProfileEditor.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightTriggerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightTriggerEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightTriggerEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Editor/HighlightTriggerEditor.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/HighlightPlusForwardRenderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/HighlightPlusForwardRenderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/HighlightPlusForwardRenderer.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/HighlightPlusForwardRenderer.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/HighlightPlusRenderPassFeature.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/HighlightPlusRenderPassFeature.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/HighlightPlusRenderPassFeature.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/HighlightPlusRenderPassFeature.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/UniversalRenderPipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/UniversalRenderPipelineAsset.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/UniversalRenderPipelineAsset.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Pipelines/URP/UniversalRenderPipelineAsset.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/README.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/README.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/README.txt.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/HighlightPlus.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/HighlightPlus.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightBlurOutline.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightBlurOutline.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightBlurOutline.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightBlurOutline.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightComposeGlow.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightComposeGlow.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightComposeGlow.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightComposeGlow.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightGlow.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightGlow.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightGlow.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightGlow.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightInnerGlow.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightInnerGlow.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightInnerGlow.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightInnerGlow.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightMask.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightMask.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightMask.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightMask.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOccluder.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOccluder.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOccluder.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOccluder.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOutline.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOutline.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOutline.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOutline.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOverlay.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOverlay.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOverlay.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightOverlay.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThrough.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThrough.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThrough.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThrough.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThroughBorder.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThroughBorder.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThroughBorder.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThroughBorder.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThroughMask.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThroughMask.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThroughMask.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSeeThroughMask.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSolidColor.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSolidColor.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSolidColor.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightSolidColor.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightTarget.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightTarget.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightTarget.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightTarget.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightUIMask.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightUIMask.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightUIMask.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Resources/HighlightPlus/HighlightUIMask.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffect.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffect.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffectActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffectActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffectActions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffectActions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffectOccluderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffectOccluderManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffectOccluderManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightEffectOccluderManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightProfile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightProfile.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightTrigger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/HighlightTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/ShaderParams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/ShaderParams.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/ShaderParams.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlus/Runtime/Scripts/ShaderParams.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlusBundle.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlusBundle.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlusBundle/Builtin.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlusBundle/Builtin.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlusBundle/Builtin/HighlightPlus_Builtin_Pipeline.unitypackage.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlusBundle/Builtin/HighlightPlus_Builtin_Pipeline.unitypackage.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlusBundle/URP.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlusBundle/URP.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlusBundle/URP/HighlightPlus_URP_Pipeline.unitypackage.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HighlightPlusBundle/URP/HighlightPlus_URP_Pipeline.unitypackage.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Imported/Office Room Furniture/Office/Materials/Grandmother_Fade.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Imported/Office Room Furniture/Office/Materials/Grandmother_Fade.mat" afterDir="false" />
+    <list default="true" id="31a5fe32-3749-48c9-bea7-1ac0b178da18" name="Changes" comment="Fixed highlight">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LeftInThePast_NoLib/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LeftInThePast_NoLib/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/DimensionPortalShader.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/DimensionPortalShader.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/EnemyShader.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/EnemyShader.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/JukeBox/JukeBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/JukeBox/JukeBox.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monster/MonsterHandlerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monster/MonsterHandlerScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monster/MonsterHandlerScript.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monster/MonsterHandlerScript.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +26,7 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Unity/Projects/LeftInThePast_NoLib/LeftInThePast_NoLib/Assets/HighlightPlus/Runtime/Scripts/HighlightTrigger.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Unity/Projects/LeftInThePast_NoLib/LeftInThePast_NoLib/Assets/HighlightPlusBundle/Builtin.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Unity/Projects/LeftInThePast_NoLib/LeftInThePast_NoLib/Assets/Prefabs/Homes/BaseHome.prefab" root0="SKIP_HIGHLIGHTING" />
@@ -170,10 +70,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="39704">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="39704" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -199,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666964590692</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed highlight">
+      <created>1666965678051</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666965678051</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,6 +141,26 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="FIXED THE CAMERA, but brok highlight" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIXED THE CAMERA, but brok highlight" />
+    <MESSAGE value="Fixed highlight" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed highlight" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/InitialSpawnForEnemy.cs</url>
+          <line>26</line>
+          <properties documentPath="D:\Unity\Projects\LeftInThePast_NoLib\LeftInThePast_NoLib\Assets\Scripts\InitialSpawnForEnemy.cs" initialLine="26" containingFunctionPresentation="method 'SpawnMonster'">
+            <startOffsets>
+              <option value="544" />
+            </startOffsets>
+            <endOffsets>
+              <option value="645" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

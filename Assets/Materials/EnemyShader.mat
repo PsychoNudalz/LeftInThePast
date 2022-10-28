@@ -37,6 +37,8 @@ Material:
     - Vector1_52f7fda411284c6eba9e8ccfc083aaf3: 20
     - Vector1_accedcee74c641d29650fdf37db5f612: 0.1
     - _DeformAmopunt: 0.05
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - Color_eed9e0c03c8448d392f6e9b0d857faad: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_256e7f63f70049c3a9ee20b5a577496c: {r: 0, g: 0.1, b: 0, a: 0}
